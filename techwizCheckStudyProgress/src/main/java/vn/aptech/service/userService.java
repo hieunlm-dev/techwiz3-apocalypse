@@ -19,7 +19,7 @@ import vn.aptech.Entity.User;
  * @author Thanh Sang
  */
 @Service
-public class userService {
+public class UserService {
 
     public String createUser(User user) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
@@ -27,9 +27,9 @@ public class userService {
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public User getUser(String id) throws InterruptedException, ExecutionException {
+    public User getUser(int id) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference documentReference = dbFirestore.collection("users").document(id);
+        DocumentReference documentReference = dbFirestore.collection("users").document(String.valueOf(id));
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
         User user;
@@ -47,9 +47,9 @@ public class userService {
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
-    public String deleteUser(String id) throws InterruptedException, ExecutionException {
+    public String deleteUser(int id) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> writeResult = dbFirestore.collection("users").document(id).delete();
+        ApiFuture<WriteResult> writeResult = dbFirestore.collection("users").document(String.valueOf(id)).delete();
 
         return "Delete success"+id;
     }
