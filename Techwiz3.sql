@@ -7,10 +7,10 @@ go
 create table users 
 (
 	user_id int primary key identity , 
-	first_name varchar(200),
-	last_name varchar(200),
+	fullname varchar(200),
+	phone_number varchar(200),
 	email varchar(200),
-	contact varchar(200),
+	address varchar(200),
 	password varchar(200),
 	role varchar(200)
 )

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "419871102884",
+    "firebase_url": "https://smartstudy-2180f-default-rtdb-firebaseio.com",
+    "project_id": "smartstudy-2180f",
+    "storage_bucket": "smartstudy-2180f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419871102884:android:0b2a54b96579693fbb5331",
+        "android_client_info": {
+          "package_name": "vn.aptech.smartstudy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419871102884-16nheu1bg82i6pdau7u8keepug8cdqm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjdHLes2T490_0oO5WuaqNBWTWaML6Ijk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419871102884-16nheu1bg82i6pdau7u8keepug8cdqm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
