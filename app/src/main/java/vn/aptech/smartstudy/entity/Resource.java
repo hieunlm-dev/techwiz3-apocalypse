@@ -3,12 +3,16 @@ package vn.aptech.smartstudy.entity;
 public class Resource {
     private int id;
     private String url;
+    private String content;
+    private String teacher_name;
     private Subject subject;
 
-    public Resource(int id, String url , Subject subject) {
+    public Resource(int id, String url , Subject subject,String content,String teacher_name) {
         this.setId(id);
         this.setUrl(url);
         this.setSubject(subject);
+        this.setContent(content);
+        this.setTeacher_name(teacher_name);
     }
 
     public Resource() {
@@ -45,5 +49,21 @@ public class Resource {
                 ", url='" + url + '\'' +
                 ", subject=" + subject +
                 '}';
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTeacher_name() {
+        return teacher_name;
+    }
+
+    public void setTeacher_name(String teacher_name) {
+        this.teacher_name = teacher_name;
     }
 }

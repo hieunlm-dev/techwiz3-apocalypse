@@ -58,23 +58,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void seedingData() {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
-        DatabaseReference myRef = database.getReference("users");
+        DatabaseReference myRef = database.getReference("resource");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Map<String, Object> users = new HashMap<>();
-                    User user = new User();
-                    user.setId(1);
-                    user.setFull_name("An");
-                    user.setEmail("nhta151202@gmail.com");
-                    user.setPhone_number("123123123");
-                    user.setAddress("590 CMT8");
-                    user.setRole("Teacher");
-                    user.setPassword("123123");
-                    users.put(Integer.toString(user.getId()), user);
-                    myRef.setValue(users);
+                    Map<String, Object> resources = new HashMap<>();
+                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 1","Nguyen Hoang Thien An"));
+                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(2,"Chemistry"),"Review 2","Nguyen Hoang Thien An"));
+                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 3","Nguyen Hoang Thien An"));
+                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 4","Nguyen Hoang Thien An"));
+                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 5","Nguyen Hoang Thien An"));
+                    myRef.setValue(resources);
 
                 }
             }
