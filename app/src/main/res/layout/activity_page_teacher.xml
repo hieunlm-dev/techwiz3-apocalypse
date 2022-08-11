@@ -162,6 +162,31 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rltRvClass"
+                android:layout_width="175dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageRvClass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+                <TextView
+                    android:id="@+id/textReviewClass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageRvClass"
+                    android:layout_centerInParent="true"
+                    android:singleLine="true"
+                    android:text="Create Review Class"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
         </LinearLayout>
     </LinearLayout>
 
