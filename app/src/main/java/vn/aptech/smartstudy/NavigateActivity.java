@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,8 +25,8 @@ public class NavigateActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
         relativeRvClass = findViewById(R.id.relativeRvClass);
-        rltFeedback = findViewById(R.id.rltFeedback);
-        rltContact = findViewById(R.id.rltContact);
+        rltFeedback = findViewById(R.id.rltFeedbackPa);
+        rltContact = findViewById(R.id.rltContactPa);
         layoutGuard = findViewById(R.id.layoutGuard);
 
         relativeRvClass.setOnClickListener(v->{

@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class PageStudentActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
+    private RelativeLayout rltHelp,rltContact, rltFeedback, rltMark;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,12 +22,32 @@ public class PageStudentActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
+        rltHelp = findViewById(R.id.rltHelp);
+        rltContact = findViewById(R.id.rltContactPa);
+        rltFeedback = findViewById(R.id.rltFeedbackPa);
+        rltMark = findViewById(R.id.rltMarkStu);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
 
         tvWelcome.setText("Welcome "+ full_name );
 
+        rltHelp.setOnClickListener(v->{
+            Intent it = new Intent(this, HelplineActivity.class);
+            startActivity(it);
+        });
+        rltContact.setOnClickListener(v->{
+            Intent it = new Intent(this, ContactActivity.class);
+            startActivity(it);
+        });
+        rltFeedback.setOnClickListener(v->{
+            Intent it = new Intent(this, FeedbackActivity.class);
+            startActivity(it);
+        });
+        rltMark.setOnClickListener(v->{
+            Intent it = new Intent(this, MarkActivity.class);
+            startActivity(it);
+        });
         btnLogout.setOnClickListener(v -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();

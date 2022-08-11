@@ -25,7 +25,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/relative"
+                android:id="@+id/rltMarkStu"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -50,7 +50,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative22"
+                android:id="@+id/rltHelpPa"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
@@ -107,7 +107,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative2"
+                android:id="@+id/rltFeedBackTeacher"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -139,7 +139,7 @@
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
             <RelativeLayout
-                android:id="@+id/rltContact"
+                android:id="@+id/rltContactPa"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 

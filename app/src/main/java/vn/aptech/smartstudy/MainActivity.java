@@ -170,11 +170,11 @@ public class MainActivity extends AppCompatActivity {
     private void navigatePage(String role){
             switch (role){
                 case "Student":
-                    Intent it = new Intent(MainActivity.this, PageTeacherActivity.class );
+                    Intent it = new Intent(MainActivity.this, PageStudentActivity.class );
                     startActivity(it);
                     break;
                 case "Teacher":
-                    Intent it2 = new Intent(MainActivity.this, PageStudentActivity.class );
+                    Intent it2 = new Intent(MainActivity.this, PageTeacherActivity.class );
                     startActivity(it2);
                     break;
                 case "Parent":
