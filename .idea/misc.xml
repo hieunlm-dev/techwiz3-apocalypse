@@ -4,6 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_contact.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_navigate.xml" value="0.2" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_parent.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_student.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_teacher.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.11302083333333333" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_review_class.xml" value="0.11302083333333333" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/app_bar_navigate.xml" value="0.2" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/content_navigate.xml" value="0.136" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/fragment_gallery.xml" value="0.11302083333333333" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/fragment_home.xml" value="0.11302083333333333" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/fragment_slideshow.xml" value="0.11302083333333333" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/nav_header_navigate.xml" value="0.264" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/resource_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/reviewclass_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_main.xml" value="0.2988679352838745" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.24739583333333334" />
