@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_contact.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_main.xml" value="0.2988679352838745" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.24739583333333334" />
@@ -10,7 +11,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
