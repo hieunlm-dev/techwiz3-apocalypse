@@ -16,7 +16,7 @@
         android:theme="@style/Theme.SmartStudy"
         tools:targetApi="31">
         <activity
-            android:name=".FillMarkActivity"
+            android:name=".CreateResourceActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
