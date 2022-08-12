@@ -64,6 +64,7 @@ public class FillMarkActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 email = spStudent.getSelectedItem().toString();
+
             }
 
             @Override
