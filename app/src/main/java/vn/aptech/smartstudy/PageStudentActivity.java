@@ -22,10 +22,10 @@ public class PageStudentActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        rltHelp = findViewById(R.id.rltHelp);
+        rltHelp = findViewById(R.id.rltAcademic);
         rltContact = findViewById(R.id.rltContactPa);
         rltFeedback = findViewById(R.id.rltFeedbackPa);
-        rltMark = findViewById(R.id.rltMarkStu);
+        rltMark = findViewById(R.id.relativeRvClass);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");

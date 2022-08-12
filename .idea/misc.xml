@@ -3,6 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_class.xml" value="0.28804347826086957" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_contact.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_create_resource.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_create_review_class.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_feedback.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_fill_mark.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_helpline.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_mark.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_navigate.xml" value="0.33" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_page_parent.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_page_student.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_page_teacher.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_register.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.28804347826086957" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_review_class.xml" value="0.358695652173913" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_signup.xml" value="0.18802083333333333" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/class_item.xml" value="0.28804347826086957" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/resource_item.xml" value="0.28804347826086957" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/reviewclass_item.xml" value="0.28804347826086957" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_contact.xml" value="0.22826086956521738" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_helpline.xml" value="0.2" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_mark.xml" value="0.22826086956521738" />

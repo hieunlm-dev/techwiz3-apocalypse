@@ -24,7 +24,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         rltFeedback = findViewById(R.id.rltFeedBackTeacher);
         rltContact = findViewById(R.id.rltContactPa);
-        rltMark = findViewById(R.id.rltMarkStu);
+        rltMark = findViewById(R.id.relativeRvClass);
         rltRvClass = findViewById(R.id.rltRvClass);
 
 

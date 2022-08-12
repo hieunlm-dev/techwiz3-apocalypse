@@ -23,8 +23,8 @@ public class PageParentActivity extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         rlvContact = findViewById(R.id.rltContactPa);
         rlvFeed  = findViewById(R.id.rltFeedbackPa);
-        rlvHelp  = findViewById(R.id.rltHelpPa);
-        rltMark  = findViewById(R.id.rltMarkStu);
+        rlvHelp  = findViewById(R.id.rltMarks);
+        rltMark  = findViewById(R.id.relativeRvClass);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");

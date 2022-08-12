@@ -25,7 +25,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/rltMarkStu"
+                android:id="@+id/relativeRvClass"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -50,7 +50,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rltHelpPa"
+                android:id="@+id/rltMarks"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
