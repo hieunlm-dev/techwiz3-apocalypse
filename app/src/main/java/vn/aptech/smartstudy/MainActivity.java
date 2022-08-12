@@ -173,7 +173,15 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("full_name",user.getFull_name());
-                        editor.putString("email",user.getEmail());
+                        if(user.getRole().equals("Student")){
+                            editor.putString("student_name",user.getStudentData().getFullName().trim().toLowerCase());
+                            Log.i("name :",user.getStudentData().getFullName().trim().toLowerCase());
+                        }
+
+                        if(user.getRole().equals("Parent")){
+                            editor.putString("student_name",user.getParentData().getFullName());
+                        }
+
                         editor.putString("role",user.getRole());
                         editor.apply();
                         Toast.makeText(MainActivity.this, "Welcome "+user.getFull_name(), Toast.LENGTH_SHORT).show();

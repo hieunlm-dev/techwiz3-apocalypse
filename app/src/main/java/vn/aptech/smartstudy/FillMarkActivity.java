@@ -39,7 +39,7 @@ public class FillMarkActivity extends AppCompatActivity {
     private Button btnInsertMark;
 
     private String studentName;
-    private final String CLASSNAME="12A1";
+    private final String CLASSNAME="10A1";
     private int count = 0 ;
     private String email;
     private String test_type;
