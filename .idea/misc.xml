@@ -11,6 +11,7 @@
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_parent.xml" value="0.22826086956521738" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_student.xml" value="0.22826086956521738" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_page_teacher.xml" value="0.22826086956521738" />
+        <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_register.xml" value="0.1953125" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.11302083333333333" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_review_class.xml" value="0.11302083333333333" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_signup.xml" value="0.22826086956521738" />
@@ -23,18 +24,9 @@
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/resource_item.xml" value="0.22826086956521738" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/reviewclass_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
-        <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_create_review_class.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_main.xml" value="0.2988679352838745" />
-
-        <entry key="..\:/Users/thien/OneDrive/Documents/GitHub/techwiz3-apocalypse/app/src/main/res/drawable/background.xml" value="0.2265" />
-        <entry key="..\:/Users/thien/OneDrive/Documents/GitHub/techwiz3-apocalypse/app/src/main/res/drawable/btn_bg.xml" value="0.2265" />
-        <entry key="..\:/Users/thien/OneDrive/Documents/GitHub/techwiz3-apocalypse/app/src/main/res/drawable/login_bg.xml" value="0.2265" />
-        <entry key="..\:/Users/thien/OneDrive/Documents/GitHub/techwiz3-apocalypse/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
-
-        <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_page_teacher.xml" value="0.2264151024877837" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/activity_resource.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/nhta1/OneDrive/Documents/techwiz3-apocalypse/app/src/main/res/layout/resource_item.xml" value="0.2264151024877837" />
-
       </map>
     </option>
   </component>

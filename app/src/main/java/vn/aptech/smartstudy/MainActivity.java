@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         layoutSignup.setOnClickListener(v->{
-            Intent it = new Intent(this, SignupActivity.class);
+            Intent it = new Intent(MainActivity.this, SignupActivity.class);
             startActivity(it);
         });
     }
@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("full_name",user.getFull_name());
+                        editor.putString("email",user.getEmail());
                         editor.putString("role",user.getRole());
                         editor.apply();
                         Toast.makeText(MainActivity.this, "Welcome "+user.getFull_name(), Toast.LENGTH_SHORT).show();
