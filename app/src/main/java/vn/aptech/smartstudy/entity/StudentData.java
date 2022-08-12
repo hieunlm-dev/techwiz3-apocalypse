@@ -1,7 +1,7 @@
 package vn.aptech.smartstudy.entity;
 
 public class StudentData {
-//    private int id;
+    private int id;
     private String fullName;
     private String className;
     private String enrollmentDate;
@@ -10,21 +10,20 @@ public class StudentData {
     public StudentData() {
     }
 
-    public StudentData(String fullName, String className, String enrollmentDate, String email) {
-
+    public StudentData( String fullName, String className, String enrollmentDate,String email) {
         this.fullName = fullName;
         this.className = className;
         this.enrollmentDate = enrollmentDate;
-        this.email = email;
+        this.setEmail(email);
     }
 
 
-    public String getFullName() {
+    public String getUserName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setUserName(String userName) {
+        this.fullName = userName;
     }
 
     public String getClassName() {

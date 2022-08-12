@@ -9,31 +9,28 @@ public class User {
     private String address;
     private String password;
     private String role;
-    private Boolean isEnable;
-
-    public StudentData getStudentData() {
-        return studentData;
-    }
-
-    public void setStudentData(StudentData studentData) {
-        this.studentData = studentData;
-    }
-
     private StudentData studentData;
-
     public User() {
     }
 
-    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnable, StudentData studentData) {
-        this.id = id;
-        this.full_name = full_name;
-        this.phone_number = phone_number;
-        this.email = email;
-        this.address = address;
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role , StudentData studentData) {
+        this.setId(id);
+        this.setFull_name(full_name);
+        this.setPhone_number(phone_number);
+        this.setEmail(email);
+        this.setAddress(address);
+        this.setPassword(password);
+        this.setRole(role);
+        this.setStudentData(studentData);
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
-        this.role = role;
-        this.isEnable = isEnable;
-        this.studentData = studentData;
     }
 
     public int getId() {
@@ -76,14 +73,6 @@ public class User {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getRole() {
         return role;
     }
@@ -92,11 +81,11 @@ public class User {
         this.role = role;
     }
 
-    public Boolean getEnable() {
-        return isEnable;
+    public StudentData getStudentData() {
+        return studentData;
     }
 
-    public void setEnable(Boolean enable) {
-        isEnable = enable;
+    public void setStudentData(StudentData studentData) {
+        this.studentData = studentData;
     }
 }

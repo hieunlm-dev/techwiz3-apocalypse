@@ -7,12 +7,11 @@ public class ClassName {
     private int id;
     private String name;
 
-    private Map<String , String> test_types;
+    //private Map<String , String> test_types;
 
-    public ClassName(int id, String name , Map<String , String> test_types) {
+    public ClassName(int id, String name ) {
         this.id = id;
         this.name = name;
-        this.setTest_types(test_types);
     }
 
     public ClassName() {
@@ -35,11 +34,5 @@ public class ClassName {
         this.name = name;
     }
 
-    public Map<String , String> getTest_types() {
-        return test_types;
-    }
 
-    public void setTest_types(Map<String , String> test_types) {
-        this.test_types = test_types;
-    }
 }
