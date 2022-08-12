@@ -35,6 +35,8 @@ import java.util.Map;
 import vn.aptech.smartstudy.entity.ClassName;
 import vn.aptech.smartstudy.entity.Resource;
 import vn.aptech.smartstudy.entity.ReviewClass;
+import vn.aptech.smartstudy.entity.ScoreDetail;
+import vn.aptech.smartstudy.entity.StudentData;
 import vn.aptech.smartstudy.entity.Subject;
 import vn.aptech.smartstudy.entity.User;
 
@@ -93,28 +95,38 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
 //        DatabaseReference myRef = database.getReference("resource");
 //        DatabaseReference myRef = database.getReference("reviewclass");
-        DatabaseReference myRef = database.getReference("class");
+        DatabaseReference myRef = database.getReference("score_detail");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Map<String , String> test_types = new HashMap<String , String>();
-                    test_types.put(Integer.toString(test_types.size()+1),"15 minutes test");
+                    //Map<String , String> test_types = new HashMap<String , String>();
+                    /*test_types.put(Integer.toString(test_types.size()+1),"15 minutes test");
                     test_types.put(Integer.toString(test_types.size()+1),"45 minutes test");
                     test_types.put(Integer.toString(test_types.size()+1),"Middle semester test");
-                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test");
+                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test");*/
 
 
-                    Map<String , Object> classes = new HashMap<String , Object>();
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A1",test_types));
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A2",test_types));
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A1",test_types));
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A2",test_types));
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A1",test_types));
-                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A2",test_types));
+                    //Map<String , Object> users = new HashMap<String , Object>();
+                    //users.put(Integer.toString(users.size()+1), new User(users.size()+1,"Nguyen Hoang Thien An","123456789","nhta151202@gmail.com","590 CMT8","123123","Student",new StudentData("Nguyen Hoang Thien An","12A1","8/12/2002","nhta151202@gmail.com")));users.put(Integer.toString(users.size()+1), new User(users.size()+1,"Luu Thanh Sang","123456789","sang@gmail.com","590 CMT8","123123","Teacher",null));
 
-                   myRef.setValue(classes);
+
+                    /*
+                    *   Map<String , Object> classes = new HashMap<String , Object>();
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A1"));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A2"));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A1"));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A2"));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A1"));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A2"));
+
+                    myRef.setValue(classes);
+                    * */
+                    Map<String , Object> scored = new HashMap<String , Object>();
+                    scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"Middle semester test","Math","nhta151202@gmail.com",10));
+                    scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"15 minutes test","Math","nhta151202@gmail.com",10));scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"45 minutes test","Math","nhta151202@gmail.com",10));
+                    myRef.setValue(scored);
                 }
             }
 
@@ -132,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         List<Resource> resources = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference myRef = database.getReference("resource");
+        //studentData/username
         myRef.orderByChild("subject/subject").equalTo("Math").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -202,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(it);
                     break;
                 case "Teacher":
-                    Intent it2 = new Intent(MainActivity.this, PageTeacherActivity.class );
+                    Intent it2 = new Intent(MainActivity.this, FillMarkActivity.class );
                     startActivity(it2);
                     break;
                 case "Parent":

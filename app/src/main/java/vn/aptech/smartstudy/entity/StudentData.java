@@ -1,10 +1,11 @@
 package vn.aptech.smartstudy.entity;
 
 public class StudentData {
-//    private int id;
+    //    private int id;
     private String fullName;
     private String className;
     private String enrollmentDate;
+
     private String email;
 
     public StudentData() {
