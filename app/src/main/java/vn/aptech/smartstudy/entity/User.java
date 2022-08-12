@@ -9,6 +9,7 @@ public class User {
     private String address;
     private String password;
     private String role;
+    private Boolean isEnable;
     private StudentData studentData;
     private ParentData parentData;
     private TeacherData teacherData;
@@ -16,7 +17,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String full_name, String phone_number, String email, String address, String password, String role ,boolean isEnabled, StudentData studentData) {
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role ,boolean isEnable, StudentData studentData) {
         this.setId(id);
         this.setFull_name(full_name);
         this.setPhone_number(phone_number);
@@ -25,7 +26,7 @@ public class User {
         this.setPassword(password);
         this.setRole(role);
         this.setStudentData(studentData);
-        this.setEnabled(isEnabled);
+        this.setEnable(isEnable);
     }
 
 
@@ -117,11 +118,11 @@ public class User {
         this.studentData = studentData;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
+    public boolean isEnable() {
+        return isEnable;
     }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+    public void setEnable(boolean enable) {
+        isEnable = enable;
     }
 }

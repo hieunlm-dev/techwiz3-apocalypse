@@ -39,13 +39,14 @@ import vn.aptech.smartstudy.entity.User;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText edName, edEmail, edPass, edAddress, edPhone;
-    private Spinner spinnerRole, spinnerClass, spinnerSubject;
-    private TextView tvSubject;
+    private Spinner spinnerRole, spinnerClass, spinnerSubject, spinnerStudent;
+    private TextView tvSubject, tvStudent,tvClass;
     private Button btnRegis;
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
     ClassName selectedClass = new ClassName();
     List<String> classNames = new ArrayList<String>();
     List<String> subjects = new ArrayList<String>();
+    List<String> students = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,41 +57,72 @@ public class SignupActivity extends AppCompatActivity {
         edPass = findViewById(R.id.edPassRegis);
         edAddress = findViewById(R.id.edAddressRegis);
         edPhone = findViewById(R.id.edPhoneRegis);
+
         spinnerRole= findViewById(R.id.spinnerRole);
         spinnerClass = findViewById(R.id.spinnerClassRegis);
         spinnerSubject = findViewById(R.id.spinnerSubject);
+        spinnerStudent = findViewById(R.id.spinnerStudentRegis);
+
         tvSubject = findViewById(R.id.tvSubjectRegis);
+        tvStudent = findViewById(R.id.tvStudentRegis);
+        tvClass = findViewById(R.id.tvClassRegis);
         btnRegis = findViewById(R.id.btnRegis);
-        //fill spinner
+        //fill spinner roles
         String[] roles = new String[]{"Student", "Teacher", "Parent"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, roles);
         spinnerRole.setAdapter(adapter);
-
+        //classnames
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,classNames);
         fillDataIntoSpinner(adapter2);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerClass.setAdapter(adapter2);
-        ArrayAdapter<String> adapterSubject = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,classNames);
+        //subjects
+        ArrayAdapter<String> adapterSubject = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,subjects);
         fillDataSubjectIntoSpinner(adapterSubject);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSubject.setAdapter(adapterSubject);
         String role = spinnerRole.getSelectedItem().toString().trim();
-//        if(role.equalsIgnoreCase("teacher")){
-//            tvSubject.setVisibility(View.VISIBLE);
-//            spinnerSubject.setVisibility(View.VISIBLE);
-//            spinnerClass.setVisibility(View.INVISIBLE);
-//        }
+        //students
+        ArrayAdapter<String> adapterStudent = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,students);
+        //hide some field
+        tvSubject.setVisibility(View.GONE);
+        spinnerSubject.setVisibility(View.GONE);
+        spinnerStudent.setVisibility(View.GONE);
+        tvStudent.setVisibility(View.GONE);
+
         spinnerRole.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(role == "Teacher"){
-                tvSubject.setVisibility(View.VISIBLE);
-                spinnerSubject.setVisibility(View.VISIBLE);
-                spinnerClass.setVisibility(View.INVISIBLE);
+
+                if(spinnerRole.getSelectedItem().toString()=="Teacher"){
+                    Toast.makeText(SignupActivity.this, "Teach Role", Toast.LENGTH_SHORT).show();
+                    spinnerClass.setVisibility(View.GONE);
+                    tvClass.setVisibility(View.GONE);
+                    tvSubject.setVisibility(View.VISIBLE);
+                    spinnerSubject.setVisibility(View.VISIBLE);
                 }
-//                tvSubject.setVisibility(View.VISIBLE);
-//                spinnerSubject.setVisibility(View.VISIBLE);
-//                spinnerClass.setVisibility(View.INVISIBLE);
+                if(spinnerRole.getSelectedItem().toString()=="Parent"){
+                    Toast.makeText(SignupActivity.this, "Please choose Class and Student Name", Toast.LENGTH_SHORT).show();
+                    //fill spinner student for parent select
+                    tvStudent.setVisibility(View.VISIBLE);
+                    spinnerStudent.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spinnerClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                students.clear();
+//                Toast.makeText(SignupActivity.this, "Fill data to spinner student", Toast.LENGTH_SHORT).show();
+                fillDataStudentByClassIntoSpinner(adapterStudent, spinnerClass.getSelectedItem().toString());
+                adapterStudent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerStudent.setAdapter(adapterStudent);
             }
 
             @Override
@@ -108,7 +140,7 @@ public class SignupActivity extends AppCompatActivity {
 //            String role = spinnerRole.getSelectedItem().toString().trim();
             String className = spinnerClass.getSelectedItem().toString().trim();
             String subject = spinnerSubject.getSelectedItem().toString().trim();
-
+            String studentNameMail = spinnerStudent.getSelectedItem().toString().trim();
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference myRef = database.getReference("users");
             myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -117,7 +149,7 @@ public class SignupActivity extends AppCompatActivity {
                     Map<String , Object> user = new HashMap<String , Object>();
                     String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                     if(role.equalsIgnoreCase("student")){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData(name, className,currentDate, email));
+                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name+")"+email, className,currentDate, email));
                         myRef.push().setValue(newUser);
                     }else if(role.equalsIgnoreCase("parent")){
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(name, className,currentDate, email));
@@ -126,9 +158,6 @@ public class SignupActivity extends AppCompatActivity {
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new TeacherData(name, subject));
                         myRef.push().setValue(newUser);
                     }
-
-
-
                     Toast.makeText(SignupActivity.this, "Create Successfull", Toast.LENGTH_SHORT).show();
                     Intent it = new Intent(SignupActivity.this, MainActivity.class);
                     startActivity(it);
@@ -145,7 +174,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     }
-
+    //fill data subjects
     private void fillDataSubjectIntoSpinner(ArrayAdapter<String> adapterSubject) {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference classRef = database.getReference("subject");
@@ -170,6 +199,7 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+    //fill data classnames
     private void fillDataIntoSpinner(ArrayAdapter<String> adapter){
         //load Class
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
@@ -193,5 +223,28 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+    }
+    //fill data students
+    private void fillDataStudentByClassIntoSpinner(ArrayAdapter<String> adapter, String CLASSNAME){
+        FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+        DatabaseReference studentRef = database.getReference("users");
+
+        studentRef.orderByChild("studentData/className").equalTo(CLASSNAME).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    String studentName = "("+dataSnapshot.getValue(User.class).getFull_name()+")"+dataSnapshot.getValue(User.class).getEmail();
+                    students.add(studentName);
+
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }
