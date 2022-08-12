@@ -1,26 +1,18 @@
 package vn.aptech.smartstudy.entity;
 
 public class TeacherData {
-    private int id;
     private String userName;
     private String subject;
 
     public TeacherData() {
     }
 
-    public TeacherData(int id, String userName, String subject) {
-        this.id = id;
+    public TeacherData(String userName, String subject) {
         this.userName = userName;
         this.subject = subject;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;

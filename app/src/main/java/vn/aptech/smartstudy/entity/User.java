@@ -20,6 +20,8 @@ public class User {
     }
 
     private StudentData studentData;
+    private ParentData parentData;
+    private TeacherData teacherData;
 
     public User() {
     }
@@ -34,6 +36,30 @@ public class User {
         this.role = role;
         this.isEnable = isEnable;
         this.studentData = studentData;
+    }
+
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnable, TeacherData teacherData) {
+        this.id = id;
+        this.full_name = full_name;
+        this.phone_number = phone_number;
+        this.email = email;
+        this.address = address;
+        this.password = password;
+        this.role = role;
+        this.isEnable = isEnable;
+        this.teacherData = teacherData;
+    }
+
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnable, ParentData parentData) {
+        this.id = id;
+        this.full_name = full_name;
+        this.phone_number = phone_number;
+        this.email = email;
+        this.address = address;
+        this.password = password;
+        this.role = role;
+        this.isEnable = isEnable;
+        this.parentData = parentData;
     }
 
     public int getId() {
