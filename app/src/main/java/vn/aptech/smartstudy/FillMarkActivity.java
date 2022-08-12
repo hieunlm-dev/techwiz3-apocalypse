@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import vn.aptech.smartstudy.entity.ScoreDetail;
 import vn.aptech.smartstudy.entity.TestType;
@@ -63,7 +64,7 @@ public class FillMarkActivity extends AppCompatActivity {
         spStudent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                email = spStudent.getSelectedItem().toString();
+                email = spStudent.getSelectedItem().toString().trim().toLowerCase();
 
             }
 
