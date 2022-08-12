@@ -74,22 +74,28 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
 //        DatabaseReference myRef = database.getReference("resource");
 //        DatabaseReference myRef = database.getReference("reviewclass");
-        DatabaseReference myRef = database.getReference("users");
+        DatabaseReference myRef = database.getReference("class");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Map<String, Object> resources = new HashMap<>();
-//                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 1","Nguyen Hoang Thien An"));
-//                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(2,"Chemistry"),"Review 2","Nguyen Hoang Thien An"));
-//                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 3","Nguyen Hoang Thien An"));
-//                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 4","Nguyen Hoang Thien An"));
-//                    resources.put(Integer.toString(resources.size()+1),new Resource(resources.size()+1,"https://vnexpress.net",new Subject(1,"Math"),"Review 5","Nguyen Hoang Thien An"));
-//                    resources.put(Integer.toString(resources.size()+1), new ReviewClass(resources.size()+1, "Review 1", new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()),new ClassName(1,"10A1")));
-//                    User test = new User(resources.size()+1, "Vo Phan Hien","0973210955","hien@gmail.com","CMT8 HCM","123123","Student");
-//                    resources.put(Integer.toString(resources.size()+1),test);
-//                    myRef.push().setValue(resources);
+                    Map<String , String> test_types = new HashMap<String , String>();
+                    test_types.put(Integer.toString(test_types.size()+1),"15 minutes test");
+                    test_types.put(Integer.toString(test_types.size()+1),"45 minutes test");
+                    test_types.put(Integer.toString(test_types.size()+1),"Middle semester test");
+                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test");
+
+
+                    Map<String , Object> classes = new HashMap<String , Object>();
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A1",test_types));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"10A2",test_types));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A1",test_types));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"11A2",test_types));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A1",test_types));
+                    classes.put(Integer.toString(classes.size()+1), new ClassName(classes.size()+1,"12A2",test_types));
+
+                   myRef.setValue(classes);
                 }
             }
 
