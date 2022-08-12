@@ -26,7 +26,7 @@ public class User {
         this.setPassword(password);
         this.setRole(role);
         this.setStudentData(studentData);
-        this.setEnable(isEnable);
+        this.setEnabled(isEnabled);
     }
 
 
@@ -118,11 +118,11 @@ public class User {
         this.studentData = studentData;
     }
 
-    public boolean isEnable() {
-        return isEnable;
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    public void setEnable(boolean enable) {
-        isEnable = enable;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 }
