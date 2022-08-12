@@ -177,11 +177,13 @@ public class MainActivity extends AppCompatActivity {
                         String role = sharedPreferences.getString("role","");
                         navigatePage(role);
                         break;
-                    }else{
-                        edEmail.setText("");
-                        edPasword.setText("");
-                        Toast.makeText(MainActivity.this, "Wrong Email or Password!", Toast.LENGTH_SHORT).show();
                     }
+
+                }
+                if(result==false){
+                    edEmail.setText("");
+                    edPasword.setText("");
+                    Toast.makeText(MainActivity.this, "Wrong Email or Password!", Toast.LENGTH_SHORT).show();
 
                 }
 
