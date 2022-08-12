@@ -1,29 +1,31 @@
 package vn.aptech.smartstudy.entity;
 
 public class StudentData {
-    private int id;
+    //    private int id;
     private String fullName;
     private String className;
     private String enrollmentDate;
+
     private String email;
 
     public StudentData() {
     }
 
-    public StudentData( String fullName, String className, String enrollmentDate,String email) {
+    public StudentData(String fullName, String className, String enrollmentDate, String email) {
+
         this.fullName = fullName;
         this.className = className;
         this.enrollmentDate = enrollmentDate;
-        this.setEmail(email);
+        this.email = email;
     }
 
 
-    public String getUserName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setUserName(String userName) {
-        this.fullName = userName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getClassName() {

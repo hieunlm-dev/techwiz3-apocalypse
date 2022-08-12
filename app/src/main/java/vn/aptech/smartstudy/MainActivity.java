@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(it);
                     break;
                 case "Teacher":
-                    Intent it2 = new Intent(MainActivity.this, PageTeacherActivity.class );
+                    Intent it2 = new Intent(MainActivity.this, FillMarkActivity.class );
                     startActivity(it2);
                     break;
                 case "Parent":
