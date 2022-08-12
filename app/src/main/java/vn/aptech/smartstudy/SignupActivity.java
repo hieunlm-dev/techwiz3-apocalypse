@@ -81,7 +81,7 @@ public class SignupActivity extends AppCompatActivity {
         fillDataSubjectIntoSpinner(adapterSubject);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSubject.setAdapter(adapterSubject);
-        String role = spinnerRole.getSelectedItem().toString().trim();
+
         //students
         ArrayAdapter<String> adapterStudent = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,students);
         //hide some field
@@ -137,10 +137,9 @@ public class SignupActivity extends AppCompatActivity {
             String pass = edPass.getText().toString().trim();
             String address = edAddress.getText().toString().trim();
             String phone = edPhone.getText().toString().trim();
-//            String role = spinnerRole.getSelectedItem().toString().trim();
             String className = spinnerClass.getSelectedItem().toString().trim();
-            String subject = spinnerSubject.getSelectedItem().toString().trim();
-            String studentNameMail = spinnerStudent.getSelectedItem().toString().trim();
+//            String subject = spinnerSubject.getSelectedItem().toString().trim();
+            String role = spinnerRole.getSelectedItem().toString().trim();
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference myRef = database.getReference("users");
             myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -148,13 +147,14 @@ public class SignupActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Map<String , Object> user = new HashMap<String , Object>();
                     String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                    if(role.equalsIgnoreCase("student")){
+                    if(role=="Student"){
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name+")"+email, className,currentDate, email));
                         myRef.push().setValue(newUser);
-                    }else if(role.equalsIgnoreCase("parent")){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(name, className,currentDate, email));
+                    }else if(role=="Parent"){
+                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString(), className,currentDate, email));
                         myRef.push().setValue(newUser);
-                    }else if(role.equalsIgnoreCase("teacher")){
+                    }else if(role=="Teacher"){
+                        String subject = spinnerSubject.getSelectedItem().toString().trim();
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new TeacherData(name, subject));
                         myRef.push().setValue(newUser);
                     }

@@ -12,12 +12,29 @@ public class User {
     private Boolean isEnabled;
     private StudentData studentData;
     private ParentData parentData;
+
+    public ParentData getParentData() {
+        return parentData;
+    }
+
+    public void setParentData(ParentData parentData) {
+        this.parentData = parentData;
+    }
+
+    public TeacherData getTeacherData() {
+        return teacherData;
+    }
+
+    public void setTeacherData(TeacherData teacherData) {
+        this.teacherData = teacherData;
+    }
+
     private TeacherData teacherData;
 
     public User() {
     }
 
-    public User(int id, String full_name, String phone_number, String email, String address, String password, String role ,boolean isEnable, StudentData studentData) {
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role ,boolean isEnabled, StudentData studentData) {
         this.setId(id);
         this.setFull_name(full_name);
         this.setPhone_number(phone_number);
@@ -26,7 +43,8 @@ public class User {
         this.setPassword(password);
         this.setRole(role);
         this.setStudentData(studentData);
-        this.setEnable(isEnable);
+        this.setEnabled(isEnabled);
+
     }
 
 
@@ -50,7 +68,7 @@ public class User {
         this.teacherData = teacherData;
     }
 
-    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnable, ParentData parentData) {
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnabled, ParentData parentData) {
         this.id = id;
         this.full_name = full_name;
         this.phone_number = phone_number;
@@ -118,11 +136,11 @@ public class User {
         this.studentData = studentData;
     }
 
-    public boolean isEnable() {
-        return isEnable;
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    public void setEnable(boolean enable) {
-        isEnable = enable;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 }
