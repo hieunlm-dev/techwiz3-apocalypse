@@ -9,6 +9,7 @@ public class User {
     private String address;
     private String password;
     private String role;
+    private Boolean isEnabled;
     private StudentData studentData;
     private ParentData parentData;
     private TeacherData teacherData;
@@ -37,7 +38,7 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnable, TeacherData teacherData) {
+    public User(int id, String full_name, String phone_number, String email, String address, String password, String role, Boolean isEnabled, TeacherData teacherData) {
         this.id = id;
         this.full_name = full_name;
         this.phone_number = phone_number;
@@ -45,7 +46,7 @@ public class User {
         this.address = address;
         this.password = password;
         this.role = role;
-        this.isEnable = isEnable;
+        this.isEnabled = isEnabled;
         this.teacherData = teacherData;
     }
 
@@ -57,7 +58,7 @@ public class User {
         this.address = address;
         this.password = password;
         this.role = role;
-        this.isEnable = isEnable;
+        this.isEnabled = isEnabled;
         this.parentData = parentData;
     }
 
