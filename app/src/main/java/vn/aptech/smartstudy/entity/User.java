@@ -44,7 +44,6 @@ public class User {
         this.setRole(role);
         this.setStudentData(studentData);
         this.setEnabled(isEnabled);
-
     }
 
 
