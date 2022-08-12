@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -40,34 +42,51 @@ import vn.aptech.smartstudy.entity.User;
 public class MainActivity extends AppCompatActivity {
     private EditText edEmail , edPasword;
     private Button btnLogin;
+    private LinearLayout layoutSignup;
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        seedingData();
-        testQuery();
-
+//        seedingData();
+//        testQuery();
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
+//                String full_name = sharedPreferences.getString("full_name","");
+//                String role = sharedPreferences.getString("role","");
+//                if(!full_name.equalsIgnoreCase("")){
+//                    navigatePage(role);
+//                }
+//                navigatePage(role);
+//            }
+//        },2000);
+        SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
+        String full_name = sharedPreferences.getString("full_name","");
+        String role = sharedPreferences.getString("role","");
+        if(!full_name.equalsIgnoreCase("")){
+            navigatePage(role);
+        }
+        navigatePage(role);
         edEmail = findViewById(R.id.edEmail);
         edPasword = findViewById(R.id.edPass);
+        layoutSignup = findViewById(R.id.layoutSignup);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkLogin(edEmail.getText().toString(),edPasword.getText().toString());
-                SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
-                String full_name = sharedPreferences.getString("full_name","");
+//                SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
+//                String full_name = sharedPreferences.getString("full_name","");
             }
         });
-        SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
-        String full_name = sharedPreferences.getString("full_name","");
-        String role = sharedPreferences.getString("role","");
-
-        if(!full_name.equalsIgnoreCase("")){
-            navigatePage(role);
-        }
-
+        layoutSignup.setOnClickListener(v->{
+            Intent it = new Intent(this, SignupActivity.class);
+            startActivity(it);
+        });
     }
 
     private void seedingData() {
@@ -148,13 +167,13 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("role",user.getRole());
                         editor.apply();
                         Toast.makeText(MainActivity.this, "Welcome "+user.getFull_name(), Toast.LENGTH_SHORT).show();
-                        String role= user.getRole();
+                        String role = sharedPreferences.getString("role","");
                         navigatePage(role);
                         break;
                     }else{
                         edEmail.setText("");
                         edPasword.setText("");
-                        //Toast.makeText(MainActivity.this, "Wrong Email or Password!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Wrong Email or Password!", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -181,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent it3 = new Intent(MainActivity.this, PageParentActivity.class );
                     startActivity(it3);
                     break;
-
+                default:break;
             }
     }
 }
