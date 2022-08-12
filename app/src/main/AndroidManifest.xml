@@ -16,6 +16,12 @@
         android:theme="@style/Theme.SmartStudy"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateReviewClassActivity"
+            android:exported="false" />
+        <activity
             android:name=".MarkActivity"
             android:exported="false" />
         <activity
