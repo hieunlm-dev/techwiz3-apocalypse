@@ -20,6 +20,9 @@
             android:exported="false"
             android:noHistory="true"/>
         <activity
+            android:name=".ClassActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateResourceActivity"
             android:exported="false" />
         <activity
