@@ -11,9 +11,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingException;
-import com.google.firebase.messaging.Message;
 
 public class PageTeacherActivity extends AppCompatActivity {
     private Button btnLogout;
@@ -26,9 +23,9 @@ public class PageTeacherActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        rltFeedback = findViewById(R.id.rltFeedBackTeacher);
-        rltContact = findViewById(R.id.rltContactPa);
-        rltMark = findViewById(R.id.relativeRvClass);
+        rltFeedback = findViewById(R.id.rltReviewClassStudent);
+        rltContact = findViewById(R.id.rltContactStudent);
+        rltMark = findViewById(R.id.rltMarksStudent);
         rltRvClass = findViewById(R.id.rltRvClass);
         rltExamSchedule = findViewById(R.id.rltExamSchedule);
         rltstudyResource = findViewById(R.id.rltstudyResource);
