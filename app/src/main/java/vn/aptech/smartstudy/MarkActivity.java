@@ -66,10 +66,11 @@ public class MarkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mark);
-        getDataFromFirebase();
+
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         studentName = sharedPreferences.getString("student_name","");
-        Toast.makeText(this, studentName, Toast.LENGTH_SHORT).show();
+        getDataFromFirebase();
+        //Toast.makeText(this, studentName, Toast.LENGTH_SHORT).show();
         Log.i("data",studentName);
         fillData();
         initUi();
@@ -113,12 +114,12 @@ public class MarkActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference scoreDetailRef = database.getReference("score_detail");
 
-        scoreDetailRef.orderByChild("student_email").equalTo("(hienvp)studen12@gmail.com").addValueEventListener(new ValueEventListener() {
+        scoreDetailRef.orderByChild("student_email").equalTo(studentName).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     allScores.add(dataSnapshot.getValue(ScoreDetail.class));
-                    Toast.makeText(MarkActivity.this,dataSnapshot.getValue(ScoreDetail.class).getSubject_name().toString() , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MarkActivity.this,dataSnapshot.getValue(ScoreDetail.class).getSubject_name().toString() , Toast.LENGTH_SHORT).show();
                 }
                 maths = allScores.stream().filter(x->x.getSubject_name().equals("Math")).collect(Collectors.toList());
 
@@ -354,7 +355,7 @@ public class MarkActivity extends AppCompatActivity {
 
                 List<ScoreDetail> english15Detail = englishes.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
 
-                if(english45Detail.size()>0){
+                if(english15Detail.size()>0){
                     tvEng15.setVisibility(View.VISIBLE);
                 }
 
