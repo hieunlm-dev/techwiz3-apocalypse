@@ -7,6 +7,7 @@
     tools:context=".PageStudentActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -20,8 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
             <RelativeLayout
@@ -135,8 +136,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
             <RelativeLayout
@@ -163,6 +164,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rltFeedbackPa"
                 android:layout_width="175dp"
@@ -196,8 +198,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
-
-
 
 
             <RelativeLayout
@@ -247,4 +247,15 @@
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegisToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="154dp"
+        android:text="RegisToken"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

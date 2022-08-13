@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class PageStudentActivity extends AppCompatActivity {
-    private Button btnLogout;
+    private Button btnLogout, btnRegisToken;
     private TextView tvWelcome;
     private RelativeLayout rltHelp,rltContact, rltFeedback, rltMark;
 
@@ -26,6 +26,7 @@ public class PageStudentActivity extends AppCompatActivity {
         rltContact = findViewById(R.id.rltContactPa);
         rltFeedback = findViewById(R.id.rltFeedbackPa);
         rltMark = findViewById(R.id.relativeRvClass);
+        btnRegisToken = findViewById(R.id.btnRegisToken);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
@@ -53,6 +54,10 @@ public class PageStudentActivity extends AppCompatActivity {
             editor.clear();
             editor.commit();
             Intent it = new Intent(this, MainActivity.class);
+            startActivity(it);
+        });
+        btnRegisToken.setOnClickListener(v->{
+            Intent it = new Intent(this, ReceiveMessageActivity.class);
             startActivity(it);
         });
     }

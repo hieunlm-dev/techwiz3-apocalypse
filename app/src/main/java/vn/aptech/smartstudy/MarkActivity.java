@@ -1,5 +1,7 @@
 package vn.aptech.smartstudy;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,16 +11,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +37,7 @@ public class MarkActivity extends AppCompatActivity {
     private Spinner spinnerSemeter;
     private String[] semeters = new String[]{"Semester 1","Semester 2"};
     private List<ScoreDetail> allScores= new ArrayList<ScoreDetail>();
+    private Button btnSubcribe;
 
     private List<ScoreDetail> maths;
     private List<ScoreDetail> englishes= new ArrayList<ScoreDetail>();
@@ -83,6 +90,24 @@ public class MarkActivity extends AppCompatActivity {
 
         
         fillMathTv();
+        btnSubcribe.setOnClickListener(v->{
+            subscribeTopics();
+        });
+    }
+
+    private void subscribeTopics() {
+        FirebaseMessaging.getInstance().subscribeToTopic("12A1-2022")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscribe failed";
+                        }
+                        Log.d(TAG, msg);
+                        Toast.makeText(MarkActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void getDataFromFirebase() {
@@ -765,6 +790,7 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void initUi() {
+        btnSubcribe = findViewById(R.id.btnRegistReceiveMark);
         spinnerSemeter = findViewById(R.id.spinnerSemeter);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, semeters);
         spinnerSemeter.setAdapter(adapter);
