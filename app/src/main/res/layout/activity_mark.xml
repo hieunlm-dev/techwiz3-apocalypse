@@ -76,31 +76,31 @@
                 android:id="@+id/tvMath15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvMath45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvMathMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvMathFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvMathAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -116,31 +116,31 @@
                 android:id="@+id/tvEnglish15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvEnglish45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvEnglishMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvEnglishFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvEnglishAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -156,31 +156,31 @@
                 android:id="@+id/tvChemistry15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvChemistry45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvChemistryMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvChemistryFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvChemistryAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -196,31 +196,31 @@
                 android:id="@+id/tvPhysics15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPhysics45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPhysicsMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPhysicsFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPhysicsAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -236,31 +236,31 @@
                 android:id="@+id/tvHistory15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvHistory45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvHistoryMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvHistoryFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvHistoryAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -276,31 +276,31 @@
                 android:id="@+id/tvBiology15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvBiology45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvBiologyMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvBiologyFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvBiologyAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -316,31 +316,31 @@
                 android:id="@+id/tvLiterature15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvLiterature45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvLiteratureMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvLiteratureFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvLiteratureAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -356,31 +356,31 @@
                 android:id="@+id/tvCivic15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvCivic45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvCivicMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvCivicFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvCivicAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -396,31 +396,31 @@
                 android:id="@+id/tvGeo15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvGeo45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvGeoMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvGeoFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvGeoAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
@@ -442,25 +442,25 @@
                 android:id="@+id/tvPE45"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="45" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPEMid"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPEFinal"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="90" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPEAverage"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="76" />
+                android:text="" />
 
         </TableRow>
 
