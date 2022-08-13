@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,6 +34,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import vn.aptech.smartstudy.entity.ClassName;
+import vn.aptech.smartstudy.entity.ExamSchedule;
 import vn.aptech.smartstudy.entity.Resource;
 import vn.aptech.smartstudy.entity.ReviewClass;
 import vn.aptech.smartstudy.entity.ScoreDetail;
@@ -95,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
 //        DatabaseReference myRef = database.getReference("resource");
 //        DatabaseReference myRef = database.getReference("reviewclass");
-        DatabaseReference myRef = database.getReference("test_type");
+        DatabaseReference myRef = database.getReference("exam_schedule");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Map<String , String> test_types = new HashMap<String , String>();
+                 /*   Map<String , String> test_types = new HashMap<String , String>();
                     test_types.put(Integer.toString(test_types.size()+1),"15 minutes test Sem 1");
                     test_types.put(Integer.toString(test_types.size()+1),"45 minutes test Sem 1");
                     test_types.put(Integer.toString(test_types.size()+1),"Middle semester test Sem 1");
@@ -109,8 +111,15 @@ public class MainActivity extends AppCompatActivity {
                     test_types.put(Integer.toString(test_types.size()+1),"15 minutes test Sem 2");
                     test_types.put(Integer.toString(test_types.size()+1),"45 minutes test Sem 2");
                     test_types.put(Integer.toString(test_types.size()+1),"Middle semester test Sem 2");
-                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test Sem 2");
-                    myRef.setValue(test_types);
+                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test Sem 2");*/
+                    ExamSchedule schedule = new ExamSchedule();
+                    schedule.setDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+                    schedule.setExam_content("45 minutes Test on 13/8/2022");
+                    schedule.setSubject("Math");
+                    schedule.setType_test("45 minutes test Sem 1");
+                    schedule.setClass_name("12A1");
+                    schedule.setHour("8:00");
+                    myRef.push().setValue(schedule);
 
 
                     /*Map<String , Object> scored = new HashMap<String , Object>();
@@ -174,12 +183,16 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("full_name",user.getFull_name());
                         if(user.getRole().equals("Student")){
-                            editor.putString("student_name",user.getStudentData().getFullName().trim().toLowerCase());
-                            Log.i("name :",user.getStudentData().getFullName().trim().toLowerCase());
+                            editor.putString("student_name",user.getStudentData().getFullName());
+                            Log.i("name :",user.getStudentData().getFullName());
                         }
 
                         if(user.getRole().equals("Parent")){
                             editor.putString("student_name",user.getParentData().getFullName());
+                        }
+
+                        if(user.getRole().equals("Teacher")){
+                            editor.putString("subject",user.getTeacherData().getSubject());
                         }
 
                         editor.putString("role",user.getRole());
