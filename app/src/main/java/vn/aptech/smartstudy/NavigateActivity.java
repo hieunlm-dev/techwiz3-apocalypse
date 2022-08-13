@@ -24,10 +24,10 @@ public class NavigateActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        relativeRvClass = findViewById(R.id.rltHelp);
-        rltFeedback = findViewById(R.id.rltFeedbackPa);
-        rltContact = findViewById(R.id.rltContactPa);
-        rltMark = findViewById(R.id.rltMarks);
+        relativeRvClass = findViewById(R.id.rltResourceStudent);
+        rltFeedback = findViewById(R.id.rltFeedbackStudent);
+        rltContact = findViewById(R.id.rltContactStudent);
+        rltMark = findViewById(R.id.rltProgressStudent);
         layoutGuard = findViewById(R.id.layoutGuard);
 
         relativeRvClass.setOnClickListener(v->{

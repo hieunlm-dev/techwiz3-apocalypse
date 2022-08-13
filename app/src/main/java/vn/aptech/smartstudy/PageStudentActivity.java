@@ -13,7 +13,8 @@ import android.widget.TextView;
 public class PageStudentActivity extends AppCompatActivity {
     private Button btnLogout, btnRegisToken;
     private TextView tvWelcome;
-    private RelativeLayout rltHelp,rltContact, rltFeedback, rltMark;
+    private RelativeLayout rltHelp,rltContact, rltFeedback, rltMark, rltReviewClass, rltResource,
+            rltProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +23,13 @@ public class PageStudentActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        rltHelp = findViewById(R.id.rltAcademic);
-        rltContact = findViewById(R.id.rltContactPa);
-        rltFeedback = findViewById(R.id.rltFeedbackPa);
-        rltMark = findViewById(R.id.relativeRvClass);
+        rltHelp = findViewById(R.id.rltHelpStudent);
+        rltContact = findViewById(R.id.rltContactStudent);
+        rltFeedback = findViewById(R.id.rltFeedbackStudent);
+        rltMark = findViewById(R.id.rltMarksStudent);
+        rltReviewClass = findViewById(R.id.rltReviewClassStudent);
+        rltResource = findViewById(R.id.rltResourceStudent);
+        rltProgress = findViewById(R.id.rltProgressStudent);
         btnRegisToken = findViewById(R.id.btnRegisToken);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
@@ -49,6 +53,18 @@ public class PageStudentActivity extends AppCompatActivity {
             Intent it = new Intent(this, MarkActivity.class);
             startActivity(it);
         });
+        rltReviewClass.setOnClickListener(v->{
+            Intent it = new Intent(this, ReviewClassActivity.class);
+            startActivity(it);
+        });
+        rltResource.setOnClickListener(v->{
+            Intent it = new Intent(this, ResourceActivity.class);
+            startActivity(it);
+        });
+        rltProgress.setOnClickListener(v->{
+            Intent it = new Intent(this, ProgressActivity.class);
+            startActivity(it);
+        });
         btnLogout.setOnClickListener(v -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
@@ -60,5 +76,7 @@ public class PageStudentActivity extends AppCompatActivity {
             Intent it = new Intent(this, ReceiveMessageActivity.class);
             startActivity(it);
         });
+
+
     }
 }

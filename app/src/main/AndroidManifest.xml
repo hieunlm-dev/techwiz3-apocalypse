@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SmartStudy"
         tools:targetApi="31">
         <activity
+            android:name=".ProgressActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReceiveMessageActivity"
             android:exported="false" />
         <activity
@@ -81,6 +84,7 @@
             android:name=".SignupActivity"
             android:exported="false"
             android:noHistory="true" />
+
         <service
             android:name=".service.FirebaseMessageService"
             android:exported="false">
