@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -35,32 +36,32 @@
             <TextView
                 android:gravity="center"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="   15'   " />
+                android:text="   15'   "
+                android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="   45'   " />
+                android:text="   45'   "
+                android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="Mid-term" />
+                android:text="Mid-term"
+                android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="Final-term" />
+                android:text="Final-term"
+                android:textStyle="bold" />
 
             <TextView
                 android:gravity="center"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="Average" />
+                android:text="Average"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -69,8 +70,8 @@
             <TextView
                 android:layout_column="1"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="Math" />
+                android:text="Math"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvMath15"
@@ -109,8 +110,8 @@
             <TextView
                 android:layout_column="1"
                 android:padding="3dip"
-                android:textStyle="bold"
-                android:text="English" />
+                android:text="English"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvEnglish15"
@@ -150,7 +151,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Chemistry"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvChemistry15"
@@ -190,7 +191,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Physics"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvPhysics15"
@@ -230,7 +231,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="History"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvHistory15"
@@ -270,7 +271,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Biology"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvBiology15"
@@ -310,7 +311,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Literature"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvLiterature15"
@@ -350,7 +351,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="C.E"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCivic15"
@@ -390,7 +391,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Geography"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvGeo15"
@@ -430,7 +431,7 @@
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="P.E"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvPE15"
@@ -475,5 +476,15 @@
         android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegistReceiveMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="41dp"
+        android:text="Subcribe Receive Mark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
