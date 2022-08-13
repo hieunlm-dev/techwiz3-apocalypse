@@ -30,15 +30,18 @@ public class ClassActivity extends AppCompatActivity {
     private ClassAdapter adapter;
     private RecyclerView rvClass;
     FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
-    DatabaseReference myRef = database.getReference("className");
-    private List<ClassName> className = new ArrayList<>();
+    DatabaseReference myRef = database.getReference("class");
+    private List<ClassName> classNames = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_class);
-        rvClass = findViewById(R.id.rvClass);
-        adapter = new ClassAdapter(className, this);
+        adapter = new ClassAdapter(classNames,this);
+
+        rvClass = findViewById(R.id.rvClassLists);
+
         rvClass.setAdapter(adapter);
+
         rvClass.setLayoutManager(new LinearLayoutManager(this));
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvClass.addItemDecoration(itemDecoration);
@@ -49,7 +52,7 @@ public class ClassActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     ClassName rvc = dataSnapshot.getValue(ClassName.class);
-                    className.add(rvc);
+                    classNames.add(rvc);
                     adapter.notifyDataSetChanged();
                 }
             }
