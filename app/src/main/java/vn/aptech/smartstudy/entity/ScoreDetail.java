@@ -6,13 +6,17 @@ public class ScoreDetail {
     private String subject_name;
     private String student_email;
     private float mark;
+    private int semester;
+    private int year;
 
-    public ScoreDetail(int id, String type_test, String subject_name, String student_email,float mark) {
+    public ScoreDetail(int id, String type_test, String subject_name, String student_email,float mark,int semester , int year) {
         this.setId(id);
         this.setType_test(type_test);
         this.setSubject_name(subject_name);
         this.setStudent_email(student_email);
         this.setMark(mark);
+        this.setSemester(semester);
+        this.setYear(year);
     }
 
     public ScoreDetail() {
@@ -56,5 +60,21 @@ public class ScoreDetail {
 
     public void setMark(float mark) {
         this.mark = mark;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

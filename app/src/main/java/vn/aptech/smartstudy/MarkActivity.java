@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,8 +61,10 @@ public class MarkActivity extends AppCompatActivity {
     private TextView tvCivic15 ,tvCivic45,tvCivicMid , tvCivicFinal ,tvCivicAverage;
     private TextView tvGeo15 , tvGeo45,tvGeoMid , tvGeoFinal,tvGeoAverage;
     private TextView tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage;
+
     private String studentName ;
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
+    private int selectedCount =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,7 @@ public class MarkActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         studentName = sharedPreferences.getString("student_name","");
-        getDataFromFirebase();
+        getDataFromFirebase(selectedCount);
         //Toast.makeText(this, studentName, Toast.LENGTH_SHORT).show();
         Log.i("data",studentName);
         fillData();
@@ -110,7 +113,7 @@ public class MarkActivity extends AppCompatActivity {
                 });
     }
 
-    private void getDataFromFirebase() {
+    private void getDataFromFirebase(int selectedCount) {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference scoreDetailRef = database.getReference("score_detail");
 
@@ -121,6 +124,7 @@ public class MarkActivity extends AppCompatActivity {
                     allScores.add(dataSnapshot.getValue(ScoreDetail.class));
                     //Toast.makeText(MarkActivity.this,dataSnapshot.getValue(ScoreDetail.class).getSubject_name().toString() , Toast.LENGTH_SHORT).show();
                 }
+                allScores = allScores.stream().filter(x->x.getSemester()==selectedCount).collect(Collectors.toList());
                 maths = allScores.stream().filter(x->x.getSubject_name().equals("Math")).collect(Collectors.toList());
 
                 List<ScoreDetail> math15Details = maths.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -624,6 +628,68 @@ public class MarkActivity extends AppCompatActivity {
         });
     }
 
+    private void setInvi(){
+        tvPE15.setVisibility(View.INVISIBLE);
+        tvPE45.setVisibility(View.INVISIBLE);
+        tvPEMid.setVisibility(View.INVISIBLE);
+        tvPEFinal.setVisibility(View.INVISIBLE);
+        tvPEAverage.setVisibility(View.INVISIBLE);
+
+        tvGeo15.setVisibility(View.INVISIBLE);
+        tvGeo45.setVisibility(View.INVISIBLE);
+        tvGeoMid.setVisibility(View.INVISIBLE);
+        tvGeoFinal.setVisibility(View.INVISIBLE);
+        tvGeoAverage.setVisibility(View.INVISIBLE);
+
+        tvCivic15.setVisibility(View.INVISIBLE);
+        tvCivic45.setVisibility(View.INVISIBLE);
+        tvCivicMid.setVisibility(View.INVISIBLE);
+        tvCivicFinal.setVisibility(View.INVISIBLE);
+        tvCivicAverage.setVisibility(View.INVISIBLE);
+
+        tvLiterature15.setVisibility(View.INVISIBLE);
+        tvLiterature45.setVisibility(View.INVISIBLE);
+        tvLiteratureMid.setVisibility(View.INVISIBLE);
+        tvLiteratureFinal.setVisibility(View.INVISIBLE);
+        tvLiteratureAverage.setVisibility(View.INVISIBLE);
+
+        tvBiology15.setVisibility(View.INVISIBLE);
+        tvBiology45.setVisibility(View.INVISIBLE);
+        tvBiologyMid.setVisibility(View.INVISIBLE);
+        tvBiologyFinal.setVisibility(View.INVISIBLE);
+        tvBiologyAverage.setVisibility(View.INVISIBLE);
+
+        tvHistory15.setVisibility(View.INVISIBLE);
+        tvHistory45.setVisibility(View.INVISIBLE);
+        tvHistoryMid.setVisibility(View.INVISIBLE);
+        tvHistoryFinal.setVisibility(View.INVISIBLE);
+        tvHistoryAverage.setVisibility(View.INVISIBLE);
+
+        tvPhysics15.setVisibility(View.INVISIBLE);
+        tvPhysics45.setVisibility(View.INVISIBLE);
+        tvPhysicsMid.setVisibility(View.INVISIBLE);
+        tvPhysicsFinal.setVisibility(View.INVISIBLE);
+        tvPhysicsAverage.setVisibility(View.INVISIBLE);
+
+        tvChem15.setVisibility(View.INVISIBLE);
+        tvChem45.setVisibility(View.INVISIBLE);
+        tvChemMid.setVisibility(View.INVISIBLE);
+        tvChemFinal.setVisibility(View.INVISIBLE);
+        tvChemAverage.setVisibility(View.INVISIBLE);
+
+        tvEng15.setVisibility(View.INVISIBLE);
+        tvEng45.setVisibility(View.INVISIBLE);
+        tvEngMid.setVisibility(View.INVISIBLE);
+        tvEngFinal.setVisibility(View.INVISIBLE);
+        tvEngAverage.setVisibility(View.INVISIBLE);
+
+        tvMath15.setVisibility(View.INVISIBLE);
+        tvMath45.setVisibility(View.INVISIBLE);
+        tvMathMid.setVisibility(View.INVISIBLE);
+        tvMathFinal.setVisibility(View.INVISIBLE);
+        tvMathAverage.setVisibility(View.INVISIBLE);
+    }
+
     private void fillMathTv() {
 
 
@@ -794,5 +860,31 @@ public class MarkActivity extends AppCompatActivity {
         spinnerSemeter = findViewById(R.id.spinnerSemeter);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, semeters);
         spinnerSemeter.setAdapter(adapter);
+        spinnerSemeter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedSem = spinnerSemeter.getSelectedItem().toString();
+                selectedCount = selectedSem.contains("2")?2:1;
+                Toast.makeText(MarkActivity.this, Integer.toString(selectedCount), Toast.LENGTH_SHORT).show();
+                allScores.clear();
+                maths.clear();
+                englishes.clear();
+                chems.clear();
+                physics.clear();
+                literatures.clear();
+                histories.clear();
+                geos.clear();
+                civics.clear();
+                pes.clear();
+                biologies.clear();
+                setInvi();
+                getDataFromFirebase(selectedCount);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 }
