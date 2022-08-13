@@ -18,7 +18,7 @@ import com.google.firebase.messaging.Message;
 public class PageTeacherActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
-    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass;
+    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         rltContact = findViewById(R.id.rltContactPa);
         rltMark = findViewById(R.id.relativeRvClass);
         rltRvClass = findViewById(R.id.rltRvClass);
+        rltExamSchedule = findViewById(R.id.rltExamSchedule);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
@@ -63,6 +64,12 @@ public class PageTeacherActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-
+        rltExamSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(PageTeacherActivity.this, CreateExamScheduleActivity.class);
+                startActivity(it);
+            }
+        });
     }
 }
