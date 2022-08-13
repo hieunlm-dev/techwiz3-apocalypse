@@ -76,7 +76,8 @@
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
     </application>
 
 </manifest>

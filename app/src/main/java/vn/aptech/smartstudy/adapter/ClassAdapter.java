@@ -53,7 +53,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassHolder>
             tvClass = itemView.findViewById(R.id.tvClassItem);
         }
         public void dataBind(ClassName className) {
-            tvClass.setText(className.getClass().getName());
+            tvClass.setText(className.getName());
         }
     }
 }

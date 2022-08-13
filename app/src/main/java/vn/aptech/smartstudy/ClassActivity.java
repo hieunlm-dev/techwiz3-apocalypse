@@ -30,15 +30,14 @@ public class ClassActivity extends AppCompatActivity {
     private ClassAdapter adapter;
     private RecyclerView rvClass;
     FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
-    DatabaseReference myRef = database.getReference("className");
+    DatabaseReference myRef = database.getReference("class");
     private List<ClassName> className = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_class);
-        rvClass = findViewById(R.id.rvClass);
-        adapter = new ClassAdapter(className, this);
-        rvClass.setAdapter(adapter);
+        setContentView(R.layout.activity_class);
+        rvClass = (RecyclerView) findViewById(R.id.rvClass);
+
         rvClass.setLayoutManager(new LinearLayoutManager(this));
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvClass.addItemDecoration(itemDecoration);
@@ -57,5 +56,7 @@ public class ClassActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        adapter = new ClassAdapter(className, this);
+        rvClass.setAdapter(adapter);
     }
 }
