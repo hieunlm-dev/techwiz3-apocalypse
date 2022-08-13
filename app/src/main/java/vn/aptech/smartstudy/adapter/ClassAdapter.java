@@ -14,7 +14,7 @@ import java.util.List;
 
 import vn.aptech.smartstudy.R;
 import vn.aptech.smartstudy.entity.ClassName;
-
+import vn.aptech.smartstudy.entity.ReviewClass;
 
 public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassHolder> {
 
@@ -31,7 +31,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassHolder>
     public ClassHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.class_item,parent,false);
-        return new ClassHolder(view);
+        return new ClassAdapter.ClassHolder(view);
     }
 
     @Override
