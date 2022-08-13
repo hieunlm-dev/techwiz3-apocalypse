@@ -83,8 +83,9 @@ public class ResourceActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Resource r = dataSnapshot.getValue(Resource.class);
                     resources.add(r);
-                    adapter.notifyDataSetChanged();
+
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
