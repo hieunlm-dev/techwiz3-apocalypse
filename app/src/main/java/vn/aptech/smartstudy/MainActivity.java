@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,7 +34,9 @@ import java.util.Locale;
 import java.util.Map;
 
 import vn.aptech.smartstudy.entity.ClassName;
+import vn.aptech.smartstudy.entity.ExamSchedule;
 import vn.aptech.smartstudy.entity.Resource;
+import vn.aptech.smartstudy.entity.ResourceURL;
 import vn.aptech.smartstudy.entity.ReviewClass;
 import vn.aptech.smartstudy.entity.ScoreDetail;
 import vn.aptech.smartstudy.entity.StudentData;
@@ -95,13 +98,13 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
 //        DatabaseReference myRef = database.getReference("resource");
 //        DatabaseReference myRef = database.getReference("reviewclass");
-        DatabaseReference myRef = database.getReference("test_type");
+        DatabaseReference myRef = database.getReference("resource_url");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Map<String , String> test_types = new HashMap<String , String>();
+                 /*   Map<String , String> test_types = new HashMap<String , String>();
                     test_types.put(Integer.toString(test_types.size()+1),"15 minutes test Sem 1");
                     test_types.put(Integer.toString(test_types.size()+1),"45 minutes test Sem 1");
                     test_types.put(Integer.toString(test_types.size()+1),"Middle semester test Sem 1");
@@ -109,13 +112,38 @@ public class MainActivity extends AppCompatActivity {
                     test_types.put(Integer.toString(test_types.size()+1),"15 minutes test Sem 2");
                     test_types.put(Integer.toString(test_types.size()+1),"45 minutes test Sem 2");
                     test_types.put(Integer.toString(test_types.size()+1),"Middle semester test Sem 2");
-                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test Sem 2");
-                    myRef.setValue(test_types);
+                    test_types.put(Integer.toString(test_types.size()+1),"Final semester test Sem 2");*/
 
 
-                    /*Map<String , Object> scored = new HashMap<String , Object>();
-                    scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"Middle semester test","Math","nhta151202@gmail.com",10));
-                    scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"15 minutes test","Math","nhta151202@gmail.com",10));scored.put(Integer.toString(scored.size()+1),new ScoreDetail(scored.size()+1,"45 minutes test","Math","nhta151202@gmail.com",10));*/
+                 /*   ExamSchedule schedule = new ExamSchedule();
+                    schedule.setDate(new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+                    schedule.setExam_content("45 minutes Test on 13/8/2022");
+                    schedule.setSubject("Math");
+                    schedule.setType_test("45 minutes test Sem 1");
+                    schedule.setClass_name("12A1");
+                    schedule.setHour("8:00");
+
+                  */
+                    List<ResourceURL> resources = new ArrayList<ResourceURL>();
+
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/ham-so-bac-hai-13248817.html","Quadratic function","Math"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/tong-va-hieu-cua-hai-vecto-13199350.html","Summation and Subtraction of two vectors","Math"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/cap-so-nhan-12094605.html","Level multiplier in Math","Math"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/lesson/relationships-lesson-7-communication-and-culture-8507277-15.html","Unit 2. Relationships. Lesson 7. Communication and culture , English 11","English"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/technology-and-you-13337243.html","Unit 5. Technology and you","English"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/clo-13248318.html","Chlorine","Chemistry"));
+                    resources.add(new ResourceURL("https://123docz.net/document/1282365-petroleum-refining-iii-conversion-processes.htm","Petroleum refining","Chemistry"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/nhom-va-hop-chat-cua-nhom-13440211.html","Aluminum and its compounds","Chemistry"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/cac-luc-co-hoc-13285777.html","Mechanical Force","Physics"));
+                    resources.add(new ResourceURL("https://hoctructuyen.violet.vn/present/ba-dinh-luat-niu-ton-13261997.html","Newton's laws of motion","Physics"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/phan-tich-truyen-kieu-cua-nguyen-du","Analysis of the Tale of Kieu","Literature"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/trac-nghiem-ngu-van-10","Literature Quiz 10","Literature"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/giai-tap-ban-do-dia-li-10","Geographic Atlas exercise","Geography"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/ly-thuyet-chay-cu-ly-ngan","Theory of running short distances\n","P.E"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/soan-sinh-10-ngan-nhat","Biology Quiz","Biology"));
+                    resources.add(new ResourceURL("https://toploigiai.vn/trac-nghiem-giao-duc-quoc-phong-10-co-dap-an","Civic Education Quiz","CivicEducation"));
+
+                    resources.forEach(x-> myRef.push().setValue(x));
 
                 }
             }
@@ -173,7 +201,19 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("full_name",user.getFull_name());
-                        editor.putString("email",user.getEmail());
+                        if(user.getRole().equals("Student")){
+                            editor.putString("student_name",user.getStudentData().getFullName());
+                            Log.i("name :",user.getStudentData().getFullName());
+                        }
+
+                        if(user.getRole().equals("Parent")){
+                            editor.putString("student_name",user.getParentData().getFullName());
+                        }
+
+                        if(user.getRole().equals("Teacher")){
+                            editor.putString("subject",user.getTeacherData().getSubject());
+                        }
+
                         editor.putString("role",user.getRole());
                         editor.apply();
                         Toast.makeText(MainActivity.this, "Welcome "+user.getFull_name(), Toast.LENGTH_SHORT).show();

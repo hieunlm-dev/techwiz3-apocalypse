@@ -7,6 +7,7 @@
     tools:context=".PageTeacherActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -20,12 +21,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
             <RelativeLayout
-                android:id="@+id/rltMarkStu"
+                android:id="@+id/rltMarksStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -50,7 +51,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rltHelpPa"
+                android:id="@+id/rltProgressStudent"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
@@ -82,7 +83,7 @@
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/relativeRvClass"
+                android:id="@+id/rltResourceStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -107,7 +108,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rltFeedBackTeacher"
+                android:id="@+id/rltReviewClassStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -138,8 +139,9 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
+
             <RelativeLayout
-                android:id="@+id/rltContactPa"
+                android:id="@+id/rltContactStudent"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
@@ -162,6 +164,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rltRvClass"
                 android:layout_width="175dp"
@@ -188,6 +191,40 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:id="@+id/rltExamSchedule"
+                android:layout_width="175dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageExamSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+                <TextView
+                    android:id="@+id/textContact1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageExamSchedule"
+                    android:layout_centerInParent="true"
+                    android:singleLine="true"
+                    android:text="Exam Schedule"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -210,4 +247,5 @@
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

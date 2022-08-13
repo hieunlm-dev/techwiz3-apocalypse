@@ -7,6 +7,7 @@
     tools:context=".PageStudentActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -20,12 +21,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
             <RelativeLayout
-                android:id="@+id/rltMarkStu"
+                android:id="@+id/rltMarksStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -50,7 +51,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rltHelpPa"
+                android:id="@+id/rltProgressStudent"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
@@ -82,7 +83,7 @@
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/relativeRvClass"
+                android:id="@+id/rltResourceStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -107,7 +108,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rltFeedBackTeacher"
+                android:id="@+id/rltReviewClassStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -135,12 +136,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
             <RelativeLayout
-                android:id="@+id/rltHelp"
+                android:id="@+id/rltHelpStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -163,8 +164,9 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
+
             <RelativeLayout
-                android:id="@+id/rltFeedbackPa"
+                android:id="@+id/rltFeedbackStudent"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
@@ -198,10 +200,8 @@
             android:orientation="horizontal">
 
 
-
-
             <RelativeLayout
-                android:id="@+id/rltContactPa"
+                android:id="@+id/rltContactStudent"
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
@@ -247,4 +247,15 @@
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegisToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="154dp"
+        android:text="RegisToken"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

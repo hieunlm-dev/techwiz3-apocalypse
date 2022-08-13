@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class NavigateActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
-    private RelativeLayout relativeRvClass, rltFeedback, rltContact;
+    private RelativeLayout relativeRvClass, rltFeedback, rltContact, rltMark;
     private LinearLayout layoutGuard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,10 @@ public class NavigateActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        relativeRvClass = findViewById(R.id.relativeRvClass);
-        rltFeedback = findViewById(R.id.rltFeedbackPa);
-        rltContact = findViewById(R.id.rltContactPa);
+        relativeRvClass = findViewById(R.id.rltResourceStudent);
+        rltFeedback = findViewById(R.id.rltFeedbackStudent);
+        rltContact = findViewById(R.id.rltContactStudent);
+        rltMark = findViewById(R.id.rltProgressStudent);
         layoutGuard = findViewById(R.id.layoutGuard);
 
         relativeRvClass.setOnClickListener(v->{

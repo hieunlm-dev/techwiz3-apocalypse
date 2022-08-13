@@ -132,7 +132,7 @@ public class SignupActivity extends AppCompatActivity {
         });
         //regis
         btnRegis.setOnClickListener(v-> {
-            String name = edName.getText().toString().trim();
+            String name = edName.getText().toString();
             String email = edEmail.getText().toString().trim();
             String pass = edPass.getText().toString().trim();
             String address = edAddress.getText().toString().trim();
@@ -148,7 +148,7 @@ public class SignupActivity extends AppCompatActivity {
                     Map<String , Object> user = new HashMap<String , Object>();
                     String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                     if(role=="Student"){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name+")"+email, className,currentDate, email));
+                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name.replaceAll(" ", "").toLowerCase()+")"+email, className,currentDate, email));
                         myRef.push().setValue(newUser);
                     }else if(role=="Parent"){
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString(), className,currentDate, email));

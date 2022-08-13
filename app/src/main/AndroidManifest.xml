@@ -16,6 +16,23 @@
         android:theme="@style/Theme.SmartStudy"
         tools:targetApi="31">
         <activity
+
+            android:name=".ProgressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateExamScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReceiveMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:noHistory="true" />
+        <activity
+            android:name=".ClassActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateResourceActivity"
             android:exported="false" />
         <activity
@@ -49,7 +66,7 @@
             android:name=".ContactActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -58,9 +75,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FillMarkActivity"
-                  android:exported="false"
-            />
+        <activity
+            android:name=".FillMarkActivity"
+            android:exported="false" />
         <activity
             android:name=".ResourceActivity"
             android:exported="false" />
@@ -69,12 +86,17 @@
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true" />
 
-
+        <service
+            android:name=".service.FirebaseMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
-
-
 
 </manifest>

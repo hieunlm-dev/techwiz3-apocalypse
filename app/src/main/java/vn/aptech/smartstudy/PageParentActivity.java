@@ -21,10 +21,10 @@ public class PageParentActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        rlvContact = findViewById(R.id.rltContactPa);
-        rlvFeed  = findViewById(R.id.rltFeedbackPa);
-        rlvHelp  = findViewById(R.id.rltHelpPa);
-        rltMark  = findViewById(R.id.rltMarkStu);
+        rlvContact = findViewById(R.id.rltContactStudent);
+        rlvFeed  = findViewById(R.id.rltFeedbackStudent);
+        rlvHelp  = findViewById(R.id.rltProgressStudent);
+        rltMark  = findViewById(R.id.rltMarksStudent);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
