@@ -28,7 +28,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         rltMark = findViewById(R.id.rltMarksStudent);
         rltRvClass = findViewById(R.id.rltRvClass);
         rltExamSchedule = findViewById(R.id.rltExamSchedule);
-        rltstudyResource = findViewById(R.id.rltstudyResource);
+        rltstudyResource = findViewById(R.id.rltResourceStudent);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
@@ -65,6 +65,13 @@ public class PageTeacherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(PageTeacherActivity.this, CreateExamScheduleActivity.class);
+                startActivity(it);
+            }
+        });
+        rltstudyResource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(PageTeacherActivity.this,CreateResourceActivity.class);
                 startActivity(it);
             }
         });

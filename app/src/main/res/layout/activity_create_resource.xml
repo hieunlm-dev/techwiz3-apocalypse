@@ -46,35 +46,11 @@
         android:hint="Teacher name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:editable="false"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edRsContent" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Subject"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/spSubject"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edTeacherName" />
-
-    <Spinner
-        android:id="@+id/spSubject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:minHeight="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView13"
@@ -83,11 +59,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Url"
+        android:text="Resource"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/spUrl"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spSubject"
+        app:layout_constraintTop_toBottomOf="@+id/edTeacherName"
         app:layout_constraintVertical_bias="0.311" />
 
     <Spinner
