@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PageTeacherActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
-    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule;
+    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule, rltResource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +23,12 @@ public class PageTeacherActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout);
         tvWelcome = findViewById(R.id.tvWelcome);
-        rltFeedback = findViewById(R.id.rltReviewClassStudent);
-        rltContact = findViewById(R.id.rltContactStudent);
-        rltMark = findViewById(R.id.rltMarksStudent);
+        rltFeedback = findViewById(R.id.rltReviewClassTeacher);
+        rltContact = findViewById(R.id.rltContactTeacher);
+        rltMark = findViewById(R.id.rltMarksTeacher);
         rltRvClass = findViewById(R.id.rltRvClass);
         rltExamSchedule = findViewById(R.id.rltExamSchedule);
-
+        rltResource = findViewById(R.id.rltResourceTeacher);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
@@ -67,6 +67,10 @@ public class PageTeacherActivity extends AppCompatActivity {
                 Intent it = new Intent(PageTeacherActivity.this, CreateExamScheduleActivity.class);
                 startActivity(it);
             }
+        });
+        rltResource.setOnClickListener(v->{
+            Intent it = new Intent(PageTeacherActivity.this, CreateResourceActivity.class);
+            startActivity(it);
         });
     }
 }

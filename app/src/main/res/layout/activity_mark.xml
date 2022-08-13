@@ -17,456 +17,667 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="   15'   "
-                android:textStyle="bold" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="   45'   "
-                android:textStyle="bold" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="Mid-term"
-                android:textStyle="bold" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="Final-term"
-                android:textStyle="bold" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="Average"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Math"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvMath15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvMath45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvMathMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvMathFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvMathAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="English"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvEnglish15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvEnglish45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvEnglishMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvEnglishFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvEnglishAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Chemistry"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvChemistry15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvChemistry45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvChemistryMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvChemistryFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvChemistryAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Physics"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvPhysics15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPhysics45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPhysicsMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPhysicsFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPhysicsAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="History"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvHistory15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvHistory45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvHistoryMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvHistoryFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvHistoryAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Biology"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvBiology15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvBiology45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvBiologyMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvBiologyFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvBiologyAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Literature"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvLiterature15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvLiterature45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvLiteratureMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvLiteratureFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvLiteratureAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="C.E"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCivic15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvCivic45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvCivicMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvCivicFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvCivicAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Geography"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvGeo15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvGeo45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvGeoMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvGeoFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvGeoAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="P.E"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvPE15"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="60" />
-
-            <TextView
-                android:id="@+id/tvPE45"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPEMid"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPEFinal"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/tvPEAverage"
-                android:gravity="center"
-                android:padding="3dip"
-                android:text="" />
-
-        </TableRow>
-
-
-    </TableLayout>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#f1f1f1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="   15'   "
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="   45'   "
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="Mid-term"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="Final-term"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text="Average"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Math"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvMath15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvMath45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvMathMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvMathFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvMathAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="English"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEnglish15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvEnglish45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvEnglishMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvEnglishFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvEnglishAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Chemistry"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvChemistry15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvChemistry45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvChemistryMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvChemistryFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvChemistryAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Physics"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPhysics15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPhysics45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPhysicsMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPhysicsFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPhysicsAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="History"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvHistory15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvHistory45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvHistoryMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvHistoryFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvHistoryAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Biology"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvBiology15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvBiology45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvBiologyMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvBiologyFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvBiologyAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Literature"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLiterature15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvLiterature45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvLiteratureMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvLiteratureFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvLiteratureAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="C.E"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCivic15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvCivic45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvCivicMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvCivicFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvCivicAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Geography"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvGeo15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvGeo45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvGeoMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvGeoFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvGeoAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="P.E"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPE15"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPE45"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPEMid"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPEFinal"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+                <TextView
+                    android:id="@+id/tvPEAverage"
+                    android:gravity="center"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="20sp"
+                    android:background="#ffffff"
+                    android:layout_margin="1dp" />
+
+            </TableRow>
+
+
+        </TableLayout>
+    </HorizontalScrollView>
+
+
 
     <Spinner
         android:id="@+id/spinnerSemeter"
@@ -481,10 +692,19 @@
         android:id="@+id/btnRegistReceiveMark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="34dp"
         android:text="Subcribe Receive Mark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="50dp"
+        android:text="* Swipe to left to see more Marks"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

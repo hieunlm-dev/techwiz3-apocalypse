@@ -16,6 +16,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import vn.aptech.smartstudy.MarkActivity;
 import vn.aptech.smartstudy.R;
 import vn.aptech.smartstudy.ReceiveMessageActivity;
 
@@ -48,7 +49,7 @@ public class FirebaseMessageService extends FirebaseMessagingService {
         });
     }
     private void sendNotification(String messageBody) {
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        Intent intent = new Intent(this, MarkActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
