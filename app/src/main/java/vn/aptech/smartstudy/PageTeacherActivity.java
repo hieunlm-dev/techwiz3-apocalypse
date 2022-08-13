@@ -18,7 +18,7 @@ import com.google.firebase.messaging.Message;
 public class PageTeacherActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
-    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule;
+    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule,rltstudyResource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         rltMark = findViewById(R.id.relativeRvClass);
         rltRvClass = findViewById(R.id.rltRvClass);
         rltExamSchedule = findViewById(R.id.rltExamSchedule);
-
+        rltstudyResource = findViewById(R.id.rltstudyResource);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");

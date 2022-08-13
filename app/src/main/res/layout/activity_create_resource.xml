@@ -46,6 +46,7 @@
         android:hint="Teacher name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:editable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edRsContent" />

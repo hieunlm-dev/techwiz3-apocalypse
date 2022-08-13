@@ -437,7 +437,7 @@
                 android:id="@+id/tvPE15"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="60" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/tvPE45"

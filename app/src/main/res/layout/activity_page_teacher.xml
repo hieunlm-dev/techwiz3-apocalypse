@@ -83,7 +83,7 @@
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:id="@+id/rltHelp"
+                android:id="@+id/rltstudyResource"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
