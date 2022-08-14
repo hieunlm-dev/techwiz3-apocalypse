@@ -78,7 +78,7 @@ public class StudentApdapter extends RecyclerView.Adapter<StudentApdapter.Studen
                 scoreDetail.setSemester(semester);
                 scoreDetail.setType_test(selected_test);
                 scoreDetail.setSubject_name(subject_name);
-
+                scoreDetail.setType_test_student_email(selected_test.replaceAll(" ","").toLowerCase()+"("+tvStudentName.getText().toString().replaceAll(" ", "").toLowerCase()+")"+tvStudentEmail.getText().toString());
                 return scoreDetail;
             }else{
                 return null;

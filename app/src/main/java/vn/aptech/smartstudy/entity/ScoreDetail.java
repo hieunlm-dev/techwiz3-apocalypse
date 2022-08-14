@@ -8,8 +8,9 @@ public class ScoreDetail {
     private float mark;
     private int semester;
     private int year;
+    private String type_test_student_email;
 
-    public ScoreDetail( String type_test, String subject_name, String student_email,float mark,int semester , int year) {
+    public ScoreDetail( String type_test, String subject_name, String student_email,float mark,int semester , int year,String type_test_student_email) {
 
         this.setType_test(type_test);
         this.setSubject_name(subject_name);
@@ -17,6 +18,7 @@ public class ScoreDetail {
         this.setMark(mark);
         this.setSemester(semester);
         this.setYear(year);
+        this.setType_test_student_email(type_test_student_email);
     }
 
     public ScoreDetail() {
@@ -70,5 +72,13 @@ public class ScoreDetail {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getType_test_student_email() {
+        return type_test_student_email;
+    }
+
+    public void setType_test_student_email(String type_test_student_email) {
+        this.type_test_student_email = type_test_student_email;
     }
 }

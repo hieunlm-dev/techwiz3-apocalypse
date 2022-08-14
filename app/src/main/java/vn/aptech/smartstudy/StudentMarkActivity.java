@@ -50,10 +50,17 @@ public class StudentMarkActivity extends AppCompatActivity {
     private List<String> types = new ArrayList<>();
     private List<ScoreDetail> addScores = new ArrayList<>();
     private List<EditText> edMarks = new ArrayList<EditText>();
-    private int semester =1;
-    private String selected_test;
-    private String subject;
+    private List<String> duplicatedScores = new ArrayList<>();
 
+    private int semester =1;
+    private String selected_test=null;
+    private String para_test;
+    private String subject;
+    private String selectedClass=null;
+    String midSem1 = "Middle semester test Sem 1".replaceAll(" ","").toLowerCase();
+    String finalSem1 = "Final semester test Sem 1".replaceAll(" ","").toLowerCase();
+    String midSem2 = "Middle semester test Sem 2".replaceAll(" ","").toLowerCase();
+    String finalSem2 = "Final semester test Sem 2".replaceAll(" ","").toLowerCase();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,9 @@ public class StudentMarkActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         subject = sharedPreferences.getString("subject","");
+
+
+
 
         rvStudentMark = findViewById(R.id.rvStudentMark);
         spFilterClass = findViewById(R.id.spFilterClass);
@@ -71,6 +81,7 @@ public class StudentMarkActivity extends AppCompatActivity {
 
         rvStudentMark.setAdapter(studentApdapter);
         rvStudentMark.setLayoutManager( new LinearLayoutManager(this));
+        fillStudentByClass("11A1");
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvStudentMark.addItemDecoration(itemDecoration);
 
@@ -90,11 +101,14 @@ public class StudentMarkActivity extends AppCompatActivity {
         spFilterClass.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String selectedClass = spFilterClass.getSelectedItem().toString();
-                if(users !=null){
-                    users.clear();
+                selectedClass = spFilterClass.getSelectedItem().toString();
+
+                if(selectedClass!=null){
+                    //fillStudentByClass(selectedClass);
+                    studentApdapter.notifyDataSetChanged();
                 }
-                fillStudentByClass(selectedClass);
+
+
             }
 
             @Override
@@ -113,6 +127,15 @@ public class StudentMarkActivity extends AppCompatActivity {
         spFilterType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                para_test =spFilterType.getSelectedItem().toString();
+                Toast.makeText(StudentMarkActivity.this, para_test, Toast.LENGTH_SHORT).show();
+                if(selected_test !=null){
+                    //fillStudentByClass(selectedClass);
+                    studentApdapter.notifyDataSetChanged();
+                    fecthScoreData();
+                }
+
+
                 semester = spFilterType.getSelectedItem().toString().contains("2") ? 2 : 1;
                 selected_test = spFilterType.getSelectedItem().toString();
 
@@ -132,6 +155,64 @@ public class StudentMarkActivity extends AppCompatActivity {
         });
 
     }
+
+    /*private void fecthScoreData(){
+        Log.i("",Integer.toString(users.size()));
+        users.forEach(x->{
+            FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+            DatabaseReference scoreRef = database.getReference("score_detail");
+            Toast.makeText(this, para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName(), Toast.LENGTH_SHORT).show();
+            Log.i("",para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName());
+            scoreRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                       ScoreDetail sd = snapshot.getValue(ScoreDetail.class);
+                        Toast.makeText(StudentMarkActivity.this, sd.getType_test_student_email()+"/", Toast.LENGTH_SHORT).show();
+                        Log.i("1 ",sd.getType_test_student_email());
+                        Log.i("1 ",midSem1+x.getStudentData().getFullName());
+                        Log.i("2 ",sd.getType_test_student_email());
+                        Log.i("2 ",midSem2+x.getStudentData().getFullName());
+                        Log.i("3 ",sd.getType_test_student_email());
+                        Log.i("3 ",finalSem1+x.getStudentData().getFullName());
+                        Log.i("4 ",sd.getType_test_student_email());
+                        Log.i("4 ",finalSem2+x.getStudentData().getFullName());
+                       if(sd.getType_test_student_email().equals(midSem1+x.getStudentData().getFullName())){
+                           Log.i("1* ",sd.getType_test_student_email());
+                           Log.i("1* ",midSem1+x.getStudentData().getFullName());
+                           users.remove(x);
+
+                       }
+                        if(sd.getType_test_student_email().equals(midSem2+x.getStudentData().getFullName())){
+                            Log.i("2* ",sd.getType_test_student_email());
+                            Log.i("2* ",midSem2+x.getStudentData().getFullName());
+                            users.remove(x);
+                        }
+                        if(sd.getType_test_student_email().equals(finalSem1+x.getStudentData().getFullName())){
+                            Log.i("3* ",sd.getType_test_student_email());
+                            Log.i("3* ",finalSem1+x.getStudentData().getFullName());
+                            users.remove(x);
+                        }
+                        if(sd.getType_test_student_email().equals(finalSem2+x.getStudentData().getFullName())){
+                            Log.i("4* ",sd.getType_test_student_email());
+                            Log.i("4* ",finalSem2+x.getStudentData().getFullName());
+                            users.remove(x);
+                        }
+                        studentApdapter.notifyDataSetChanged();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        });
+
+
+        Log.i("after score",Integer.toString(users.size()));
+
+    }*/
 
     private void addScore() {
         if(addScores != null){
@@ -157,6 +238,7 @@ public class StudentMarkActivity extends AppCompatActivity {
             public void onSuccess(Void unused) {
                 Toast.makeText(StudentMarkActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 edMarks.forEach(x->x.setText(""));
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -169,6 +251,9 @@ public class StudentMarkActivity extends AppCompatActivity {
     }
 
     private void fillStudentByClass(String selectedClass) {
+        Log.i("before clear",Integer.toString(users.size()));
+
+
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference studentRef = database.getReference("users");
         studentRef.orderByChild("studentData/className").equalTo(selectedClass).addValueEventListener(new ValueEventListener() {
@@ -178,8 +263,10 @@ public class StudentMarkActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
                     users.add(user);
+                    studentApdapter.notifyDataSetChanged();
                 }
-                studentApdapter.notifyDataSetChanged();
+                Log.i("after class" , Integer.toString(users.size()));
+
             }
 
             @Override
