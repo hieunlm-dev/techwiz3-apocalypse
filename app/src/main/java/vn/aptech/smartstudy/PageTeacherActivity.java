@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PageTeacherActivity extends AppCompatActivity {
     private Button btnLogout;
     private TextView tvWelcome;
-    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule, rltResource;
+    private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule,rltstudyResource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +28,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         rltMark = findViewById(R.id.rltMarksTeacher);
         rltRvClass = findViewById(R.id.rltRvClass);
         rltExamSchedule = findViewById(R.id.rltExamSchedule);
-        rltResource = findViewById(R.id.rltResourceTeacher);
+        rltstudyResource = findViewById(R.id.rltResourceTeacher);
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
@@ -68,7 +68,7 @@ public class PageTeacherActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-        rltResource.setOnClickListener(v->{
+        rltstudyResource.setOnClickListener(v->{
             Intent it = new Intent(PageTeacherActivity.this, CreateResourceActivity.class);
             startActivity(it);
         });
