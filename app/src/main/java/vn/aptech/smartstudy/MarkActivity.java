@@ -29,11 +29,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.io.UnsupportedEncodingException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import vn.aptech.smartstudy.entity.ScoreDetail;
 
@@ -107,6 +119,62 @@ public class MarkActivity extends AppCompatActivity {
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
 //        borderUi();
+    }
+
+    private void sendMail(String receiverEmail){
+        try {
+
+
+            String stringSenderEmail = "sluuthanh.demo.send@gmail.com";
+            String stringReceiverEmail = receiverEmail;
+            String stringPasswordSenderMail ="nppwzhwzwlapivlk";
+
+            String stringHost ="smtp.gmail.com";
+            String stringPort ="465";
+
+            Properties properties = System.getProperties();
+            properties.put("mail.smtp.host",stringHost);
+            properties.put("mail.smtp.port",stringPort);
+            properties.put("mail.smtp.ssl.enable","true");
+            properties.put("mail.smtp.auth","true");
+
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(stringSenderEmail,stringPasswordSenderMail);
+                }
+            });
+
+            MimeMessage mimeMessage = new MimeMessage(session);
+
+            mimeMessage.setFrom(new InternetAddress(stringSenderEmail,"Smart Study"));
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
+
+            mimeMessage.setSubject("Automail from Smart Study: Mark report");
+            mimeMessage.setText("Demo automail from android");
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Transport.send(mimeMessage);
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            thread.start();
+
+
+
+        }catch (AddressException e){
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     private void getStudentClass() {
