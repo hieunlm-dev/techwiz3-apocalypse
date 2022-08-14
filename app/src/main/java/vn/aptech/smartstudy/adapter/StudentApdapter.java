@@ -70,15 +70,19 @@ public class StudentApdapter extends RecyclerView.Adapter<StudentApdapter.Studen
 
         public ScoreDetail getScore(int semester,String selected_test,String subject_name){
             edMark = itemView.findViewById(R.id.edStudentMark);
-            ScoreDetail scoreDetail = new ScoreDetail();
-            scoreDetail.setMark(Float.parseFloat(edMark.getText().toString()));
-            scoreDetail.setStudent_email("("+tvStudentName.getText().toString().replaceAll(" ", "").toLowerCase()+")"+tvStudentEmail.getText().toString());
-            scoreDetail.setYear(Year.now().getValue());
-            scoreDetail.setSemester(semester);
-            scoreDetail.setType_test(selected_test);
-            scoreDetail.setSubject_name(subject_name);
+            if(!edMark.getText().toString().isEmpty()){
+                ScoreDetail scoreDetail = new ScoreDetail();
+                scoreDetail.setMark(Float.parseFloat(edMark.getText().toString()));
+                scoreDetail.setStudent_email("("+tvStudentName.getText().toString().replaceAll(" ", "").toLowerCase()+")"+tvStudentEmail.getText().toString());
+                scoreDetail.setYear(Year.now().getValue());
+                scoreDetail.setSemester(semester);
+                scoreDetail.setType_test(selected_test);
+                scoreDetail.setSubject_name(subject_name);
 
-            return scoreDetail;
+                return scoreDetail;
+            }else{
+                return null;
+            }
         }
     }
 
