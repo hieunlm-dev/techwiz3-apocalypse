@@ -40,7 +40,7 @@ public class ProgressActivity extends AppCompatActivity {
 
     private BarChart barChart;
     private PieChart pieChartSubject;
-    private BarDataSet barDataSet1, barDataSet2;
+    private BarDataSet barDataSet1, barDataSet2,barDataSet3,barDataSet4,barDataSet5;
     private PieDataSet pieDataSet;
     private ArrayList barEntries;
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
@@ -57,7 +57,12 @@ public class ProgressActivity extends AppCompatActivity {
     private List<ScoreDetail> geos= new ArrayList<ScoreDetail>();
     private List<ScoreDetail> pes= new ArrayList<ScoreDetail>();
     private String studentName;
-    private Float avgMath,avgPhysic,avgEng,avgChem,avgHis,avgBio,avgLite,avgCivic,avgGeo,avgPes;
+    private Float avgMath,avgPhysic,avgEng,avgBio,avgHis,avgChem,avgLite,avgCivic,avgGeo,avgPes;
+    private Float avgMath15,avgPhysic15,avgEng15,avgBio15,avgHis15,avgChem15,avgLite15,avgCivic15,avgGeo15,avgPes15;
+    private Float Math45,Physic45,Eng45,Bio45,His45,Chem45,Lite45,Civic45,Geo45,Pes45;
+    private Float MathMid,PhysicMid,EngMid,BioMid,HisMid,ChemMid,LiteMid,CivicMid,GeoMid,PesMid;
+    private Float MathFinal,PhysicFinal,EngFinal,BioFinal,HisFinal,ChemFinal,LiteFinal,CivicFinal,GeoFinal,PesFinal;
+
 
 
     @Override
@@ -65,7 +70,11 @@ public class ProgressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
         getStudentName();
-        avgMath=avgPhysic=avgEng=avgChem=avgHis=avgBio=avgLite=avgCivic=avgGeo=avgPes=0f;
+        avgMath=avgPhysic=avgEng=avgBio=avgHis=avgChem=avgLite=avgCivic=avgGeo=avgPes=0f;
+        avgMath15=avgPhysic15=avgEng15=avgBio15=avgHis15=avgChem15=avgLite15=avgCivic15=avgGeo15=avgPes15=0f;
+        Math45=Physic45=Eng45=Bio45=His45=Chem45=Lite45=Civic45=Geo45=Pes45=0f;
+        MathMid=PhysicMid=EngMid=BioMid=HisMid=ChemMid=LiteMid=CivicMid=GeoMid=PesMid=0f;
+        MathFinal=PhysicFinal=EngFinal=BioFinal=HisFinal=ChemFinal=LiteFinal=CivicFinal=GeoFinal=PesFinal=0f;
         barChart = findViewById(R.id.bar_chart_subject);
         pieChartSubject = findViewById(R.id.pie_chart_subject);
         getDataFromFirebase(1);
@@ -110,20 +119,74 @@ public class ProgressActivity extends AppCompatActivity {
 //        getDataFromFirebase(1);
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, avgMath));
-        barEntries.add(new BarEntry(2f, avgEng));
-        barEntries.add(new BarEntry(3f, avgBio));
-        barEntries.add(new BarEntry(4f, avgPhysic));
-        barEntries.add(new BarEntry(5f, avgHis));
-        barEntries.add(new BarEntry(6f, avgGeo));
-        barEntries.add(new BarEntry(7f, avgCivic));
-        barEntries.add(new BarEntry(8f, avgPes));
-        barEntries.add(new BarEntry(9f, avgLite));
-        barEntries.add(new BarEntry(10f, avgChem));
+        barEntries.add(new BarEntry(1f, Math45));
+        barEntries.add(new BarEntry(2f, Eng45));
+        barEntries.add(new BarEntry(3f, Bio45));
+        barEntries.add(new BarEntry(4f, Physic45));
+        barEntries.add(new BarEntry(5f, His45));
+        barEntries.add(new BarEntry(6f, Geo45));
+        barEntries.add(new BarEntry(7f, Civic45));
+        barEntries.add(new BarEntry(8f, Pes45));
+        barEntries.add(new BarEntry(9f, Lite45));
+        barEntries.add(new BarEntry(10f, Chem45));
         return barEntries;
     }
 
     private List<BarEntry> getBarEntriesOne() {
+        // creating a new array list
+        barEntries = new ArrayList<>();
+
+        // adding new entry to our array list with bar
+        // entry and passing x and y axis value to it.
+        barEntries.add(new BarEntry(1f, avgMath15));
+        barEntries.add(new BarEntry(2f, avgEng15));
+        barEntries.add(new BarEntry(3f, avgBio15));
+        barEntries.add(new BarEntry(4f, avgPhysic15));
+        barEntries.add(new BarEntry(5f, avgHis15));
+        barEntries.add(new BarEntry(6f, avgGeo15));
+        barEntries.add(new BarEntry(7f, avgCivic15));
+        barEntries.add(new BarEntry(8f, avgPes15));
+        barEntries.add(new BarEntry(9f, avgLite15));
+        barEntries.add(new BarEntry(10f, avgChem15));
+        return barEntries;
+    }
+    private List<BarEntry> getBarEntriesThree() {
+        // creating a new array list
+        barEntries = new ArrayList<>();
+
+        // adding new entry to our array list with bar
+        // entry and passing x and y axis value to it.
+        barEntries.add(new BarEntry(1f, MathMid));
+        barEntries.add(new BarEntry(2f, EngMid));
+        barEntries.add(new BarEntry(3f, BioMid));
+        barEntries.add(new BarEntry(4f, PhysicMid));
+        barEntries.add(new BarEntry(5f, HisMid));
+        barEntries.add(new BarEntry(6f, GeoMid));
+        barEntries.add(new BarEntry(7f, CivicMid));
+        barEntries.add(new BarEntry(8f, PesMid));
+        barEntries.add(new BarEntry(9f, LiteMid));
+        barEntries.add(new BarEntry(10f, ChemMid));
+        return barEntries;
+    }
+    private List<BarEntry> getBarEntriesFour() {
+        // creating a new array list
+        barEntries = new ArrayList<>();
+
+        // adding new entry to our array list with bar
+        // entry and passing x and y axis value to it.
+        barEntries.add(new BarEntry(1f, MathFinal));
+        barEntries.add(new BarEntry(2f, EngFinal));
+        barEntries.add(new BarEntry(3f, BioFinal));
+        barEntries.add(new BarEntry(4f, PhysicFinal));
+        barEntries.add(new BarEntry(5f, HisFinal));
+        barEntries.add(new BarEntry(6f, GeoFinal));
+        barEntries.add(new BarEntry(7f, CivicFinal));
+        barEntries.add(new BarEntry(8f, PesFinal));
+        barEntries.add(new BarEntry(9f, LiteFinal));
+        barEntries.add(new BarEntry(10f, ChemFinal));
+        return barEntries;
+    }
+    private List<BarEntry> getBarEntriesFive() {
         // creating a new array list
         barEntries = new ArrayList<>();
 
@@ -141,6 +204,7 @@ public class ProgressActivity extends AppCompatActivity {
         barEntries.add(new BarEntry(10f, avgChem));
         return barEntries;
     }
+
 
     private void getStudentName() {
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
@@ -182,56 +246,164 @@ public class ProgressActivity extends AppCompatActivity {
 
                 maths.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgMath += x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgMath15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Math45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            MathMid +=x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            MathFinal +=x.getMark();
+                        }
                     }
                 });
                 chems.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgChem += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgChem15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Chem45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                ChemMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                ChemFinal +=x.getMark();
+                        }
                     }
                 });
                 physics.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgPhysic += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgPhysic15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Physic45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                PhysicMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                PhysicFinal +=x.getMark();
+                        }
                     }
                 });
                 histories.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgHis += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgHis15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                His45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                HisMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                HisFinal +=x.getMark();
+                        }
                     }
                 });
                 englishes.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgEng += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgEng15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Eng45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                EngMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                EngFinal +=x.getMark();
+                        }
                     }
                 });
                 biologies.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgBio += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgBio15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Bio45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                BioMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                BioFinal +=x.getMark();
+                        }
                     }
                 });
                 literatures.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgLite += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgLite15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Lite45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                LiteMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                LiteFinal +=x.getMark();
+                        }
                     }
                 });
                 civics.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgCivic += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgCivic15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Civic45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                CivicMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                CivicFinal +=x.getMark();
+                        }
                     }
                 });
                 geos.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgGeo += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgGeo15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Geo45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                GeoMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                GeoFinal +=x.getMark();
+                        }
                     }
                 });
                 pes.forEach(x->{
                     if(x.getMark()>0) {
+                        String test_type= x.getType_test();
                         avgPes += x.getMark();
+                        switch (test_type){
+                            case "15 minutes test Sem 1":
+                                avgPes15+=x.getMark();
+                            case "45 minutes test Sem 1":
+                                Pes45 +=x.getMark();
+                            case "Middle semester test Sem 1":
+                                PesMid +=x.getMark();
+                            case "Final semester test Sem 1":
+                                PesFinal +=x.getMark();
+                        }
                     }
                 });
-
-
+                //average
                 avgMath = (avgMath/maths.size());
                 avgPes = (avgPes/pes.size());
                 avgGeo =avgGeo/geos.size();
@@ -242,6 +414,8 @@ public class ProgressActivity extends AppCompatActivity {
                 avgHis = avgHis/histories.size();
                 avgPhysic= avgPhysic/physics.size();
                 avgChem = avgChem/chems.size();
+                //15'
+                Log.i("msg mark math", avgMath.toString());
                 createChart();
 
             }
@@ -257,13 +431,19 @@ public class ProgressActivity extends AppCompatActivity {
 
     private void createChart() {
         String[] subjects = new String[]{"Math", "English", "Biology","Physics","History","Geography","Civic","P.E","Literature",
-                "Chemictry"};
-        barDataSet1 = new BarDataSet(getBarEntriesOne(),"Final");
-        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.purple_200));
-        barDataSet2 = new BarDataSet(getBarEntriesTwo(),"Avg");
-        barDataSet2.setColor(Color.BLUE);
+                "Chemistry"};
+        barDataSet1 = new BarDataSet(getBarEntriesOne(),"15'");
+        barDataSet1.setColor(Color.GREEN);
+        barDataSet2 = new BarDataSet(getBarEntriesTwo(),"45'");
+        barDataSet2.setColor(Color.YELLOW);
+        barDataSet3 = new BarDataSet(getBarEntriesThree(),"Mid-term");
+        barDataSet3.setColor(Color.MAGENTA);
+        barDataSet4 = new BarDataSet(getBarEntriesFour(),"Final");
+        barDataSet4.setColor(Color.RED);
+        barDataSet5 = new BarDataSet(getBarEntriesFive(),"Avg");
+        barDataSet5.setColor(Color.BLUE);
         // below line is to add bar data set to our bar data.
-        BarData data = new BarData(barDataSet1, barDataSet2);
+        BarData data = new BarData(barDataSet1, barDataSet2,barDataSet3,barDataSet4,barDataSet5);
 
         barChart.setData(data);
 
@@ -285,5 +465,6 @@ public class ProgressActivity extends AppCompatActivity {
         barChart.animate();
         barChart.groupBars(0, groupSpace, barSpace);
         barChart.invalidate();
+//        barChart.getDescription().setText("");
     }
 }
