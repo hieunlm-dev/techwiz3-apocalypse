@@ -1,6 +1,7 @@
 package vn.aptech.smartstudy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +59,7 @@ public class StudentMarkActivity extends AppCompatActivity {
     private String para_test;
     private String subject;
     private String selectedClass=null;
+    private String para_Class;
     String midSem1 = "Middle semester test Sem 1".replaceAll(" ","").toLowerCase();
     String finalSem1 = "Final semester test Sem 1".replaceAll(" ","").toLowerCase();
     String midSem2 = "Middle semester test Sem 2".replaceAll(" ","").toLowerCase();
@@ -81,7 +84,7 @@ public class StudentMarkActivity extends AppCompatActivity {
 
         rvStudentMark.setAdapter(studentApdapter);
         rvStudentMark.setLayoutManager( new LinearLayoutManager(this));
-        fillStudentByClass("11A1");
+
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvStudentMark.addItemDecoration(itemDecoration);
 
@@ -104,7 +107,10 @@ public class StudentMarkActivity extends AppCompatActivity {
                 selectedClass = spFilterClass.getSelectedItem().toString();
 
                 if(selectedClass!=null){
-                    //fillStudentByClass(selectedClass);
+                    if(users!=null){
+                        users.clear();
+                    }
+                    fillStudentByClass(selectedClass);
                     studentApdapter.notifyDataSetChanged();
                 }
 
@@ -120,7 +126,14 @@ public class StudentMarkActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addScore();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(StudentMarkActivity.this);
+                dialog.setTitle("Add Student score").setTitle("Do you want to save your change ?").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        addScore();
+                    }
+                }).setNegativeButton("Cancle",null).create().show();
+
             }
         });
 
@@ -130,9 +143,8 @@ public class StudentMarkActivity extends AppCompatActivity {
                 para_test =spFilterType.getSelectedItem().toString();
                 Toast.makeText(StudentMarkActivity.this, para_test, Toast.LENGTH_SHORT).show();
                 if(selected_test !=null){
-                    //fillStudentByClass(selectedClass);
-                    studentApdapter.notifyDataSetChanged();
-                    fecthScoreData();
+
+                   fillStudentByClass(selectedClass);
                 }
 
 
@@ -156,9 +168,13 @@ public class StudentMarkActivity extends AppCompatActivity {
 
     }
 
-    /*private void fecthScoreData(){
+    private void fecthScoreData(){
         Log.i("",Integer.toString(users.size()));
         users.forEach(x->{
+            final String COMPARE_STRING1 = midSem1+x.getStudentData().getFullName();
+            final String COMPARE_STRING2 = midSem2+x.getStudentData().getFullName();
+            final String COMPARE_STRING3 = finalSem1+x.getStudentData().getFullName();
+            final String COMPARE_STRING4 = finalSem2+x.getStudentData().getFullName();
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference scoreRef = database.getReference("score_detail");
             Toast.makeText(this, para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName(), Toast.LENGTH_SHORT).show();
@@ -166,39 +182,27 @@ public class StudentMarkActivity extends AppCompatActivity {
             scoreRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                       ScoreDetail sd = snapshot.getValue(ScoreDetail.class);
-                        Toast.makeText(StudentMarkActivity.this, sd.getType_test_student_email()+"/", Toast.LENGTH_SHORT).show();
-                        Log.i("1 ",sd.getType_test_student_email());
-                        Log.i("1 ",midSem1+x.getStudentData().getFullName());
-                        Log.i("2 ",sd.getType_test_student_email());
-                        Log.i("2 ",midSem2+x.getStudentData().getFullName());
-                        Log.i("3 ",sd.getType_test_student_email());
-                        Log.i("3 ",finalSem1+x.getStudentData().getFullName());
-                        Log.i("4 ",sd.getType_test_student_email());
-                        Log.i("4 ",finalSem2+x.getStudentData().getFullName());
-                       if(sd.getType_test_student_email().equals(midSem1+x.getStudentData().getFullName())){
-                           Log.i("1* ",sd.getType_test_student_email());
-                           Log.i("1* ",midSem1+x.getStudentData().getFullName());
-                           users.remove(x);
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        ScoreDetail sd = dataSnapshot.getValue(ScoreDetail.class);
+                        String s = sd.getType_test_student_email();
+                        Log.i("Score Detail",sd.getType_test_student_email());
+                        Log.i("midSem1",midSem1);
+                        Log.i("midSem2",midSem2);
+                        Log.i("finalSem1",finalSem1);
+                        Log.i("finalSem1",finalSem2);
 
-                       }
-                        if(sd.getType_test_student_email().equals(midSem2+x.getStudentData().getFullName())){
-                            Log.i("2* ",sd.getType_test_student_email());
-                            Log.i("2* ",midSem2+x.getStudentData().getFullName());
+                        Log.i("Compare",Boolean.toString(COMPARE_STRING3.equals(s)));
+
+                        if((para_test.replaceAll(" ","").toLowerCase().equals(midSem1)||(para_test.replaceAll(" ","").toLowerCase().equals(midSem2)||(para_test.replaceAll(" ","").toLowerCase().equals(finalSem1)||(para_test.replaceAll(" ","").toLowerCase().equals(finalSem2)))&&COMPARE_STRING3.equals(s)||COMPARE_STRING1.equals(s)||COMPARE_STRING2.equals(s)||COMPARE_STRING4.equals(s)))){
                             users.remove(x);
+                            studentApdapter.notifyDataSetChanged();
                         }
-                        if(sd.getType_test_student_email().equals(finalSem1+x.getStudentData().getFullName())){
-                            Log.i("3* ",sd.getType_test_student_email());
-                            Log.i("3* ",finalSem1+x.getStudentData().getFullName());
-                            users.remove(x);
-                        }
-                        if(sd.getType_test_student_email().equals(finalSem2+x.getStudentData().getFullName())){
-                            Log.i("4* ",sd.getType_test_student_email());
-                            Log.i("4* ",finalSem2+x.getStudentData().getFullName());
-                            users.remove(x);
-                        }
-                        studentApdapter.notifyDataSetChanged();
+                        //if(sd.getType_test_student_email())
+                    }
+                    if(users.size()==0){
+                        btnSave.setEnabled(false);
+                    }else{
+                        btnSave.setEnabled(true);
                     }
                 }
 
@@ -212,7 +216,7 @@ public class StudentMarkActivity extends AppCompatActivity {
 
         Log.i("after score",Integer.toString(users.size()));
 
-    }*/
+    }
 
     private void addScore() {
         if(addScores != null){
@@ -251,8 +255,11 @@ public class StudentMarkActivity extends AppCompatActivity {
     }
 
     private void fillStudentByClass(String selectedClass) {
-        Log.i("before clear",Integer.toString(users.size()));
 
+        Log.i("before clear",Integer.toString(users.size()));
+        if(users!=null){
+            users.clear();
+        }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference studentRef = database.getReference("users");
@@ -265,6 +272,7 @@ public class StudentMarkActivity extends AppCompatActivity {
                     users.add(user);
                     studentApdapter.notifyDataSetChanged();
                 }
+                fecthScoreData();
                 Log.i("after class" , Integer.toString(users.size()));
 
             }

@@ -47,6 +47,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import vn.aptech.smartstudy.entity.ScoreDetail;
+import vn.aptech.smartstudy.entity.User;
 
 public class MarkActivity extends AppCompatActivity {
 
@@ -77,6 +78,8 @@ public class MarkActivity extends AppCompatActivity {
     private TextView tvCivic15 ,tvCivic45,tvCivicMid , tvCivicFinal ,tvCivicAverage;
     private TextView tvGeo15 , tvGeo45,tvGeoMid , tvGeoFinal,tvGeoAverage;
     private TextView tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage;
+
+    private User user = new User();
 
     private String studentName ;
     private String studentClass ;
@@ -113,7 +116,7 @@ public class MarkActivity extends AppCompatActivity {
             subscribeTopics();
         });
         btnSendEmail.setOnClickListener(v->{
-
+            sendMail(sharedPreferences.getString("email",""));
         });
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -125,8 +128,6 @@ public class MarkActivity extends AppCompatActivity {
 
     private void sendMail(String receiverEmail){
         try {
-
-
             String stringSenderEmail = "sluuthanh.demo.send@gmail.com";
             String stringReceiverEmail = receiverEmail;
             String stringPasswordSenderMail ="nppwzhwzwlapivlk";
@@ -154,7 +155,7 @@ public class MarkActivity extends AppCompatActivity {
 
             mimeMessage.setSubject("Automail from Smart Study: Mark report");
             mimeMessage.setContent("<center><h2>Welcome to SmartStudy</h2></br>\n" +
-                    "    <img src=\"https://www.it-ausschreibung.de/storage/logos/logo_smart-study_11833.png\" width=\"10%\"></center>","text/html");
+                    "    <img src=\"https://www.it-ausschreibung.de/storage/logos/logo_smart-study_11833.png\" width=\"10%\"></center>"+"<br/>"+contentMail(),"text/html");
 
             Thread thread = new Thread(new Runnable() {
                 @Override
@@ -180,9 +181,192 @@ public class MarkActivity extends AppCompatActivity {
         }
     }
 
+    private String contentMail(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
+
+
+
+        String studentName = sharedPreferences.getString("student_name","");
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+
+        DatabaseReference userDetailRef = database.getReference("users");
+
+        userDetailRef.orderByChild("studentData/fullName").equalTo(studentName).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user.setEmail(snapshot.getValue(User.class).getEmail());
+                user.setFull_name(snapshot.getValue(User.class).getFull_name());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        StringBuilder sb = new StringBuilder();
+        sb.append("Mark report of student: "+user.getFull_name()+"\n");
+        if(maths.size() >0){
+            sb.append("Math: ");
+            if(!tvMath15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvMath15.getText().toString()+"\n");
+            }
+            if(!tvMath45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvMath45.getText().toString()+"\n");
+            }
+            if(!tvMathMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvMathMid.getText().toString()+"\n");
+            }
+            if(!tvMathFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvMathMid.getText().toString()+"\n");
+            }
+        }
+
+        if(chems.size() >0){
+            sb.append("Chemistry: ");
+            if(!tvChem15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvChem15.getText().toString()+"\n");
+            }
+            if(!tvChem45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvChem45.getText().toString()+"\n");
+            }
+            if(!tvChemMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvChemMid.getText().toString()+"\n");
+            }
+            if(!tvChemFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvChemFinal.getText().toString()+"\n");
+            }
+        }
+
+
+        if(englishes.size() >0){
+            sb.append("English: ");
+            if(!tvEng15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvEng15.getText().toString()+"\n");
+            }
+            if(!tvEng45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvEng45.getText().toString()+"\n");
+            }
+            if(!tvEngMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvEngMid.getText().toString()+"\n");
+            }
+            if(!tvEngFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvEngFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(physics.size() >0){
+            sb.append("Physics: ");
+            if(!tvPhysics15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvPhysics15.getText().toString()+"\n");
+            }
+            if(!tvPhysics45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvPhysics15.getText().toString()+"\n");
+            }
+            if(!tvPhysicsMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvPhysicsMid.getText().toString()+"\n");
+            }
+            if(!tvPhysicsFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvPhysicsFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(literatures.size() >0){
+            sb.append("Literature: ");
+            if(!tvLiterature15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvLiterature15.getText().toString()+"\n");
+            }
+            if(!tvLiterature45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvLiterature45.getText().toString()+"\n");
+            }
+            if(!tvLiteratureMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvLiteratureMid.getText().toString()+"\n");
+            }
+            if(!tvLiteratureFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvLiteratureFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(histories.size() >0){
+            sb.append("History: ");
+            if(!tvHistory15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvHistory15.getText().toString()+"\n");
+            }
+            if(!tvHistory45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvHistory45.getText().toString()+"\n");
+            }
+            if(!tvHistoryMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvHistoryMid.getText().toString()+"\n");
+            }
+            if(!tvHistoryFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvHistoryFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(geos.size() >0){
+            sb.append("Geography: ");
+            if(!tvGeo15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvGeo15.getText().toString()+"\n");
+            }
+            if(!tvGeo45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvGeo45.getText().toString()+"\n");
+            }
+            if(!tvGeoMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvGeoMid.getText().toString()+"\n");
+            }
+            if(!tvGeoFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvGeoFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(civics.size() >0){
+            sb.append("Civic Education: ");
+            if(!tvCivic15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvCivic15.getText().toString()+"\n");
+            }
+            if(!tvCivic45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvCivic45.getText().toString()+"\n");
+            }
+            if(!tvCivicMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvCivicMid.getText().toString()+"\n");
+            }
+            if(!tvCivicFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvCivicFinal.getText().toString()+"\n");
+            }
+        }
+
+        if(pes.size() >0){
+            sb.append("Physical Education: ");
+            if(!tvPE15.getText().toString().isEmpty()){
+                sb.append("15 minutes Test: "+tvPE15.getText().toString()+"\n");
+            }
+            if(!tvPE45.getText().toString().isEmpty()){
+                sb.append("45 minutes Test: "+tvPE45.getText().toString()+"\n");
+            }
+            if(!tvPEMid.getText().toString().isEmpty()){
+                sb.append("Middle semester Test: "+tvPEMid.getText().toString()+"\n");
+            }
+            if(!tvPEFinal.getText().toString().isEmpty()){
+                sb.append("Final semester Test: "+tvPEFinal.getText().toString()+"\n");
+            }
+        }
+
+        return sb.toString();
+    }
     private void getStudentClass() {
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         studentClass = sharedPreferences.getString("student_class","");
+
+
+        String studentName = sharedPreferences.getString("student_name","");
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+
+        DatabaseReference userDetailRef = database.getReference("users");
+
+
+
     }
 
     private void borderUi() {
