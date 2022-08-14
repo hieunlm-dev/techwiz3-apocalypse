@@ -113,7 +113,6 @@ public class ResourceActivity extends AppCompatActivity {
         });
     }
 
-
     private void fillSpinnerSubject (ArrayAdapter<String> adapter1){
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference myRef = database.getReference("subject");
@@ -132,4 +131,12 @@ public class ResourceActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+        // calling the action bar
+        //ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+
