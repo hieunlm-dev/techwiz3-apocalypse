@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.UnsupportedEncodingException;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,7 +53,8 @@ public class MarkActivity extends AppCompatActivity {
     private Spinner spinnerSemeter;
     private String[] semeters = new String[]{"Semester 1","Semester 2"};
     private List<ScoreDetail> allScores= new ArrayList<ScoreDetail>();
-    private Button btnSubcribe;
+    private Button btnSendEmail;
+    private ImageView imvSubcribe;
 
     private List<ScoreDetail> maths;
     private List<ScoreDetail> englishes= new ArrayList<ScoreDetail>();
@@ -110,8 +110,11 @@ public class MarkActivity extends AppCompatActivity {
 //        fillMathTv();
         getStudentClass();
 //        className =
-        btnSubcribe.setOnClickListener(v->{
+        imvSubcribe.setOnClickListener(v->{
             subscribeTopics();
+        });
+        btnSendEmail.setOnClickListener(v->{
+
         });
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -221,7 +224,7 @@ public class MarkActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Subscribed"+ studentClass+Year.now().getValue();
+                        String msg = "Subscribed "+ studentClass;
                         if (!task.isSuccessful()) {
                             msg = "Subscribe failed";
                         }
@@ -234,8 +237,7 @@ public class MarkActivity extends AppCompatActivity {
     private void getDataFromFirebase(int selectedCount) {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference scoreDetailRef = database.getReference("score_detail");
-
-        scoreDetailRef.orderByChild("student_email").equalTo(studentName).addValueEventListener(new ValueEventListener() {
+        scoreDetailRef.orderByChild("student_email").equalTo(studentName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -736,7 +738,6 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     peFinalDetail.forEach(x ->tvPEFinal.setText(Float.toString(x.getMark())));
                 }
-
             }
 
             @Override
@@ -744,6 +745,18 @@ public class MarkActivity extends AppCompatActivity {
 
             }
         });
+//        scoreDetailRef.orderByChild("student_email").equalTo(studentName).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 
     private void setInvi(){
@@ -974,7 +987,8 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void initUi() {
-        btnSubcribe = findViewById(R.id.btnRegistReceiveMark);
+        imvSubcribe = findViewById(R.id.imvSubcribe);
+        btnSendEmail = findViewById(R.id.btnSendEmail);
         spinnerSemeter = findViewById(R.id.spinnerSemeter);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, semeters);
         spinnerSemeter.setAdapter(adapter);

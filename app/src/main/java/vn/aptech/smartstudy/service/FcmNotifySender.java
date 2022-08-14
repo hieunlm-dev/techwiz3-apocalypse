@@ -53,7 +53,7 @@ public class FcmNotifySender {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, BASE_URL, mainObj, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-
+                    Toast.makeText(mContext, "Push Notification Success", Toast.LENGTH_SHORT).show();
                 }
             }, new Response.ErrorListener() {
                 @Override

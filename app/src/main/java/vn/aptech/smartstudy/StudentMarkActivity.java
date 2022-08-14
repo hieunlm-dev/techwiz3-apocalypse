@@ -35,13 +35,14 @@ import vn.aptech.smartstudy.entity.ClassName;
 import vn.aptech.smartstudy.entity.ScoreDetail;
 import vn.aptech.smartstudy.entity.TestType;
 import vn.aptech.smartstudy.entity.User;
+import vn.aptech.smartstudy.service.FcmNotifySender;
 
 public class StudentMarkActivity extends AppCompatActivity {
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
 
     private RecyclerView rvStudentMark;
     private Spinner spFilterClass , spFilterType;
-    private Button btnSave;
+    private Button btnSave, btnNotify;
     private EditText edMark ;
     private StudentApdapter studentApdapter;
     private List<User> users = new ArrayList<>();
@@ -65,7 +66,7 @@ public class StudentMarkActivity extends AppCompatActivity {
         spFilterClass = findViewById(R.id.spFilterClass);
         spFilterType  = findViewById(R.id.spFilterTestType);
         btnSave = findViewById(R.id.btnAddMark);
-
+        btnNotify = findViewById(R.id.btnNotiMarks);
         studentApdapter = new StudentApdapter(users,this);
 
         rvStudentMark.setAdapter(studentApdapter);
@@ -122,6 +123,12 @@ public class StudentMarkActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
+        });
+        btnNotify.setOnClickListener(v->{
+            String topic = spFilterClass.getSelectedItem().toString();
+            String message="Update "+subject+"'s mark of "+topic;
+            FcmNotifySender notifySender = new FcmNotifySender("/topics/"+topic,"Marks Notification",message, getApplicationContext(), this);
+            notifySender.sendNotifycation();
         });
 
     }
