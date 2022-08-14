@@ -32,12 +32,14 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView123"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    android:scaleType="fitCenter"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/scores" />
+                    app:srcCompat="@mipmap/scores" />
+
                 <TextView
                     android:id="@+id/textLabel13"
                     android:layout_width="wrap_content"
@@ -62,7 +64,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/growth" />
+                    app:srcCompat="@mipmap/growth" />
 
 
                 <TextView
@@ -95,7 +97,7 @@
                     android:layout_height="53dp"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/presentation" />
+                    app:srcCompat="@mipmap/presentation" />
 
                 <TextView
                     android:id="@+id/textLabel"
@@ -121,7 +123,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/revision"
+                    app:srcCompat="@mipmap/revision"
 
                     />
                 <TextView
@@ -156,7 +158,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/helpline" />
+                    app:srcCompat="@mipmap/helpline" />
 
                 <TextView
                     android:id="@+id/textLa1"
@@ -182,7 +184,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/feedback" />
+                    app:srcCompat="@mipmap/feedback" />
 
                 <TextView
                     android:id="@+id/textFeedback"
@@ -218,7 +220,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/contact" />
+                    app:srcCompat="@mipmap/contact" />
 
                 <TextView
                     android:id="@+id/textContact"
