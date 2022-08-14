@@ -68,9 +68,12 @@ public class PageTeacherActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-        rltstudyResource.setOnClickListener(v->{
-            Intent it = new Intent(PageTeacherActivity.this, CreateResourceActivity.class);
-            startActivity(it);
+        rltstudyResource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(PageTeacherActivity.this,CreateResourceActivity.class);
+                startActivity(it);
+            }
         });
     }
 }

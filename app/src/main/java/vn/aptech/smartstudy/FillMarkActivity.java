@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -146,10 +147,15 @@ public class FillMarkActivity extends AppCompatActivity {
     }
 
     private void addNewScore() {
-        ScoreDetail scoreDetail = new ScoreDetail(count+1,test_type,subject,email,Float.parseFloat(edMark.getText().toString()));
+        int year = Year.now().getValue();
+        int semester = 1;
+        if(test_type.contains("2")){
+            semester=2;
+        }
+        ScoreDetail scoreDetail = new ScoreDetail(count+1,test_type,subject,email,Float.parseFloat(edMark.getText().toString()),semester,year);
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
-        DatabaseReference scoreRef = database.getReference("score_detail/"+Integer.toString(count+1));
-        scoreRef.setValue(scoreDetail).addOnSuccessListener(new OnSuccessListener<Void>() {
+        DatabaseReference scoreRef = database.getReference("score_detail");
+        scoreRef.push().setValue(scoreDetail).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(FillMarkActivity.this, "Success", Toast.LENGTH_SHORT).show();

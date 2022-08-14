@@ -1,6 +1,8 @@
 package vn.aptech.smartstudy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,13 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
         final Resource resource = data.get(position);
 
         holder.dataBind(resource);
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(resource.getUrl()));
+                mContext.startActivity(browserIntent);
+            }
+        });
     }
 
     @Override
@@ -53,6 +62,7 @@ public class ResourceAdapter extends RecyclerView.Adapter<ResourceAdapter.Resour
             tvContent = itemView.findViewById(R.id.tvResourceContent);
             tvTeacherName = itemView.findViewById(R.id.tvTeacherName);
             tvSubject = itemView.findViewById(R.id.tvSubjectName);
+            layout = itemView.findViewById(R.id.resource_item);
         }
         public void dataBind(Resource resource){
             tvContent.setText(resource.getContent());
