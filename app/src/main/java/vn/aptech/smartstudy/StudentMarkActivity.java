@@ -127,19 +127,25 @@ public class StudentMarkActivity extends AppCompatActivity {
     }
 
     private void addScore() {
-
+        if(addScores != null){
+            addScores.clear();
+        }
         for(int i =0 ; i<rvStudentMark.getChildCount();i++){
             StudentApdapter.StudentHolder holder = (StudentApdapter.StudentHolder) rvStudentMark.findViewHolderForAdapterPosition(i);
-            if(holder!=null){
+            edMark = holder.itemView.findViewById(R.id.edStudentMark);
+            if(holder!=null && edMark.getText().toString()!=null){
                 addScores.add(holder.getScore(semester,selected_test,subject));
                 edMark = holder.itemView.findViewById(R.id.edStudentMark);
                 edMarks.add(edMark);
             }
 
         }
-        FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
-        DatabaseReference scoreRef = database.getReference("score_detail");
-        addScores.forEach(x->scoreRef.push().setValue(x).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+        addScores.forEach(x->
+        {
+            FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+            DatabaseReference scoreRef = database.getReference("score_detail");
+            scoreRef.push().setValue(x).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(StudentMarkActivity.this, "Success", Toast.LENGTH_SHORT).show();
@@ -151,7 +157,8 @@ public class StudentMarkActivity extends AppCompatActivity {
                 Toast.makeText(StudentMarkActivity.this, "Failure", Toast.LENGTH_SHORT).show();
                 edMarks.forEach(x->x.setText(""));
             }
-        }));
+        });
+        });
     }
 
     private void fillStudentByClass(String selectedClass) {

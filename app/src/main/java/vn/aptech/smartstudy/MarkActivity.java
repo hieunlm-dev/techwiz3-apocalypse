@@ -107,7 +107,7 @@ public class MarkActivity extends AppCompatActivity {
         initPETv();
 
         
-        fillMathTv();
+        //fillMathTv();
         getStudentClass();
 //        className =
         btnSubcribe.setOnClickListener(v->{
