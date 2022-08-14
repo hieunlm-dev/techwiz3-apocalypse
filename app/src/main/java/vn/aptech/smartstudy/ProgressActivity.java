@@ -181,34 +181,54 @@ public class ProgressActivity extends AppCompatActivity {
                 pes = allScores.stream().filter(x->x.getSubject_name().equals("P.E")).collect(Collectors.toList());
 
                 maths.forEach(x->{
-                    avgMath+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgMath += x.getMark();
+                    }
                 });
                 chems.forEach(x->{
-                    avgChem+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgChem += x.getMark();
+                    }
                 });
                 physics.forEach(x->{
-                    avgPhysic+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgPhysic += x.getMark();
+                    }
                 });
                 histories.forEach(x->{
-                    avgHis+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgHis += x.getMark();
+                    }
                 });
                 englishes.forEach(x->{
-                    avgEng+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgEng += x.getMark();
+                    }
                 });
                 biologies.forEach(x->{
-                    avgBio+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgBio += x.getMark();
+                    }
                 });
                 literatures.forEach(x->{
-                    avgLite+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgLite += x.getMark();
+                    }
                 });
                 civics.forEach(x->{
-                    avgCivic+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgCivic += x.getMark();
+                    }
                 });
                 geos.forEach(x->{
-                    avgGeo+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgGeo += x.getMark();
+                    }
                 });
                 pes.forEach(x->{
-                    avgPes+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgPes += x.getMark();
+                    }
                 });
 
 
