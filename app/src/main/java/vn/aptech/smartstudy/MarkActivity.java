@@ -30,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,6 +91,7 @@ public class MarkActivity extends AppCompatActivity {
         initGeoTv();
         initPETv();
 
+        borderUi();
 
 
 
@@ -103,6 +105,30 @@ public class MarkActivity extends AppCompatActivity {
 
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void borderUi() {
+        List<TextView> listMark = Arrays.asList(
+        tvMath15 , tvMath45 , tvMathMid ,tvMathFinal ,tvMathAverage,
+        tvEng15 , tvEng45 , tvEngMid , tvEngFinal,tvEngAverage,
+        tvChem15 , tvChem45 , tvChemMid , tvChemFinal,tvChemAverage,
+        tvPhysics15 , tvPhysics45,tvPhysicsMid , tvPhysicsFinal,tvPhysicsAverage,
+        tvHistory15 , tvHistory45,tvHistoryMid , tvHistoryFinal,tvHistoryAverage,
+        tvBiology15 , tvBiology45,tvBiologyMid , tvBiologyFinal,tvBiologyAverage,
+        tvLiterature15 , tvLiterature45 , tvLiteratureMid , tvLiteratureFinal,tvLiteratureAverage,
+        tvCivic15 ,tvCivic45,tvCivicMid , tvCivicFinal ,tvCivicAverage,
+        tvGeo15 , tvGeo45,tvGeoMid , tvGeoFinal,tvGeoAverage,
+        tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage
+        );
+        for (TextView tv:listMark) {
+            if(tv.getText().toString()==""){
+                tv.setText("");
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
+        tvPhysics45.setVisibility(View.VISIBLE);
+        tvPhysics45.setText("test");
+
     }
 
     @Override

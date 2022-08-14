@@ -5,103 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CreateExamScheduleActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Select class:"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Spinner
-        android:id="@+id/spClass"
+    tools:context=".CreateExamScheduleActivity"
+    >
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp" />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Select class:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Input content:"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <EditText
-        android:id="@+id/edContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:hint="Input mark:"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Select type test:"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/spClass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp" />
 
-    <Spinner
-        android:id="@+id/spTypeTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Input content:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:hint="Input mark:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Select type test:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spTypeTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Select time:"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Select time:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-    <EditText
-        android:id="@+id/edDate"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:hint="Input date:"/>
+            <EditText
+                android:id="@+id/edDate"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                android:hint="Input date:"/>
 
-    <EditText
-        android:id="@+id/edHour"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+            <EditText
+                android:id="@+id/edHour"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
 
-        android:layout_marginTop="40dp"
-        android:hint="Input hour:"/>
-    </LinearLayout>
+                android:layout_marginTop="40dp"
+                android:hint="Input hour:"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnInsertExam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Insert exam"/>
+        <Button
+            android:id="@+id/btnInsertExam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Insert exam"/>
+    </ScrollView>
+
 
 </LinearLayout>

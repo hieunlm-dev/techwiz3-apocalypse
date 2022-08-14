@@ -71,6 +71,7 @@ public class PageStudentActivity extends AppCompatActivity {
             editor.commit();
             Intent it = new Intent(this, MainActivity.class);
             startActivity(it);
+            finishAffinity();
         });
         btnRegisToken.setOnClickListener(v->{
             Intent it = new Intent(this, ReceiveMessageActivity.class);

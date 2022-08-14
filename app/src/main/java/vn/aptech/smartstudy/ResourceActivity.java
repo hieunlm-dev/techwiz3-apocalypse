@@ -73,7 +73,23 @@ public class ResourceActivity extends AppCompatActivity {
 
        fecthResources(adapter);
        fillSpinnerSubject(adapter1);
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
 
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    // this event will enable the back
+    // function to the button on press
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void fecthResources(ResourceAdapter adapter){
@@ -97,23 +113,7 @@ public class ResourceActivity extends AppCompatActivity {
         });
     }
 
-        // calling the action bar
-        ActionBar actionBar = getSupportActionBar();
 
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-
-    // this event will enable the back
-    // function to the button on press
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     private void fillSpinnerSubject (ArrayAdapter<String> adapter1){
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference myRef = database.getReference("subject");
