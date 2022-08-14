@@ -119,16 +119,16 @@ public class ProgressActivity extends AppCompatActivity {
 //        getDataFromFirebase(1);
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, Math45));
-        barEntries.add(new BarEntry(2f, Eng45));
-        barEntries.add(new BarEntry(3f, Bio45));
-        barEntries.add(new BarEntry(4f, Physic45));
-        barEntries.add(new BarEntry(5f, His45));
-        barEntries.add(new BarEntry(6f, Geo45));
-        barEntries.add(new BarEntry(7f, Civic45));
-        barEntries.add(new BarEntry(8f, Pes45));
-        barEntries.add(new BarEntry(9f, Lite45));
-        barEntries.add(new BarEntry(10f, Chem45));
+        barEntries.add(new BarEntry(1f, Math45/2));
+        barEntries.add(new BarEntry(2f, Eng45/2));
+        barEntries.add(new BarEntry(3f, Bio45/2));
+        barEntries.add(new BarEntry(4f, Physic45/2));
+        barEntries.add(new BarEntry(5f, His45/2));
+        barEntries.add(new BarEntry(6f, Geo45/2));
+        barEntries.add(new BarEntry(7f, Civic45/2));
+        barEntries.add(new BarEntry(8f, Pes45/2));
+        barEntries.add(new BarEntry(9f, Lite45/2));
+        barEntries.add(new BarEntry(10f, Chem45/2));
         return barEntries;
     }
 
@@ -138,16 +138,16 @@ public class ProgressActivity extends AppCompatActivity {
 
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
-        barEntries.add(new BarEntry(1f, avgMath15));
-        barEntries.add(new BarEntry(2f, avgEng15));
-        barEntries.add(new BarEntry(3f, avgBio15));
-        barEntries.add(new BarEntry(4f, avgPhysic15));
-        barEntries.add(new BarEntry(5f, avgHis15));
-        barEntries.add(new BarEntry(6f, avgGeo15));
-        barEntries.add(new BarEntry(7f, avgCivic15));
-        barEntries.add(new BarEntry(8f, avgPes15));
-        barEntries.add(new BarEntry(9f, avgLite15));
-        barEntries.add(new BarEntry(10f, avgChem15));
+        barEntries.add(new BarEntry(1f, avgMath15/2));
+        barEntries.add(new BarEntry(2f, avgEng15/2));
+        barEntries.add(new BarEntry(3f, avgBio15/2));
+        barEntries.add(new BarEntry(4f, avgPhysic15/2));
+        barEntries.add(new BarEntry(5f, avgHis15/2));
+        barEntries.add(new BarEntry(6f, avgGeo15/2));
+        barEntries.add(new BarEntry(7f, avgCivic15/2));
+        barEntries.add(new BarEntry(8f, avgPes15/2));
+        barEntries.add(new BarEntry(9f, avgLite15/2));
+        barEntries.add(new BarEntry(10f, avgChem15/2));
         return barEntries;
     }
     private List<BarEntry> getBarEntriesThree() {
@@ -253,9 +253,9 @@ public class ProgressActivity extends AppCompatActivity {
                         }else if(test_type.equals("45 minutes test Sem 1")){
                             Math45 +=x.getMark();
                         }else if(test_type.equals("Middle semester test Sem 1")){
-                            MathMid +=x.getMark();
+                            MathMid =x.getMark();
                         }else if(test_type.equals("Final semester test Sem 1")){
-                            MathFinal +=x.getMark();
+                            MathFinal =x.getMark();
                         }
                     }
                 });
@@ -263,15 +263,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgChem += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgChem15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Chem45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                ChemMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                ChemFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgChem15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Chem45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            ChemMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            ChemFinal =x.getMark();
                         }
                     }
                 });
@@ -279,15 +278,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgPhysic += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgPhysic15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Physic45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                PhysicMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                PhysicFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgPhysic15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Physic45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            PhysicMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            PhysicFinal =x.getMark();
                         }
                     }
                 });
@@ -295,15 +293,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgHis += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgHis15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                His45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                HisMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                HisFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgHis15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            His45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            HisMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            HisFinal =x.getMark();
                         }
                     }
                 });
@@ -311,15 +308,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgEng += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgEng15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Eng45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                EngMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                EngFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgEng15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Eng45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            EngMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            EngFinal =x.getMark();
                         }
                     }
                 });
@@ -327,15 +323,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgBio += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgBio15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Bio45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                BioMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                BioFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgBio15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Bio45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            BioMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            BioFinal =x.getMark();
                         }
                     }
                 });
@@ -343,15 +338,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgLite += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgLite15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Lite45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                LiteMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                LiteFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgLite15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Lite45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            LiteMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            LiteFinal =x.getMark();
                         }
                     }
                 });
@@ -359,15 +353,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgCivic += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgCivic15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Civic45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                CivicMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                CivicFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgCivic15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Civic45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            CivicMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            CivicFinal =x.getMark();
                         }
                     }
                 });
@@ -375,15 +368,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgGeo += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgGeo15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Geo45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                GeoMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                GeoFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgGeo15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Geo45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            GeoMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            GeoFinal =x.getMark();
                         }
                     }
                 });
@@ -391,15 +383,14 @@ public class ProgressActivity extends AppCompatActivity {
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
                         avgPes += x.getMark();
-                        switch (test_type){
-                            case "15 minutes test Sem 1":
-                                avgPes15+=x.getMark();
-                            case "45 minutes test Sem 1":
-                                Pes45 +=x.getMark();
-                            case "Middle semester test Sem 1":
-                                PesMid +=x.getMark();
-                            case "Final semester test Sem 1":
-                                PesFinal +=x.getMark();
+                        if(test_type.equals("15 minutes test Sem 1")){
+                            avgPes15+=x.getMark();
+                        }else if(test_type.equals("45 minutes test Sem 1")){
+                            Pes45 +=x.getMark();
+                        }else if(test_type.equals("Middle semester test Sem 1")){
+                            PesMid =x.getMark();
+                        }else if(test_type.equals("Final semester test Sem 1")){
+                            PesFinal =x.getMark();
                         }
                     }
                 });
@@ -455,12 +446,14 @@ public class ProgressActivity extends AppCompatActivity {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1);
         xAxis.setGranularityEnabled(true);
+        xAxis.setLabelCount(2);
+//        xAxis.setAxisMinimum(2.5f);
 
         barChart.setDragEnabled(true);
         barChart.setVisibleXRangeMaximum(3);
         float barSpace = 0.1f;
         float groupSpace = 0.5f;
-        data.setBarWidth(0.15f);
+        data.setBarWidth(0.2f);
         barChart.getXAxis().setAxisMinimum(0);
         barChart.animate();
         barChart.groupBars(0, groupSpace, barSpace);

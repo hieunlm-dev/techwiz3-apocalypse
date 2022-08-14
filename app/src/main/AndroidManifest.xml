@@ -22,13 +22,16 @@
             android:exported="false" />
         <activity
             android:name=".StudentMarkActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Fill Marks"/>
         <activity
             android:name=".ProgressActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Academic Progress" />
         <activity
             android:name=".CreateExamScheduleActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Create Exam Schedule"/>
         <activity
             android:name=".ReceiveMessageActivity"
             android:exported="false" />
@@ -38,13 +41,16 @@
             android:noHistory="true" />
         <activity
             android:name=".ClassActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Revision Classes"/>
         <activity
             android:name=".CreateResourceActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Create Resource"/>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Register"/>
         <activity
             android:name=".CreateReviewClassActivity"
             android:exported="false" />
@@ -54,7 +60,8 @@
             android:label="Student Mark" />
         <activity
             android:name=".HelplineActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Helpline"/>
         <activity
             android:name=".PageParentActivity"
             android:exported="false" />
@@ -66,10 +73,12 @@
             android:exported="false" />
         <activity
             android:name=".FeedbackActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Feedback"/>
         <activity
             android:name=".ContactActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Contact"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -92,7 +101,8 @@
         <activity
             android:name=".SignupActivity"
             android:exported="false"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:label="Sign Up"/>
 
         <service
             android:name=".service.FirebaseMessageService"
