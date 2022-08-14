@@ -21,6 +21,9 @@
             android:name=".NotifycationActivity"
             android:exported="false" />
         <activity
+            android:name=".StudentMarkActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProgressActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,8 @@
             android:exported="false" />
         <activity
             android:name=".MarkActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Student Mark" />
         <activity
             android:name=".HelplineActivity"
             android:exported="false" />

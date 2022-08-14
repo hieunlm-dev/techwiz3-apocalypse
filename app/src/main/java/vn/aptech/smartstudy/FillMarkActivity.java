@@ -152,7 +152,7 @@ public class FillMarkActivity extends AppCompatActivity {
         if(test_type.contains("2")){
             semester=2;
         }
-        ScoreDetail scoreDetail = new ScoreDetail(count+1,test_type,subject,email,Float.parseFloat(edMark.getText().toString()),semester,year);
+        ScoreDetail scoreDetail = new ScoreDetail(test_type,subject,email,Float.parseFloat(edMark.getText().toString()),semester,year);
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
         DatabaseReference scoreRef = database.getReference("score_detail");
         scoreRef.push().setValue(scoreDetail).addOnSuccessListener(new OnSuccessListener<Void>() {

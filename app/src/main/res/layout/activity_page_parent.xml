@@ -30,13 +30,13 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/roundimageview"
                     android:id="@+id/imageView123"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/scores" />
 
                 <TextView
                     android:id="@+id/textLabel13"
@@ -56,14 +56,13 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/roundimageview"
                     android:id="@+id/imageView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
-
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/helpline" />
                 <TextView
                     android:id="@+id/textLabel12"
                     android:layout_width="wrap_content"
@@ -90,13 +89,13 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/roundimageview"
                     android:id="@+id/imageFeedback"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/feedback" />
 
                 <TextView
                     android:id="@+id/textFeedback"
@@ -116,13 +115,13 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/roundimageview"
                     android:id="@+id/imageContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/contact" />
 
                 <TextView
                     android:id="@+id/textContact"

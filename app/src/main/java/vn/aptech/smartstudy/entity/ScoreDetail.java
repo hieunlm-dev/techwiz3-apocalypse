@@ -1,7 +1,7 @@
 package vn.aptech.smartstudy.entity;
 
 public class ScoreDetail {
-    private int id;
+
     private String type_test;
     private String subject_name;
     private String student_email;
@@ -9,8 +9,8 @@ public class ScoreDetail {
     private int semester;
     private int year;
 
-    public ScoreDetail(int id, String type_test, String subject_name, String student_email,float mark,int semester , int year) {
-        this.setId(id);
+    public ScoreDetail( String type_test, String subject_name, String student_email,float mark,int semester , int year) {
+
         this.setType_test(type_test);
         this.setSubject_name(subject_name);
         this.setStudent_email(student_email);
@@ -22,13 +22,7 @@ public class ScoreDetail {
     public ScoreDetail() {
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getType_test() {
         return type_test;
