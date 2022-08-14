@@ -52,7 +52,7 @@ public class PageTeacherActivity extends AppCompatActivity {
             startActivity(it);
         });
         rltMark.setOnClickListener(v->{
-            Intent it = new Intent(this, ClassActivity.class);
+            Intent it = new Intent(this, StudentMarkActivity.class);
             startActivity(it);
         });
         rltRvClass.setOnClickListener(new View.OnClickListener() {

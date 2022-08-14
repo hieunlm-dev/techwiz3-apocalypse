@@ -75,10 +75,10 @@ public class MarkActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         studentName = sharedPreferences.getString("student_name","");
-        getDataFromFirebase(selectedCount);
+        //getDataFromFirebase(selectedCount);
         //Toast.makeText(this, studentName, Toast.LENGTH_SHORT).show();
         Log.i("data",studentName);
-        fillData();
+        //fillData();
         initUi();
         initMathTv();
         initEngTv();
@@ -96,7 +96,7 @@ public class MarkActivity extends AppCompatActivity {
 
 
         
-        fillMathTv();
+        //fillMathTv();
         btnSubcribe.setOnClickListener(v->{
             subscribeTopics();
         });
@@ -909,18 +909,40 @@ public class MarkActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedSem = spinnerSemeter.getSelectedItem().toString();
                 selectedCount = selectedSem.contains("2")?2:1;
-                Toast.makeText(MarkActivity.this, Integer.toString(selectedCount), Toast.LENGTH_SHORT).show();
-                allScores.clear();
-                maths.clear();
-                englishes.clear();
-                chems.clear();
-                physics.clear();
-                literatures.clear();
-                histories.clear();
-                geos.clear();
-                civics.clear();
-                pes.clear();
-                biologies.clear();
+                //Toast.makeText(MarkActivity.this, Integer.toString(selectedCount), Toast.LENGTH_SHORT).show();
+                if(allScores.size()>0){
+                    allScores.clear();
+                }
+                if(maths != null){
+                    maths.clear();
+                }
+                if(englishes != null){
+                    englishes.clear();
+                }
+                if(chems != null){
+                    chems.clear();
+                }
+                if(physics != null){
+                    physics.clear();
+                }
+                if(literatures!= null){
+                    literatures.clear();
+                }
+                if(histories!= null){
+                    histories.clear();
+                }
+                if(geos!= null){
+                    geos.clear();
+                }
+                if(civics!= null){
+                    civics.clear();
+                }
+                if(pes!= null){
+                    pes.clear();
+                }
+                if(biologies!= null){
+                    biologies.clear();
+                }
                 setInvi();
                 getDataFromFirebase(selectedCount);
             }
