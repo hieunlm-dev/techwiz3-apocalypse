@@ -65,9 +65,6 @@
             android:name=".PageStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".NavigateActivity"
-            android:exported="false" />
-        <activity
             android:name=".FeedbackActivity"
             android:exported="false" />
         <activity

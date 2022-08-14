@@ -36,7 +36,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/scores" />
+                    app:srcCompat="@mipmap/scores" />
 
                 <TextView
                     android:id="@+id/textLabel13"
@@ -62,7 +62,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/helpline" />
+                    app:srcCompat="@mipmap/helpline" />
                 <TextView
                     android:id="@+id/textLabel12"
                     android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/feedback" />
+                    app:srcCompat="@mipmap/feedback" />
 
                 <TextView
                     android:id="@+id/textFeedback"
@@ -121,7 +121,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     app:shapeAppearanceOverlay="@style/roundimageview"
-                    app:srcCompat="@drawable/contact" />
+                    app:srcCompat="@mipmap/contact" />
 
                 <TextView
                     android:id="@+id/textContact"
