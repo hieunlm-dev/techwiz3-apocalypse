@@ -48,6 +48,7 @@ public class PageParentActivity extends AppCompatActivity {
             editor.commit();
             Intent it = new Intent(this, MainActivity.class);
             startActivity(it);
+            finishAffinity();
         });
         rltMark.setOnClickListener(v->{
             Intent it = new Intent(this, MarkActivity.class);

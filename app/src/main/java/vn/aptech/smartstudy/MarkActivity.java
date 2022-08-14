@@ -30,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -93,6 +94,7 @@ public class MarkActivity extends AppCompatActivity {
 
 
 
+
         
         fillMathTv();
         btnSubcribe.setOnClickListener(v->{
@@ -103,6 +105,31 @@ public class MarkActivity extends AppCompatActivity {
 
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
+//        borderUi();
+    }
+
+    private void borderUi() {
+        List<TextView> listMark = Arrays.asList(
+        tvMath15 , tvMath45 , tvMathMid ,tvMathFinal ,tvMathAverage,
+        tvEng15 , tvEng45 , tvEngMid , tvEngFinal,tvEngAverage,
+        tvChem15 , tvChem45 , tvChemMid , tvChemFinal,tvChemAverage,
+        tvPhysics15 , tvPhysics45,tvPhysicsMid , tvPhysicsFinal,tvPhysicsAverage,
+        tvHistory15 , tvHistory45,tvHistoryMid , tvHistoryFinal,tvHistoryAverage,
+        tvBiology15 , tvBiology45,tvBiologyMid , tvBiologyFinal,tvBiologyAverage,
+        tvLiterature15 , tvLiterature45 , tvLiteratureMid , tvLiteratureFinal,tvLiteratureAverage,
+        tvCivic15 ,tvCivic45,tvCivicMid , tvCivicFinal ,tvCivicAverage,
+        tvGeo15 , tvGeo45,tvGeoMid , tvGeoFinal,tvGeoAverage,
+        tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage
+        );
+        for (TextView tv:listMark) {
+            if(tv.getText().toString()==""){
+                tv.setText("");
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
+        tvPhysics45.setVisibility(View.VISIBLE);
+        tvPhysics45.setText("test");
+
     }
 
     @Override
@@ -646,65 +673,65 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void setInvi(){
-        tvPE15.setVisibility(View.INVISIBLE);
-        tvPE45.setVisibility(View.INVISIBLE);
-        tvPEMid.setVisibility(View.INVISIBLE);
-        tvPEFinal.setVisibility(View.INVISIBLE);
-        tvPEAverage.setVisibility(View.INVISIBLE);
+        tvPE15.setText("");
+        tvPE45.setText("");
+        tvPEMid.setText("");
+        tvPEFinal.setText("");
+        tvPEAverage.setText("");
 
-        tvGeo15.setVisibility(View.INVISIBLE);
-        tvGeo45.setVisibility(View.INVISIBLE);
-        tvGeoMid.setVisibility(View.INVISIBLE);
-        tvGeoFinal.setVisibility(View.INVISIBLE);
-        tvGeoAverage.setVisibility(View.INVISIBLE);
+        tvGeo15.setText("");
+        tvGeo45.setText("");
+        tvGeoMid.setText("");
+        tvGeoFinal.setText("");
+        tvGeoAverage.setText("");
 
-        tvCivic15.setVisibility(View.INVISIBLE);
-        tvCivic45.setVisibility(View.INVISIBLE);
-        tvCivicMid.setVisibility(View.INVISIBLE);
-        tvCivicFinal.setVisibility(View.INVISIBLE);
-        tvCivicAverage.setVisibility(View.INVISIBLE);
+        tvCivic15.setText("");
+        tvCivic45.setText("");
+        tvCivicMid.setText("");
+        tvCivicFinal.setText("");
+        tvCivicAverage.setText("");
 
-        tvLiterature15.setVisibility(View.INVISIBLE);
-        tvLiterature45.setVisibility(View.INVISIBLE);
-        tvLiteratureMid.setVisibility(View.INVISIBLE);
-        tvLiteratureFinal.setVisibility(View.INVISIBLE);
-        tvLiteratureAverage.setVisibility(View.INVISIBLE);
+        tvLiterature15.setText("");
+        tvLiterature45.setText("");
+        tvLiteratureMid.setText("");
+        tvLiteratureFinal.setText("");
+        tvLiteratureAverage.setText("");
 
-        tvBiology15.setVisibility(View.INVISIBLE);
-        tvBiology45.setVisibility(View.INVISIBLE);
-        tvBiologyMid.setVisibility(View.INVISIBLE);
-        tvBiologyFinal.setVisibility(View.INVISIBLE);
-        tvBiologyAverage.setVisibility(View.INVISIBLE);
+        tvBiology15.setText("");
+        tvBiology45.setText("");
+        tvBiologyMid.setText("");
+        tvBiologyFinal.setText("");
+        tvBiologyAverage.setText("");
 
-        tvHistory15.setVisibility(View.INVISIBLE);
-        tvHistory45.setVisibility(View.INVISIBLE);
-        tvHistoryMid.setVisibility(View.INVISIBLE);
-        tvHistoryFinal.setVisibility(View.INVISIBLE);
-        tvHistoryAverage.setVisibility(View.INVISIBLE);
+        tvHistory15.setText("");
+        tvHistory45.setText("");
+        tvHistoryMid.setText("");
+        tvHistoryFinal.setText("");
+        tvHistoryAverage.setText("");
 
-        tvPhysics15.setVisibility(View.INVISIBLE);
-        tvPhysics45.setVisibility(View.INVISIBLE);
-        tvPhysicsMid.setVisibility(View.INVISIBLE);
-        tvPhysicsFinal.setVisibility(View.INVISIBLE);
-        tvPhysicsAverage.setVisibility(View.INVISIBLE);
+        tvPhysics15.setText("");
+        tvPhysics45.setText("");
+        tvPhysicsMid.setText("");
+        tvPhysicsFinal.setText("");
+        tvPhysicsAverage.setText("");
 
-        tvChem15.setVisibility(View.INVISIBLE);
-        tvChem45.setVisibility(View.INVISIBLE);
-        tvChemMid.setVisibility(View.INVISIBLE);
-        tvChemFinal.setVisibility(View.INVISIBLE);
-        tvChemAverage.setVisibility(View.INVISIBLE);
+        tvChem15.setText("");
+        tvChem45.setText("");
+        tvChemMid.setText("");
+        tvChemFinal.setText("");
+        tvChemAverage.setText("");
 
-        tvEng15.setVisibility(View.INVISIBLE);
-        tvEng45.setVisibility(View.INVISIBLE);
-        tvEngMid.setVisibility(View.INVISIBLE);
-        tvEngFinal.setVisibility(View.INVISIBLE);
-        tvEngAverage.setVisibility(View.INVISIBLE);
+        tvEng15.setText("");
+        tvEng45.setText("");
+        tvEngMid.setText("");
+        tvEngFinal.setText("");
+        tvEngAverage.setText("");
 
-        tvMath15.setVisibility(View.INVISIBLE);
-        tvMath45.setVisibility(View.INVISIBLE);
-        tvMathMid.setVisibility(View.INVISIBLE);
-        tvMathFinal.setVisibility(View.INVISIBLE);
-        tvMathAverage.setVisibility(View.INVISIBLE);
+        tvMath15.setText("");
+        tvMath45.setText("");
+        tvMathMid.setText("");
+        tvMathFinal.setText("");
+        tvMathAverage.setText("");
     }
 
     private void fillMathTv() {
@@ -739,11 +766,11 @@ public class MarkActivity extends AppCompatActivity {
         tvPEFinal = findViewById(R.id.tvPEFinal);
         tvPEAverage = findViewById(R.id.tvPEAverage);
 
-        tvPE15.setVisibility(View.INVISIBLE);
-        tvPE45.setVisibility(View.INVISIBLE);
-        tvPEMid.setVisibility(View.INVISIBLE);
-        tvPEFinal.setVisibility(View.INVISIBLE);
-        tvPEAverage.setVisibility(View.INVISIBLE);
+        tvPE15.setText("");
+        tvPE45.setText("");
+        tvPEMid.setText("");
+        tvPEFinal.setText("");
+        tvPEAverage.setText("");
     }
 
     private void initGeoTv() {
@@ -753,11 +780,11 @@ public class MarkActivity extends AppCompatActivity {
         tvGeoFinal = findViewById(R.id.tvGeoFinal);
         tvGeoAverage = findViewById(R.id.tvGeoAverage);
 
-        tvGeo15.setVisibility(View.INVISIBLE);
-        tvGeo45.setVisibility(View.INVISIBLE);
-        tvGeoMid.setVisibility(View.INVISIBLE);
-        tvGeoFinal.setVisibility(View.INVISIBLE);
-        tvGeoAverage.setVisibility(View.INVISIBLE);
+        tvGeo15.setText("");
+        tvGeo45.setText("");
+        tvGeoMid.setText("");
+        tvGeoFinal.setText("");
+        tvGeoAverage.setText("");
     }
 
     private void initCivicTv() {
@@ -767,11 +794,11 @@ public class MarkActivity extends AppCompatActivity {
         tvCivicFinal = findViewById(R.id.tvCivicFinal);
         tvCivicAverage = findViewById(R.id.tvCivicAverage);
 
-        tvCivic15.setVisibility(View.INVISIBLE);
-        tvCivic45.setVisibility(View.INVISIBLE);
-        tvCivicMid.setVisibility(View.INVISIBLE);
-        tvCivicFinal.setVisibility(View.INVISIBLE);
-        tvCivicAverage.setVisibility(View.INVISIBLE);
+        tvCivic15.setText("");
+        tvCivic45.setText("");
+        tvCivicMid.setText("");
+        tvCivicFinal.setText("");
+        tvCivicAverage.setText("");
     }
 
     private void initLiteratureTv() {
@@ -781,11 +808,11 @@ public class MarkActivity extends AppCompatActivity {
         tvLiteratureFinal = findViewById(R.id.tvLiteratureFinal);
         tvLiteratureAverage = findViewById(R.id.tvLiteratureAverage);
 
-        tvLiterature15.setVisibility(View.INVISIBLE);
-        tvLiterature45.setVisibility(View.INVISIBLE);
-        tvLiteratureMid.setVisibility(View.INVISIBLE);
-        tvLiteratureFinal.setVisibility(View.INVISIBLE);
-        tvLiteratureAverage.setVisibility(View.INVISIBLE);
+        tvLiterature15.setText("");
+        tvLiterature45.setText("");
+        tvLiteratureMid.setText("");
+        tvLiteratureFinal.setText("");
+        tvLiteratureAverage.setText("");
     }
 
     private void initBiologyTv() {
@@ -795,11 +822,11 @@ public class MarkActivity extends AppCompatActivity {
         tvBiologyFinal = findViewById(R.id.tvBiologyFinal);
         tvBiologyAverage = findViewById(R.id.tvBiologyAverage);
 
-        tvBiology15.setVisibility(View.INVISIBLE);
-        tvBiology45.setVisibility(View.INVISIBLE);
-        tvBiologyMid.setVisibility(View.INVISIBLE);
-        tvBiologyFinal.setVisibility(View.INVISIBLE);
-        tvBiologyAverage.setVisibility(View.INVISIBLE);
+        tvBiology15.setText("");
+        tvBiology45.setText("");
+        tvBiologyMid.setText("");
+        tvBiologyFinal.setText("");
+        tvBiologyAverage.setText("");
     }
 
     private void initHistoryTv() {
@@ -809,11 +836,11 @@ public class MarkActivity extends AppCompatActivity {
         tvHistoryFinal = findViewById(R.id.tvHistoryFinal);
         tvHistoryAverage = findViewById(R.id.tvHistoryAverage);
 
-        tvHistory15.setVisibility(View.INVISIBLE);
-        tvHistory45.setVisibility(View.INVISIBLE);
-        tvHistoryMid.setVisibility(View.INVISIBLE);
-        tvHistoryFinal.setVisibility(View.INVISIBLE);
-        tvHistoryAverage.setVisibility(View.INVISIBLE);
+        tvHistory15.setText("");
+        tvHistory45.setText("");
+        tvHistoryMid.setText("");
+        tvHistoryFinal.setText("");
+        tvHistoryAverage.setText("");
     }
 
     private void initPhysicsTv() {
@@ -823,11 +850,11 @@ public class MarkActivity extends AppCompatActivity {
         tvPhysicsFinal = findViewById(R.id.tvPhysicsFinal);
         tvPhysicsAverage = findViewById(R.id.tvPhysicsAverage);
 
-        tvPhysics15.setVisibility(View.INVISIBLE);
-        tvPhysics45.setVisibility(View.INVISIBLE);
-        tvPhysicsMid.setVisibility(View.INVISIBLE);
-        tvPhysicsFinal.setVisibility(View.INVISIBLE);
-        tvPhysicsAverage.setVisibility(View.INVISIBLE);
+        tvPhysics15.setText("");
+        tvPhysics45.setText("");
+        tvPhysicsMid.setText("");
+        tvPhysicsFinal.setText("");
+        tvPhysicsAverage.setText("");
     }
 
     private void initChemTv() {
@@ -837,11 +864,11 @@ public class MarkActivity extends AppCompatActivity {
         tvChemFinal = findViewById(R.id.tvChemistryFinal);
         tvChemAverage = findViewById(R.id.tvChemistryAverage);
 
-        tvChem15.setVisibility(View.INVISIBLE);
-        tvChem45.setVisibility(View.INVISIBLE);
-        tvChemMid.setVisibility(View.INVISIBLE);
-        tvChemFinal.setVisibility(View.INVISIBLE);
-        tvChemAverage.setVisibility(View.INVISIBLE);
+        tvChem15.setText("");
+        tvChem45.setText("");
+        tvChemMid.setText("");
+        tvChemFinal.setText("");
+        tvChemAverage.setText("");
     }
 
     private void initEngTv() {
@@ -851,11 +878,11 @@ public class MarkActivity extends AppCompatActivity {
         tvEngFinal = findViewById(R.id.tvEnglishFinal);
         tvEngAverage = findViewById(R.id.tvEnglishAverage);
 
-        tvEng15.setVisibility(View.INVISIBLE);
-        tvEng45.setVisibility(View.INVISIBLE);
-        tvEngMid.setVisibility(View.INVISIBLE);
-        tvEngFinal.setVisibility(View.INVISIBLE);
-        tvEngAverage.setVisibility(View.INVISIBLE);
+        tvEng15.setText("");
+        tvEng45.setText("");
+        tvEngMid.setText("");
+        tvEngFinal.setText("");
+        tvEngAverage.setText("");
     }
 
     private void initMathTv() {
@@ -865,11 +892,11 @@ public class MarkActivity extends AppCompatActivity {
         tvMathFinal = findViewById(R.id.tvMathFinal);
         tvMathAverage = findViewById(R.id.tvMathAverage);
 
-        tvMath15.setVisibility(View.INVISIBLE);
-        tvMath45.setVisibility(View.INVISIBLE);
-        tvMathMid.setVisibility(View.INVISIBLE);
-        tvMathFinal.setVisibility(View.INVISIBLE);
-        tvMathAverage.setVisibility(View.INVISIBLE);
+        tvMath15.setText("");
+        tvMath45.setText("");
+        tvMathMid.setText("");
+        tvMathFinal.setText("");
+        tvMathAverage.setText("");
     }
 
     private void initUi() {

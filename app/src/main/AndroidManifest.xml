@@ -4,6 +4,8 @@
     package="vn.aptech.smartstudy">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.send"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.Receive"/>
 
     <application
         android:allowBackup="true"
