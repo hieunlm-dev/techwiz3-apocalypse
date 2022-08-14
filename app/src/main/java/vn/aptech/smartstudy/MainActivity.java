@@ -222,12 +222,14 @@ public class MainActivity extends AppCompatActivity {
 
                         if(user.getRole().equals("Student")){
                             editor.putString("student_name",user.getStudentData().getFullName());
+                            editor.putString("email",user.getEmail());
                             editor.putString("student_class",user.getStudentData().getClassName());
                             Log.i("name :",user.getStudentData().getFullName());
                         }
 
                         if(user.getRole().equals("Parent")){
                             editor.putString("student_name",user.getParentData().getFullName());
+                            editor.putString("email",user.getEmail());
                         }
 
                         if(user.getRole().equals("Teacher")){
