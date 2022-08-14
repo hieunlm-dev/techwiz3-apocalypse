@@ -57,17 +57,19 @@ public class ProgressActivity extends AppCompatActivity {
     private List<ScoreDetail> geos= new ArrayList<ScoreDetail>();
     private List<ScoreDetail> pes= new ArrayList<ScoreDetail>();
     private String studentName;
-    private Float avgMath,avgPhysic,avgEng,avgChem,avgHis,avgBio,avgLite,avgCivic,avgGeo,avgPes =0.00f;
+    private Float avgMath,avgPhysic,avgEng,avgChem,avgHis,avgBio,avgLite,avgCivic,avgGeo,avgPes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
         getStudentName();
-
+        avgMath=avgPhysic=avgEng=avgChem=avgHis=avgBio=avgLite=avgCivic=avgGeo=avgPes=0f;
         barChart = findViewById(R.id.bar_chart_subject);
         pieChartSubject = findViewById(R.id.pie_chart_subject);
         getDataFromFirebase(1);
+        Log.i("log diem", avgBio.toString());
 //        ArrayList<BarEntry> barEntries= new ArrayList<>();
 //        ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
@@ -252,6 +254,7 @@ public class ProgressActivity extends AppCompatActivity {
                 avgHis = avgHis/histories.size();
                 avgPhysic= avgPhysic/physics.size();
                 avgChem = avgChem/chems.size();
+                Log.i("log diem", avgEng.toString());
             }
 
             @Override

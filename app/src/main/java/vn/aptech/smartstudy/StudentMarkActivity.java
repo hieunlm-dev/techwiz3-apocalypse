@@ -132,7 +132,7 @@ public class StudentMarkActivity extends AppCompatActivity {
                 if(selected_test !=null){
                     //fillStudentByClass(selectedClass);
                     studentApdapter.notifyDataSetChanged();
-                    fecthScoreData();
+                    //fecthScoreData();
                 }
 
 
