@@ -141,9 +141,8 @@ public class StudentMarkActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 para_test =spFilterType.getSelectedItem().toString();
-                Toast.makeText(StudentMarkActivity.this, para_test, Toast.LENGTH_SHORT).show();
-                if(selected_test !=null){
 
+                if(selected_test !=null){
                    fillStudentByClass(selectedClass);
                 }
 
@@ -177,7 +176,7 @@ public class StudentMarkActivity extends AppCompatActivity {
             final String COMPARE_STRING4 = finalSem2+x.getStudentData().getFullName();
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference scoreRef = database.getReference("score_detail");
-            Toast.makeText(this, para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName(), Toast.LENGTH_SHORT).show();
+
             Log.i("",para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName());
             scoreRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -185,7 +184,7 @@ public class StudentMarkActivity extends AppCompatActivity {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                         ScoreDetail sd = dataSnapshot.getValue(ScoreDetail.class);
                         String s = sd.getType_test_student_email();
-                        Log.i("Score Detail",sd.getType_test_student_email());
+                        //Log.i("Score Detail",sd.getType_test_student_email());
                         Log.i("midSem1",midSem1);
                         Log.i("midSem2",midSem2);
                         Log.i("finalSem1",finalSem1);
@@ -193,12 +192,37 @@ public class StudentMarkActivity extends AppCompatActivity {
 
                         Log.i("Compare",Boolean.toString(COMPARE_STRING3.equals(s)));
 
-                        if((para_test.replaceAll(" ","").toLowerCase().equals(midSem1)||(para_test.replaceAll(" ","").toLowerCase().equals(midSem2)||(para_test.replaceAll(" ","").toLowerCase().equals(finalSem1)||(para_test.replaceAll(" ","").toLowerCase().equals(finalSem2)))&&COMPARE_STRING3.equals(s)||COMPARE_STRING1.equals(s)||COMPARE_STRING2.equals(s)||COMPARE_STRING4.equals(s)))){
+                        if(para_test.replaceAll(" ","").toLowerCase().equals(midSem1)&&COMPARE_STRING1.equals(s)){
                             users.remove(x);
                             studentApdapter.notifyDataSetChanged();
+
                         }
+
+
+                        if(para_test.replaceAll(" ","").toLowerCase().equals(midSem2)&&COMPARE_STRING2.equals(s)){
+                            users.remove(x);
+                            studentApdapter.notifyDataSetChanged();
+
+                        }
+
+
+                        if(para_test.replaceAll(" ","").toLowerCase().equals(finalSem1)&&COMPARE_STRING3.equals(s)){
+                            users.remove(x);
+                            studentApdapter.notifyDataSetChanged();
+
+                        }
+
+
+                        if(para_test.replaceAll(" ","").toLowerCase().equals(finalSem2)&&COMPARE_STRING4.equals(s)){
+                            users.remove(x);
+                            studentApdapter.notifyDataSetChanged();
+
+                        }
+
                         //if(sd.getType_test_student_email())
                     }
+
+
                     if(users.size()==0){
                         btnSave.setEnabled(false);
                     }else{
@@ -273,6 +297,37 @@ public class StudentMarkActivity extends AppCompatActivity {
                     studentApdapter.notifyDataSetChanged();
                 }
                 fecthScoreData();
+                Log.i("after class" , Integer.toString(users.size()));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void fillStudentByClass1(String selectedClass) {
+
+        Log.i("before clear",Integer.toString(users.size()));
+        if(users!=null){
+            users.clear();
+        }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
+        DatabaseReference studentRef = database.getReference("users");
+        studentRef.orderByChild("studentData/className").equalTo(selectedClass).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    User user = dataSnapshot.getValue(User.class);
+                    users.add(user);
+
+                }
+                //studentApdapter.notifyDataSetChanged();
+
                 Log.i("after class" , Integer.toString(users.size()));
 
             }

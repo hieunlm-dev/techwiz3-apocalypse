@@ -9,6 +9,7 @@ public class ScoreDetail {
     private int semester;
     private int year;
     private String type_test_student_email;
+    private boolean isInput;
 
     public ScoreDetail( String type_test, String subject_name, String student_email,float mark,int semester , int year,String type_test_student_email) {
 
@@ -19,6 +20,7 @@ public class ScoreDetail {
         this.setSemester(semester);
         this.setYear(year);
         this.setType_test_student_email(type_test_student_email);
+        this.setInput(true);
     }
 
     public ScoreDetail() {
@@ -80,5 +82,13 @@ public class ScoreDetail {
 
     public void setType_test_student_email(String type_test_student_email) {
         this.type_test_student_email = type_test_student_email;
+    }
+
+    public boolean isInput() {
+        return isInput;
+    }
+
+    public void setInput(boolean input) {
+        isInput = input;
     }
 }
