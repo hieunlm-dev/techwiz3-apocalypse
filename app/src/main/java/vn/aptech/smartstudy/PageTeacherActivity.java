@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class PageTeacherActivity extends AppCompatActivity {
-    private Button btnLogout;
+    private Button btnLogout, btnNoti;
     private TextView tvWelcome;
     private RelativeLayout rltContact, rltFeedback,rltMark ,rltRvClass,rltExamSchedule,rltstudyResource;
     @Override
@@ -22,6 +22,7 @@ public class PageTeacherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_page_teacher);
 
         btnLogout = findViewById(R.id.btnLogout);
+        btnNoti = findViewById(R.id.btnNotify);
         tvWelcome = findViewById(R.id.tvWelcome);
         rltFeedback = findViewById(R.id.rltReviewClassTeacher);
         rltContact = findViewById(R.id.rltContactTeacher);
@@ -75,6 +76,10 @@ public class PageTeacherActivity extends AppCompatActivity {
                 Intent it = new Intent(PageTeacherActivity.this,CreateResourceActivity.class);
                 startActivity(it);
             }
+        });
+        btnNoti.setOnClickListener(v->{
+            Intent it = new Intent(this, NotifycationActivity.class);
+            startActivity(it);
         });
     }
 }

@@ -29,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -66,6 +67,8 @@ public class MarkActivity extends AppCompatActivity {
     private TextView tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage;
 
     private String studentName ;
+    private String studentClass ;
+
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
     private int selectedCount =1;
     @Override
@@ -91,12 +94,10 @@ public class MarkActivity extends AppCompatActivity {
         initGeoTv();
         initPETv();
 
-
-
-
-
         
         fillMathTv();
+        getStudentClass();
+//        className =
         btnSubcribe.setOnClickListener(v->{
             subscribeTopics();
         });
@@ -106,6 +107,11 @@ public class MarkActivity extends AppCompatActivity {
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
 //        borderUi();
+    }
+
+    private void getStudentClass() {
+        SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
+        studentClass = sharedPreferences.getString("student_class","");
     }
 
     private void borderUi() {
@@ -143,11 +149,11 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void subscribeTopics() {
-        FirebaseMessaging.getInstance().subscribeToTopic("12A1-2022")
+        FirebaseMessaging.getInstance().subscribeToTopic(studentClass+Year.now().getValue())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Subscribed";
+                        String msg = "Subscribed"+ studentClass+Year.now().getValue();
                         if (!task.isSuccessful()) {
                             msg = "Subscribe failed";
                         }

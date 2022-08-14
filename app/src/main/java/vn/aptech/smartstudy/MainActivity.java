@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
         String full_name = sharedPreferences.getString("full_name","");
         String role = sharedPreferences.getString("role","");
+
         if(!full_name.equalsIgnoreCase("")){
             navigatePage(role);
         }
@@ -202,8 +203,10 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences("application", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("full_name",user.getFull_name());
+
                         if(user.getRole().equals("Student")){
                             editor.putString("student_name",user.getStudentData().getFullName());
+                            editor.putString("student_class",user.getStudentData().getClassName());
                             Log.i("name :",user.getStudentData().getFullName());
                         }
 

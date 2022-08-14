@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -22,12 +23,13 @@ import vn.aptech.smartstudy.ReceiveMessageActivity;
 
 
 public class FirebaseMessageService extends FirebaseMessagingService {
+    private String title = "";
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         System.out.println("From: " + remoteMessage.getFrom());
-
+        title = remoteMessage.getNotification().getTitle();
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             System.out.println("Message Notification Body: " + remoteMessage.getNotification().getBody());
@@ -37,6 +39,8 @@ public class FirebaseMessageService extends FirebaseMessagingService {
         // message, here is where that should be initiated. See sendNotification method below.
         sendNotification(remoteMessage.getFrom(), remoteMessage.getNotification().getBody());
         sendNotification(remoteMessage.getNotification().getBody());
+
+//        NotificationManagerCompat.from(this).notify(1, sendNotification(););
     }
 
     private void sendNotification(String from, String body) {
@@ -44,7 +48,8 @@ public class FirebaseMessageService extends FirebaseMessagingService {
 
             @Override
             public void run() {
-                Toast.makeText(FirebaseMessageService.this.getApplicationContext(), from + " -> " + body,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(FirebaseMessageService.this.getApplicationContext(), from + " -> " + body,Toast.LENGTH_SHORT).show();
+                Toast.makeText(FirebaseMessageService.this.getApplicationContext(), body,Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -53,13 +58,12 @@ public class FirebaseMessageService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
-
         String channelId = "My channel ID";
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
                         .setSmallIcon(R.drawable.ic_stat_notification)
-                        .setContentTitle("My new notification")
+                        .setContentTitle(title)
                         .setContentText(messageBody)
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
