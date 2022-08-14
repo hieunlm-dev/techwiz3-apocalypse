@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.ArrayList;
@@ -36,6 +37,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import vn.aptech.smartstudy.entity.ClassName;
 import vn.aptech.smartstudy.entity.ParentData;
@@ -144,46 +156,106 @@ public class SignupActivity extends AppCompatActivity {
             String pass = edPass.getText().toString().trim();
             String address = edAddress.getText().toString().trim();
             String phone = edPhone.getText().toString().trim();
+            Boolean valid =  validateRegis(name, email, pass, address, phone);
+
             String className = spinnerClass.getSelectedItem().toString().trim();
 //            String subject = spinnerSubject.getSelectedItem().toString().trim();
             String role = spinnerRole.getSelectedItem().toString().trim();
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference myRef = database.getReference("users");
-            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Map<String , Object> user = new HashMap<String , Object>();
-                    String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                    if(role=="Student"){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name.replaceAll(" ", "").toLowerCase()+")"+email, className,currentDate, email));
-                        myRef.push().setValue(newUser);
-                        subcribeTopic(className);
+            if(valid){
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Map<String , Object> user = new HashMap<String , Object>();
+                        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                        if(role=="Student"){
+                            User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name.replaceAll(" ", "").toLowerCase()+")"+email, className,currentDate, email));
+                            myRef.push().setValue(newUser);
+                            subcribeTopic(className);
 
-                    }else if(role=="Parent"){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString().replaceAll(" ", "").toLowerCase(), className,currentDate, email));
-                        myRef.push().setValue(newUser);
-                        subcribeTopic(className);
-                    }else if(role=="Teacher"){
-                        String subject = spinnerSubject.getSelectedItem().toString().trim();
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new TeacherData(name, subject));
-                        myRef.push().setValue(newUser);
+                        }else if(role=="Parent"){
+                            User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString().replaceAll(" ", "").toLowerCase(), className,currentDate, email));
+                            myRef.push().setValue(newUser);
+                            subcribeTopic(className);
+                        }else if(role=="Teacher"){
+                            String subject = spinnerSubject.getSelectedItem().toString().trim();
+                            User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new TeacherData(name, subject));
+                            myRef.push().setValue(newUser);
+                        }
+                        sendMail(email);
+                        Toast.makeText(SignupActivity.this, "Create Successfull", Toast.LENGTH_SHORT).show();
+                        Intent it = new Intent(SignupActivity.this, MainActivity.class);
+                        startActivity(it);
                     }
-                    Toast.makeText(SignupActivity.this, "Create Successfull", Toast.LENGTH_SHORT).show();
-                    Intent it = new Intent(SignupActivity.this, MainActivity.class);
-                    startActivity(it);
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+                    }
+                });
+            }
+
 
         });
         //end regist
 
 
     }
+
+    private boolean validateRegis(String name, String email, String pass, String address, String phone) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        //mail
+        if(email.length()==0){
+            edEmail.requestFocus();
+            edEmail.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }else if(!email.matches(emailPattern)){
+            edEmail.requestFocus();
+            edEmail.setError("Invalid email address");
+            return false;
+        }
+        //phone
+        if(phone.length()<10 || phone.length()>13 || !phone.matches("[0-9]+")){
+            edPhone.requestFocus();
+            edPhone.setError("Invalid phone number");
+            return false;
+        }
+        //password
+        if(pass.length()==0){
+            edPass.requestFocus();
+            edPass.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }else if(pass.length() < 8){
+            edPass.requestFocus();
+            edPass.setError("AT LEAST 8 CHARACTER");
+            return false;
+        }
+        //address
+        if(address.length()==0){
+            edAddress.requestFocus();
+            edAddress.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        //name
+        if(name.length()==0){
+            edName.requestFocus();
+            edName.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }else if(!name.matches("[a-zA-Z ]+"))
+        {
+            edName.requestFocus();
+            edName.setError("ENTER ONLY ALPHABETICAL CHARACTER");
+            return false;
+        }
+
+
+
+
+        return true;
+    }
+
+
     //subcribeTopic
     private void subcribeTopic(String className) {
         FirebaseMessaging.getInstance().subscribeToTopic(className)
@@ -272,5 +344,65 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void sendMail(String receiverEmail){
+        try {
+
+
+            String stringSenderEmail = "sluuthanh.demo.send@gmail.com";
+            String stringReceiverEmail = receiverEmail;
+            String stringPasswordSenderMail ="nppwzhwzwlapivlk";
+
+            String stringHost ="smtp.gmail.com";
+            String stringPort ="465";
+
+            Properties properties = System.getProperties();
+            properties.put("mail.smtp.host",stringHost);
+            properties.put("mail.smtp.port",stringPort);
+            properties.put("mail.smtp.ssl.enable","true");
+            properties.put("mail.smtp.auth","true");
+
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(stringSenderEmail,stringPasswordSenderMail);
+                }
+            });
+
+            MimeMessage mimeMessage = new MimeMessage(session);
+
+            mimeMessage.setFrom(new InternetAddress(stringSenderEmail,"Smart Study"));
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
+
+            mimeMessage.setSubject("Welcome to SmartStudy");
+            mimeMessage.setContent("<center><h2>Welcome to SmartStudy</h2></br>\n" +
+                    "    <img src=\"https://www.it-ausschreibung.de/storage/logos/logo_smart-study_11833.png\" width=\"30%\"></center>\n" +
+                    "\n" +
+                    "    <p style=\"margin-top:20px;font-family:arial,'helvetica neue',helvetica,sans-serif;color:#333333;line-height:150%;font-size:16px\">You have SmartStudy installed on your Android phone, just one more step to get a better SmartStudy experience</p></br>\n" +
+                    "    <p style=\"Margin:0;font-family:arial,'helvetica neue',helvetica,sans-serif;color:#333333;line-height:150%;font-size:16px\">Sign in to your SmartStudy account on your phone to explore all features like view marks, academy progress, study resource, revision classes and so on<br><br>SmartStudy\n" +
+                    "        also lets you receive notification when marks update.<br><br>SmartStudy Team</p>", "text/html");
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Transport.send(mimeMessage);
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            thread.start();
+
+
+
+        }catch (AddressException e){
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }

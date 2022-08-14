@@ -153,7 +153,8 @@ public class MarkActivity extends AppCompatActivity {
             mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
 
             mimeMessage.setSubject("Automail from Smart Study: Mark report");
-            mimeMessage.setText("Demo automail from android");
+            mimeMessage.setContent("<center><h2>Welcome to SmartStudy</h2></br>\n" +
+                    "    <img src=\"https://www.it-ausschreibung.de/storage/logos/logo_smart-study_11833.png\" width=\"10%\"></center>","text/html");
 
             Thread thread = new Thread(new Runnable() {
                 @Override
