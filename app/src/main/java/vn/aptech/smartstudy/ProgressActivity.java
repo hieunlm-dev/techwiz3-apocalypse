@@ -69,39 +69,6 @@ public class ProgressActivity extends AppCompatActivity {
         barChart = findViewById(R.id.bar_chart_subject);
         pieChartSubject = findViewById(R.id.pie_chart_subject);
         getDataFromFirebase(1);
-        Log.i("log diem", avgBio.toString());
-//        ArrayList<BarEntry> barEntries= new ArrayList<>();
-//        ArrayList<PieEntry> pieEntries = new ArrayList<>();
-
-        String[] subjects = new String[]{"Math", "English", "Biology","Physics","History","Geography","Civic","P.E","Literature",
-        "Chemictry"};
-        barDataSet1 = new BarDataSet(getBarEntriesOne(),"Final");
-        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.purple_200));
-        barDataSet2 = new BarDataSet(getBarEntriesTwo(),"Avg");
-        barDataSet2.setColor(Color.BLUE);
-        // below line is to add bar data set to our bar data.
-        BarData data = new BarData(barDataSet1, barDataSet2);
-
-        barChart.setData(data);
-
-        barChart.getDescription().setEnabled(false);
-
-        XAxis xAxis = barChart.getXAxis();
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(subjects));
-        xAxis.setCenterAxisLabels(true);
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setGranularity(1);
-        xAxis.setGranularityEnabled(true);
-
-        barChart.setDragEnabled(true);
-        barChart.setVisibleXRangeMaximum(3);
-        float barSpace = 0.1f;
-        float groupSpace = 0.5f;
-        data.setBarWidth(0.15f);
-        barChart.getXAxis().setAxisMinimum(0);
-        barChart.animate();
-        barChart.groupBars(0, groupSpace, barSpace);
-        barChart.invalidate();
 
 
 //        for(int i = 0;i<=10;i++){
@@ -212,35 +179,56 @@ public class ProgressActivity extends AppCompatActivity {
                 civics = allScores.stream().filter(x->x.getSubject_name().equals("CivicEducation")).collect(Collectors.toList());
                 geos = allScores.stream().filter(x->x.getSubject_name().equals("Geography")).collect(Collectors.toList());
                 pes = allScores.stream().filter(x->x.getSubject_name().equals("P.E")).collect(Collectors.toList());
+
                 maths.forEach(x->{
-                    avgMath+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgMath += x.getMark();
+                    }
                 });
                 chems.forEach(x->{
-                    avgChem+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgChem += x.getMark();
+                    }
                 });
                 physics.forEach(x->{
-                    avgPhysic+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgPhysic += x.getMark();
+                    }
                 });
                 histories.forEach(x->{
-                    avgHis+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgHis += x.getMark();
+                    }
                 });
                 englishes.forEach(x->{
-                    avgEng+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgEng += x.getMark();
+                    }
                 });
                 biologies.forEach(x->{
-                    avgBio+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgBio += x.getMark();
+                    }
                 });
                 literatures.forEach(x->{
-                    avgLite+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgLite += x.getMark();
+                    }
                 });
                 civics.forEach(x->{
-                    avgCivic+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgCivic += x.getMark();
+                    }
                 });
                 geos.forEach(x->{
-                    avgGeo+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgGeo += x.getMark();
+                    }
                 });
                 pes.forEach(x->{
-                    avgPes+=x.getMark();
+                    if(x.getMark()>0) {
+                        avgPes += x.getMark();
+                    }
                 });
 
 
@@ -254,7 +242,8 @@ public class ProgressActivity extends AppCompatActivity {
                 avgHis = avgHis/histories.size();
                 avgPhysic= avgPhysic/physics.size();
                 avgChem = avgChem/chems.size();
-                Log.i("log diem", avgEng.toString());
+                createChart();
+
             }
 
             @Override
@@ -264,5 +253,37 @@ public class ProgressActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void createChart() {
+        String[] subjects = new String[]{"Math", "English", "Biology","Physics","History","Geography","Civic","P.E","Literature",
+                "Chemictry"};
+        barDataSet1 = new BarDataSet(getBarEntriesOne(),"Final");
+        barDataSet1.setColor(getApplicationContext().getResources().getColor(R.color.purple_200));
+        barDataSet2 = new BarDataSet(getBarEntriesTwo(),"Avg");
+        barDataSet2.setColor(Color.BLUE);
+        // below line is to add bar data set to our bar data.
+        BarData data = new BarData(barDataSet1, barDataSet2);
+
+        barChart.setData(data);
+
+        barChart.getDescription().setEnabled(false);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(subjects));
+        xAxis.setCenterAxisLabels(true);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setGranularity(1);
+        xAxis.setGranularityEnabled(true);
+
+        barChart.setDragEnabled(true);
+        barChart.setVisibleXRangeMaximum(3);
+        float barSpace = 0.1f;
+        float groupSpace = 0.5f;
+        data.setBarWidth(0.15f);
+        barChart.getXAxis().setAxisMinimum(0);
+        barChart.animate();
+        barChart.groupBars(0, groupSpace, barSpace);
+        barChart.invalidate();
     }
 }
