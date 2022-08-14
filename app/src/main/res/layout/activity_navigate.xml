@@ -29,13 +29,17 @@
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView123"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="56dp"
+                    android:layout_height="52dp"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/revision"
+
+                    />
+
 
                 <TextView
                     android:id="@+id/textLabel13"
@@ -54,20 +58,24 @@
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                    android:layout_width="63dp"
+                    android:layout_height="54dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="57dp"
+                    android:layout_marginEnd="55dp"
+                    android:layout_weight="20"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    app:srcCompat="@drawable/marking" />
 
                 <TextView
                     android:id="@+id/textLabel12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/imageView13"
-                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
                     android:singleLine="true"
                     android:text="Marks"
                     android:textSize="18sp"
@@ -86,12 +94,13 @@
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
                     app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
                 <TextView
@@ -111,12 +120,13 @@
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
                     app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
                 <TextView
@@ -144,12 +154,14 @@
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
+                    app:shapeAppearanceOverlay="@style/roundimageview"
                     android:id="@+id/imageAcaPro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+
                     app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
                 <TextView
@@ -179,12 +191,13 @@
                 android:layout_width="175dp"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageFeedback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
                     app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
                 <TextView
@@ -204,12 +217,13 @@
                 android:layout_width="175dp"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageContact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
                     app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
                 <TextView
