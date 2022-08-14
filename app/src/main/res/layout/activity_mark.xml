@@ -7,14 +7,15 @@
     tools:context=".MarkActivity">
 
 
-
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="390dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
@@ -31,56 +32,56 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text="   15'   "
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
 
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text="   45'   "
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text="Mid-term"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text="Final-term"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text="Average"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
             </TableRow>
@@ -89,57 +90,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Math"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvMath15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvMath45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvMathMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvMathFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvMathAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -147,57 +148,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="English"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvEnglish15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvEnglish45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvEnglishMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvEnglishFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvEnglishAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -205,57 +206,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Chemistry"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvChemistry15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvChemistry45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvChemistryMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvChemistryFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvChemistryAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -263,57 +264,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Physics"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvPhysics15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPhysics45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPhysicsMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPhysicsFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPhysicsAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -321,57 +322,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="History"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHistory15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvHistory45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvHistoryMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvHistoryFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvHistoryAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -379,57 +380,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Biology"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvBiology15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvBiology45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvBiologyMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvBiologyFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvBiologyAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -437,57 +438,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Literature"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvLiterature15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvLiterature45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvLiteratureMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvLiteratureFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvLiteratureAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -495,57 +496,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="C.E"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvCivic15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvCivic45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvCivicMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvCivicFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvCivicAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -553,57 +554,57 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="Geography"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvGeo15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvGeo45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvGeoMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvGeoFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvGeoAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -611,56 +612,56 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:padding="3dip"
                     android:text="P.E"
                     android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvPE15"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPE45"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPEMid"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPEFinal"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvPEAverage"
+                    android:layout_margin="1dp"
+                    android:background="#ffffff"
                     android:gravity="center"
                     android:padding="3dip"
                     android:text=""
-                    android:textSize="20sp"
-                    android:background="#ffffff"
-                    android:layout_margin="1dp" />
+                    android:textSize="20sp" />
 
             </TableRow>
 

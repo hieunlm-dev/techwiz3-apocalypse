@@ -1,11 +1,14 @@
 package vn.aptech.smartstudy;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,14 +18,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -150,9 +157,12 @@ public class SignupActivity extends AppCompatActivity {
                     if(role=="Student"){
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new StudentData("("+name.replaceAll(" ", "").toLowerCase()+")"+email, className,currentDate, email));
                         myRef.push().setValue(newUser);
+                        subcribeTopic(className);
+
                     }else if(role=="Parent"){
-                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString(), className,currentDate, email));
+                        User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new ParentData(spinnerStudent.getSelectedItem().toString().replaceAll(" ", "").toLowerCase(), className,currentDate, email));
                         myRef.push().setValue(newUser);
+                        subcribeTopic(className);
                     }else if(role=="Teacher"){
                         String subject = spinnerSubject.getSelectedItem().toString().trim();
                         User newUser = new User(user.size()+1,name, phone, email, address,pass, role, true, new TeacherData(name, subject));
@@ -174,6 +184,22 @@ public class SignupActivity extends AppCompatActivity {
 
 
     }
+    //subcribeTopic
+    private void subcribeTopic(String className) {
+        FirebaseMessaging.getInstance().subscribeToTopic(className)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed to receive marks in class "+ className;
+                        if (!task.isSuccessful()) {
+                            msg = "Subscribe failed";
+                        }
+                        Log.d(TAG, msg);
+                        Toast.makeText(SignupActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     //fill data subjects
     private void fillDataSubjectIntoSpinner(ArrayAdapter<String> adapterSubject) {
         FirebaseDatabase database = FirebaseDatabase.getInstance(URL);

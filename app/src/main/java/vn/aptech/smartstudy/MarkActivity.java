@@ -95,7 +95,7 @@ public class MarkActivity extends AppCompatActivity {
         initPETv();
 
         
-        fillMathTv();
+//        fillMathTv();
         getStudentClass();
 //        className =
         btnSubcribe.setOnClickListener(v->{
@@ -149,7 +149,7 @@ public class MarkActivity extends AppCompatActivity {
     }
 
     private void subscribeTopics() {
-        FirebaseMessaging.getInstance().subscribeToTopic(studentClass+Year.now().getValue())
+        FirebaseMessaging.getInstance().subscribeToTopic(studentClass)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

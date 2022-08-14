@@ -17,7 +17,7 @@ public class NotifycationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notifycation);
         edMess = findViewById(R.id.edMessNoti);
         btnSendNoti = findViewById(R.id.btnSendNoti);
-        String message = edMess.getText().toString();
+        
 
         btnSendNoti.setOnClickListener(v->{
             FcmNotifySender notifySender = new FcmNotifySender("/topics/12A1-2022","Thong bao",edMess.getText().toString(), getApplicationContext(), this);
