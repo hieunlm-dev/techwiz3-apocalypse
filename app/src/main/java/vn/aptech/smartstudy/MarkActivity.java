@@ -79,6 +79,12 @@ public class MarkActivity extends AppCompatActivity {
     private TextView tvGeo15 , tvGeo45,tvGeoMid , tvGeoFinal,tvGeoAverage;
     private TextView tvPE15 , tvPE45 , tvPEMid , tvPEFinal , tvPEAverage;
 
+    private Float avgMath= 0f;
+    private Float avgEng= 0f;private Float avgPhy= 0f;
+    private Float avgGeo= 0f;private Float avgCivic= 0f;
+    private Float avgPe= 0f;private Float avgHis= 0f;
+    private Float avgBio= 0f;private Float avgChem= 0f;
+    private Float avgLit= 0f;
     private User user = new User();
 
     private String studentName ;
@@ -219,7 +225,7 @@ public class MarkActivity extends AppCompatActivity {
                 sb.append("Middle semester Test: "+tvMathMid.getText().toString()+"\n");
             }
             if(!tvMathFinal.getText().toString().isEmpty()){
-                sb.append("Final semester Test: "+tvMathMid.getText().toString()+"\n");
+                sb.append("Final semester Test: "+tvMathFinal.getText().toString()+"\n");
             }
         }
 
@@ -473,10 +479,20 @@ public class MarkActivity extends AppCompatActivity {
                     tvMathFinal.setVisibility(View.VISIBLE);
                 }
 
-                if(mathMidDetails.size()>1){
+                if(mathFinalDetails.size()>1){
                     mathFinalDetails.forEach(x ->tvMathFinal.setText(tvMathFinal.getText().toString()+" "+Float.toString(x.getMark())));
                 }else{
                     mathFinalDetails.forEach(x ->tvMathFinal.setText(Float.toString(x.getMark())));
+                }
+
+                maths.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgMath += x.getMark();
+                    }
+                });
+                avgMath = (avgMath/maths.size());
+                if(avgMath>0){
+                    tvMathAverage.setText(avgMath.toString());
                 }
 
 
@@ -527,6 +543,16 @@ public class MarkActivity extends AppCompatActivity {
                     chemsMidDetail.forEach(x ->tvChem15.setText(Float.toString(x.getMark())));
                 }
 
+                chems.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgChem += x.getMark();
+                    }
+                });
+                avgChem = (avgChem/chems.size());
+                if(avgChem>0){
+                    tvChemAverage.setText(avgChem.toString());
+                }
+
                 physics = allScores.stream().filter(x->x.getSubject_name().equals("Physics")).collect(Collectors.toList());
 
                 List<ScoreDetail> phy15Detail = physics.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -571,6 +597,15 @@ public class MarkActivity extends AppCompatActivity {
                     phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(tvPhysicsFinal.getText().toString()+" "+Float.toString(x.getMark())));
                 }else{
                     phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(Float.toString(x.getMark())));
+                }
+                physics.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgPhy += x.getMark();
+                    }
+                });
+                avgPhy = (avgPhy/physics.size());
+                if(avgPhy>0){
+                    tvPhysicsAverage.setText(avgPhy.toString());
                 }
 
                 histories = allScores.stream().filter(x->x.getSubject_name().equals("History")).collect(Collectors.toList());
@@ -622,7 +657,15 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     historyFinalDetail.forEach(x ->tvHistoryFinal.setText(Float.toString(x.getMark())));
                 }
-
+                histories.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgHis += x.getMark();
+                    }
+                });
+                avgHis = (avgHis/histories.size());
+                if(avgPhy>0){
+                    tvHistoryAverage.setText(avgHis.toString());
+                }
                 englishes = allScores.stream().filter(x->x.getSubject_name().equals("English")).collect(Collectors.toList());
 
                 List<ScoreDetail> englishFinalDetail = englishes.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -648,6 +691,13 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     englishMiddleDetail.forEach(x ->tvEngMid.setText(Float.toString(x.getMark())));
                 }
+                englishes.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgEng += x.getMark();
+                    }
+                });
+                avgEng = (avgEng/englishes.size());
+                tvEngAverage.setText(avgEng.toString());
 
                 List<ScoreDetail> english45Detail = englishes.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
 
@@ -722,6 +772,15 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     biologiesFinalDetail.forEach(x ->tvBiologyFinal.setText(Float.toString(x.getMark())));
                 }
+                biologies.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgBio += x.getMark();
+                    }
+                });
+                avgBio = (avgBio/biologies.size());
+                if(avgBio>0){
+                    tvBiologyAverage.setText(avgBio.toString());
+                }
 
                 literatures = allScores.stream().filter(x->x.getSubject_name().equals("Literature")).collect(Collectors.toList());
 
@@ -772,6 +831,16 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     literatures15Detail.forEach(x ->tvLiterature15.setText(Float.toString(x.getMark())));
                 }
+                literatures.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgLit += x.getMark();
+                    }
+                });
+                avgLit = (avgLit/literatures.size());
+                if(avgLit>0){
+                    tvLiteratureAverage.setText(avgLit.toString());
+                }
+
 
                 civics = allScores.stream().filter(x->x.getSubject_name().equals("CivicEducation")).collect(Collectors.toList());
 
@@ -821,6 +890,16 @@ public class MarkActivity extends AppCompatActivity {
                     civicFinalDetail.forEach(x ->tvCivicFinal.setText(tvCivicFinal.getText().toString()+" "+Float.toString(x.getMark())));
                 }else{
                     civicFinalDetail.forEach(x ->tvCivicFinal.setText(Float.toString(x.getMark())));
+                }
+                civics.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgCivic += x.getMark();
+                    }
+                });
+                avgCivic = (avgCivic/civics.size());
+
+                if(avgCivic>0){
+                    tvCivicAverage.setText(avgCivic.toString());
                 }
 
                 geos = allScores.stream().filter(x->x.getSubject_name().equals("Geography")).collect(Collectors.toList());
@@ -872,6 +951,17 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     geo15Detail.forEach(x ->tvGeo15.setText(Float.toString(x.getMark())));
                 }
+                geos.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgGeo += x.getMark();
+                    }
+                });
+                avgGeo = (avgGeo/geos.size());
+
+                if(avgGeo >0){
+                    tvGeoAverage.setText(avgGeo.toString());
+                }
+
 
                 pes = allScores.stream().filter(x->x.getSubject_name().equals("P.E")).collect(Collectors.toList());
 
@@ -922,6 +1012,16 @@ public class MarkActivity extends AppCompatActivity {
                 }else{
                     peFinalDetail.forEach(x ->tvPEFinal.setText(Float.toString(x.getMark())));
                 }
+                pes.forEach(x->{
+                    if(x.getMark()>0) {
+                        avgPe += x.getMark();
+                    }
+                });
+                avgPe = (avgPe/pes.size());
+                if(avgPe >0){
+                    tvPEAverage.setText(avgPe.toString());
+                }
+
             }
 
             @Override

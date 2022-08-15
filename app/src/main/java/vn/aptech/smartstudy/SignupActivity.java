@@ -204,17 +204,18 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean validateRegis(String name, String email, String pass, String address, String phone) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+//        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         //mail
         if(email.length()==0){
             edEmail.requestFocus();
             edEmail.setError("FIELD CANNOT BE EMPTY");
             return false;
-        }else if(!email.matches(emailPattern)){
-            edEmail.requestFocus();
-            edEmail.setError("Invalid email address");
-            return false;
         }
+//        else if(!email.matches(emailPattern)){
+//            edEmail.requestFocus();
+//            edEmail.setError("Invalid email address");
+//            return false;
+//        }
         //phone
         if(phone.length()<10 || phone.length()>13 || !phone.matches("[0-9]+")){
             edPhone.requestFocus();

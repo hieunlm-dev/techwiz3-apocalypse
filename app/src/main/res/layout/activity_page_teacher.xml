@@ -204,10 +204,12 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:id="@+id/rltExamSchedule"
                 android:layout_width="175dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageExamSchedule"

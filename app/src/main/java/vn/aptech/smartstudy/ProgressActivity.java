@@ -10,20 +10,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +38,7 @@ import vn.aptech.smartstudy.entity.ScoreDetail;
 public class ProgressActivity extends AppCompatActivity {
 
     private BarChart barChart;
-    private PieChart pieChartSubject;
+    private LineChart lineChartSubject;
     private BarDataSet barDataSet1, barDataSet2,barDataSet3,barDataSet4,barDataSet5;
     private PieDataSet pieDataSet;
     private ArrayList barEntries;
@@ -76,9 +75,9 @@ public class ProgressActivity extends AppCompatActivity {
         MathMid=PhysicMid=EngMid=BioMid=HisMid=ChemMid=LiteMid=CivicMid=GeoMid=PesMid=0f;
         MathFinal=PhysicFinal=EngFinal=BioFinal=HisFinal=ChemFinal=LiteFinal=CivicFinal=GeoFinal=PesFinal=0f;
         barChart = findViewById(R.id.bar_chart_subject);
-        pieChartSubject = findViewById(R.id.pie_chart_subject);
+        lineChartSubject = findViewById(R.id.line_chart_subject);
         getDataFromFirebase(1);
-
+        setUpLineChart();
 
 //        for(int i = 0;i<=10;i++){
 ////            float value = (float) (i*10.0);
@@ -113,6 +112,11 @@ public class ProgressActivity extends AppCompatActivity {
 
 
     }
+
+    private void setUpLineChart() {
+
+    }
+
 
     private List<BarEntry> getBarEntriesTwo() {
         barEntries = new ArrayList<>();
@@ -243,7 +247,7 @@ public class ProgressActivity extends AppCompatActivity {
                 civics = allScores.stream().filter(x->x.getSubject_name().equals("CivicEducation")).collect(Collectors.toList());
                 geos = allScores.stream().filter(x->x.getSubject_name().equals("Geography")).collect(Collectors.toList());
                 pes = allScores.stream().filter(x->x.getSubject_name().equals("P.E")).collect(Collectors.toList());
-
+                int countMath15, count;
                 maths.forEach(x->{
                     if(x.getMark()>0) {
                         String test_type= x.getType_test();
@@ -408,7 +412,7 @@ public class ProgressActivity extends AppCompatActivity {
                 //15'
                 Log.i("msg mark math", avgMath.toString());
                 createChart();
-
+                createLineChart();
             }
 
             @Override
@@ -418,6 +422,35 @@ public class ProgressActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void createLineChart() {
+        LineDataSet lineDataSet1 = new LineDataSet(getLineMath(), "Eng");
+//        LineDataSet lineDataSet2 = new LineDataSet(getLineMath(englishes), "Eng");
+//        LineDataSet lineDataSet3 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet4 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet5 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet6 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet7 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet8 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet9 = new LineDataSet(getLineMath(maths), "Maths");
+//        LineDataSet lineDataSet10 = new LineDataSet(getLineMath(maths), "Maths");
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+//        ArrayList<ILineDataSet> dataSets2 = new ArrayList<>();
+        dataSets.add(lineDataSet1);
+//        dataSets2.add(lineDataSet2);
+        LineData data = new LineData(dataSets);
+
+        lineChartSubject.setData(data);
+        lineChartSubject.invalidate();
+    }
+    private ArrayList<Entry> getLineMath(){
+        ArrayList<Entry> lists = new ArrayList<Entry>();
+            for(int i = 0;i<englishes.size();i++){
+                lists.add(new Entry(i, englishes.get(i).getMark()));
+            }
+
+        return lists;
     }
 
     private void createChart() {
