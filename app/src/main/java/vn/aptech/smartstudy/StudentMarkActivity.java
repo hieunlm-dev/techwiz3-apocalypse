@@ -191,34 +191,34 @@ public class StudentMarkActivity extends AppCompatActivity {
                         Log.i("finalSem1",finalSem2);
 
                         Log.i("Compare",Boolean.toString(COMPARE_STRING3.equals(s)));
+                        if(subject.equals(sd.getSubject_name())) {
+                            if (para_test.replaceAll(" ", "").toLowerCase().equals(midSem1) && COMPARE_STRING1.equals(s)) {
+                                users.remove(x);
+                                studentApdapter.notifyDataSetChanged();
 
-                        if(para_test.replaceAll(" ","").toLowerCase().equals(midSem1)&&COMPARE_STRING1.equals(s)){
-                            users.remove(x);
-                            studentApdapter.notifyDataSetChanged();
+                            }
 
+
+                            if (para_test.replaceAll(" ", "").toLowerCase().equals(midSem2) && COMPARE_STRING2.equals(s)) {
+                                users.remove(x);
+                                studentApdapter.notifyDataSetChanged();
+
+                            }
+
+
+                            if (para_test.replaceAll(" ", "").toLowerCase().equals(finalSem1) && COMPARE_STRING3.equals(s)) {
+                                users.remove(x);
+                                studentApdapter.notifyDataSetChanged();
+
+                            }
+
+
+                            if (para_test.replaceAll(" ", "").toLowerCase().equals(finalSem2) && COMPARE_STRING4.equals(s)) {
+                                users.remove(x);
+                                studentApdapter.notifyDataSetChanged();
+
+                            }
                         }
-
-
-                        if(para_test.replaceAll(" ","").toLowerCase().equals(midSem2)&&COMPARE_STRING2.equals(s)){
-                            users.remove(x);
-                            studentApdapter.notifyDataSetChanged();
-
-                        }
-
-
-                        if(para_test.replaceAll(" ","").toLowerCase().equals(finalSem1)&&COMPARE_STRING3.equals(s)){
-                            users.remove(x);
-                            studentApdapter.notifyDataSetChanged();
-
-                        }
-
-
-                        if(para_test.replaceAll(" ","").toLowerCase().equals(finalSem2)&&COMPARE_STRING4.equals(s)){
-                            users.remove(x);
-                            studentApdapter.notifyDataSetChanged();
-
-                        }
-
                         //if(sd.getType_test_student_email())
                     }
 
