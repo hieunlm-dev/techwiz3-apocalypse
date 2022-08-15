@@ -38,7 +38,7 @@ import vn.aptech.smartstudy.entity.ScoreDetail;
 public class ProgressActivity extends AppCompatActivity {
 
     private BarChart barChart;
-    private LineChart lineChartSubject;
+    private LineChart lineChartSubject, lineMathChartSubject; //lineChartSubject, lineChartSubject, lineChartSubject, lineChartSubject, ;
     private BarDataSet barDataSet1, barDataSet2,barDataSet3,barDataSet4,barDataSet5;
     private PieDataSet pieDataSet;
     private ArrayList barEntries;
@@ -76,6 +76,7 @@ public class ProgressActivity extends AppCompatActivity {
         MathFinal=PhysicFinal=EngFinal=BioFinal=HisFinal=ChemFinal=LiteFinal=CivicFinal=GeoFinal=PesFinal=0f;
         barChart = findViewById(R.id.bar_chart_subject);
         lineChartSubject = findViewById(R.id.line_chart_subject);
+        lineMathChartSubject = findViewById(R.id.line_chart_subject);
         getDataFromFirebase(1);
         setUpLineChart();
 
@@ -412,7 +413,8 @@ public class ProgressActivity extends AppCompatActivity {
                 //15'
                 Log.i("msg mark math", avgMath.toString());
                 createChart();
-                createLineChart();
+                createLineChartEng();
+                createLineChartMath();
             }
 
             @Override
@@ -424,30 +426,29 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-    private void createLineChart() {
-        LineDataSet lineDataSet1 = new LineDataSet(getLineMath(), "Eng");
-//        LineDataSet lineDataSet2 = new LineDataSet(getLineMath(englishes), "Eng");
-//        LineDataSet lineDataSet3 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet4 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet5 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet6 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet7 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet8 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet9 = new LineDataSet(getLineMath(maths), "Maths");
-//        LineDataSet lineDataSet10 = new LineDataSet(getLineMath(maths), "Maths");
+    private void createLineChartEng() {
+        LineDataSet lineDataSet1 = new LineDataSet(getLineMath(englishes), "Eng");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-//        ArrayList<ILineDataSet> dataSets2 = new ArrayList<>();
         dataSets.add(lineDataSet1);
-//        dataSets2.add(lineDataSet2);
         LineData data = new LineData(dataSets);
 
         lineChartSubject.setData(data);
         lineChartSubject.invalidate();
     }
-    private ArrayList<Entry> getLineMath(){
+    private void createLineChartMath() {
+        LineDataSet lineDataSet1 = new LineDataSet(getLineMath(maths), "Math");
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(lineDataSet1);
+        LineData data = new LineData(dataSets);
+
+        lineMathChartSubject.setData(data);
+        lineMathChartSubject.invalidate();
+    }
+
+    private ArrayList<Entry> getLineMath(List<ScoreDetail> object){
         ArrayList<Entry> lists = new ArrayList<Entry>();
-            for(int i = 0;i<englishes.size();i++){
-                lists.add(new Entry(i, englishes.get(i).getMark()));
+            for(int i = 0;i<object.size();i++){
+                lists.add(new Entry(i, object.get(i).getMark()));
             }
 
         return lists;
@@ -479,14 +480,14 @@ public class ProgressActivity extends AppCompatActivity {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1);
         xAxis.setGranularityEnabled(true);
-        xAxis.setLabelCount(2);
+        xAxis.setLabelCount(1);
 //        xAxis.setAxisMinimum(2.5f);
 
         barChart.setDragEnabled(true);
-        barChart.setVisibleXRangeMaximum(3);
-        float barSpace = 0.1f;
-        float groupSpace = 0.5f;
-        data.setBarWidth(0.2f);
+        barChart.setVisibleXRangeMaximum(2);
+        float barSpace = 0.06f;
+        float groupSpace = 0.2f;
+        data.setBarWidth(0.1f);
         barChart.getXAxis().setAxisMinimum(0);
         barChart.animate();
         barChart.groupBars(0, groupSpace, barSpace);

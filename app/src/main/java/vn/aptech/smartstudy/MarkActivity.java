@@ -663,7 +663,7 @@ public class MarkActivity extends AppCompatActivity {
                     }
                 });
                 avgHis = (avgHis/histories.size());
-                if(avgPhy>0){
+                if(avgHis>0){
                     tvHistoryAverage.setText(avgHis.toString());
                 }
                 englishes = allScores.stream().filter(x->x.getSubject_name().equals("English")).collect(Collectors.toList());
@@ -697,7 +697,10 @@ public class MarkActivity extends AppCompatActivity {
                     }
                 });
                 avgEng = (avgEng/englishes.size());
-                tvEngAverage.setText(avgEng.toString());
+                if(avgEng>0){
+                    tvEngAverage.setText(avgEng.toString());
+                }
+
 
                 List<ScoreDetail> english45Detail = englishes.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
 

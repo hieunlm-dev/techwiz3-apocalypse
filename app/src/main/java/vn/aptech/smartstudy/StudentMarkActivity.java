@@ -177,7 +177,7 @@ public class StudentMarkActivity extends AppCompatActivity {
             FirebaseDatabase database = FirebaseDatabase.getInstance(URL);
             DatabaseReference scoreRef = database.getReference("score_detail");
 
-            Log.i("",para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName());
+//            Log.i("",para_test.replaceAll(" ","").toLowerCase()+x.getStudentData().getFullName());
             scoreRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
