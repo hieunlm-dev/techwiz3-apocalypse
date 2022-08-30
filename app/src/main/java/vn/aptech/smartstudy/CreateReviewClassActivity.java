@@ -162,8 +162,9 @@ public class CreateReviewClassActivity extends AppCompatActivity {
         rvClassNameRef.setValue(rv);
 
         Intent it = new Intent(CreateReviewClassActivity.this,ReviewClassActivity.class);
-        startActivity(it);
 
+        startActivity(it);
+        finish();
         //Toast.makeText(this, selectedClass.getName(), Toast.LENGTH_SHORT).show();
 
     }
