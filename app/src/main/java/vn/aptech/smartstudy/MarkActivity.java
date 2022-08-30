@@ -444,9 +444,9 @@ public class MarkActivity extends AppCompatActivity {
 
                 }
                 if(math15Details.size()>1){
-                    math15Details.forEach(x ->tvMath15.setText(tvMath15.getText().toString()+" "+Float.toString(x.getMark())));
+                    math15Details.forEach(x ->tvMath15.setText(tvMath15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    math15Details.forEach(x ->tvMath15.setText(Float.toString(x.getMark())));
+                    math15Details.forEach(x ->tvMath15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
 
@@ -456,9 +456,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(math45Details.size()>1){
-                    math45Details.forEach(x ->tvMath45.setText(tvMath45.getText().toString()+" "+Float.toString(x.getMark())));
+                    math45Details.forEach(x ->tvMath45.setText(tvMath45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    math45Details.forEach(x ->tvMath45.setText(Float.toString(x.getMark())));
+                    math45Details.forEach(x ->tvMath45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
 
@@ -468,9 +468,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(mathMidDetails.size()>1){
-                    math45Details.forEach(x ->tvMathMid.setText(tvMathMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    math45Details.forEach(x ->tvMathMid.setText(tvMathMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    math45Details.forEach(x ->tvMathMid.setText(Float.toString(x.getMark())));
+                    math45Details.forEach(x ->tvMathMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
 
@@ -480,9 +480,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(mathFinalDetails.size()>1){
-                    mathFinalDetails.forEach(x ->tvMathFinal.setText(tvMathFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    mathFinalDetails.forEach(x ->tvMathFinal.setText(tvMathFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    mathFinalDetails.forEach(x ->tvMathFinal.setText(Float.toString(x.getMark())));
+                    mathFinalDetails.forEach(x ->tvMathFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 maths.forEach(x->{
@@ -505,9 +505,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(chemsFinalDetail.size()>1){
-                    chemsFinalDetail.forEach(x ->tvChemFinal.setText(tvChemFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    chemsFinalDetail.forEach(x ->tvChemFinal.setText(tvChemFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    chemsFinalDetail.forEach(x ->tvChemFinal.setText(Float.toString(x.getMark())));
+                    chemsFinalDetail.forEach(x ->tvChemFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> chemsMidDetail = chems.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -516,9 +516,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(chemsMidDetail.size()>1){
-                    chemsFinalDetail.forEach(x ->tvChemMid.setText(tvChemMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    chemsFinalDetail.forEach(x ->tvChemMid.setText(tvChemMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    chemsMidDetail.forEach(x ->tvChemMid.setText(Float.toString(x.getMark())));
+                    chemsMidDetail.forEach(x ->tvChemMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> chems45Detail = chems.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -527,9 +527,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(chems45Detail.size()>1){
-                    chemsFinalDetail.forEach(x ->tvChem45.setText(tvChem45.getText().toString()+" "+Float.toString(x.getMark())));
+                    chemsFinalDetail.forEach(x ->tvChem45.setText(tvChem45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    chemsMidDetail.forEach(x ->tvChem45.setText(Float.toString(x.getMark())));
+                    chemsMidDetail.forEach(x ->tvChem45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> chems15Detail = chems.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -538,9 +538,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(chems15Detail.size()>1){
-                    chemsFinalDetail.forEach(x ->tvChem15.setText(tvChem15.getText().toString()+" "+Float.toString(x.getMark())));
+                    chemsFinalDetail.forEach(x ->tvChem15.setText(tvChem15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    chemsMidDetail.forEach(x ->tvChem15.setText(Float.toString(x.getMark())));
+                    chemsMidDetail.forEach(x ->tvChem15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 chems.forEach(x->{
@@ -561,9 +561,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(phy15Detail.size()>1){
-                    phy15Detail.forEach(x ->tvPhysics15.setText(tvPhysics15.getText().toString()+" "+Float.toString(x.getMark())));
+                    phy15Detail.forEach(x ->tvPhysics15.setText(tvPhysics15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    phy15Detail.forEach(x ->tvPhysics15.setText(Float.toString(x.getMark())));
+                    phy15Detail.forEach(x ->tvPhysics15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> phy45Detail = physics.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -572,9 +572,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(phy45Detail.size()>1){
-                    phy45Detail.forEach(x ->tvPhysics45.setText(tvPhysics45.getText().toString()+" "+Float.toString(x.getMark())));
+                    phy45Detail.forEach(x ->tvPhysics45.setText(tvPhysics45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    phy45Detail.forEach(x ->tvPhysics45.setText(Float.toString(x.getMark())));
+                    phy45Detail.forEach(x ->tvPhysics45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> phyMidDetail = physics.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -583,9 +583,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(phyMidDetail.size()>1){
-                    phyMidDetail.forEach(x ->tvPhysicsMid.setText(tvPhysicsMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    phyMidDetail.forEach(x ->tvPhysicsMid.setText(tvPhysicsMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    phyMidDetail.forEach(x ->tvPhysicsMid.setText(Float.toString(x.getMark())));
+                    phyMidDetail.forEach(x ->tvPhysicsMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> phyFinalDetail = physics.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -594,9 +594,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(phyFinalDetail.size()>1){
-                    phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(tvPhysicsFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(tvPhysicsFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(Float.toString(x.getMark())));
+                    phyFinalDetail.forEach(x ->tvPhysicsFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 physics.forEach(x->{
                     if(x.getMark()>0) {
@@ -617,9 +617,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(history15Detail.size()>1){
-                    history15Detail.forEach(x ->tvHistory15.setText(tvHistory15.getText().toString()+" "+Float.toString(x.getMark())));
+                    history15Detail.forEach(x ->tvHistory15.setText(tvHistory15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    history15Detail.forEach(x ->tvHistory15.setText(Float.toString(x.getMark())));
+                    history15Detail.forEach(x ->tvHistory15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> history45Detail = histories.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -629,9 +629,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(history45Detail.size()>1){
-                    history45Detail.forEach(x ->tvHistory45.setText(tvHistory45.getText().toString()+" "+Float.toString(x.getMark())));
+                    history45Detail.forEach(x ->tvHistory45.setText(tvHistory45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    history45Detail.forEach(x ->tvHistory45.setText(Float.toString(x.getMark())));
+                    history45Detail.forEach(x ->tvHistory45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> historyMidDetail = histories.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -641,9 +641,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(historyMidDetail.size()>1){
-                    historyMidDetail.forEach(x ->tvHistoryMid.setText(tvHistoryMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    historyMidDetail.forEach(x ->tvHistoryMid.setText(tvHistoryMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    historyMidDetail.forEach(x ->tvHistoryMid.setText(Float.toString(x.getMark())));
+                    historyMidDetail.forEach(x ->tvHistoryMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> historyFinalDetail = histories.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -653,9 +653,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(historyFinalDetail.size()>1){
-                    historyFinalDetail.forEach(x ->tvHistoryFinal.setText(tvHistoryMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    historyFinalDetail.forEach(x ->tvHistoryFinal.setText(tvHistoryMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    historyFinalDetail.forEach(x ->tvHistoryFinal.setText(Float.toString(x.getMark())));
+                    historyFinalDetail.forEach(x ->tvHistoryFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 histories.forEach(x->{
                     if(x.getMark()>0) {
@@ -675,9 +675,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(englishFinalDetail.size()>1){
-                    englishFinalDetail.forEach(x ->tvEngFinal.setText(tvEngFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    englishFinalDetail.forEach(x ->tvEngFinal.setText(tvEngFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    englishFinalDetail.forEach(x ->tvEngFinal.setText(Float.toString(x.getMark())));
+                    englishFinalDetail.forEach(x ->tvEngFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> englishMiddleDetail = englishes.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -687,9 +687,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(englishMiddleDetail.size()>1){
-                    englishMiddleDetail.forEach(x ->tvEngMid.setText(tvEngMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    englishMiddleDetail.forEach(x ->tvEngMid.setText(tvEngMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    englishMiddleDetail.forEach(x ->tvEngMid.setText(Float.toString(x.getMark())));
+                    englishMiddleDetail.forEach(x ->tvEngMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 englishes.forEach(x->{
                     if(x.getMark()>0) {
@@ -709,9 +709,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(english45Detail.size()>1){
-                    english45Detail.forEach(x ->tvEng45.setText(tvEng45.getText().toString()+" "+Float.toString(x.getMark())));
+                    english45Detail.forEach(x ->tvEng45.setText(tvEng45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    english45Detail.forEach(x ->tvEng45.setText(Float.toString(x.getMark())));
+                    english45Detail.forEach(x ->tvEng45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> english15Detail = englishes.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -721,9 +721,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(english15Detail.size()>1){
-                    english15Detail.forEach(x ->tvEng15.setText(tvEng15.getText().toString()+" "+Float.toString(x.getMark())));
+                    english15Detail.forEach(x ->tvEng15.setText(tvEng15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    english15Detail.forEach(x ->tvEng15.setText(Float.toString(x.getMark())));
+                    english15Detail.forEach(x ->tvEng15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 biologies = allScores.stream().filter(x->x.getSubject_name().equals("Biology")).collect(Collectors.toList());
@@ -735,9 +735,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(biologies15Detail.size()>1){
-                    biologies15Detail.forEach(x ->tvBiology15.setText(tvBiology15.getText().toString()+" "+Float.toString(x.getMark())));
+                    biologies15Detail.forEach(x ->tvBiology15.setText(tvBiology15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    biologies15Detail.forEach(x ->tvBiology15.setText(Float.toString(x.getMark())));
+                    biologies15Detail.forEach(x ->tvBiology15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> biologies45Detail = biologies.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -747,9 +747,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(biologies45Detail.size()>1){
-                    biologies45Detail.forEach(x ->tvBiology45.setText(tvBiology45.getText().toString()+" "+Float.toString(x.getMark())));
+                    biologies45Detail.forEach(x ->tvBiology45.setText(tvBiology45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    biologies45Detail.forEach(x ->tvBiology45.setText(Float.toString(x.getMark())));
+                    biologies45Detail.forEach(x ->tvBiology45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> biologiesMidDetail = biologies.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -759,9 +759,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(biologiesMidDetail.size()>1){
-                    biologiesMidDetail.forEach(x ->tvBiologyMid.setText(tvBiologyMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    biologiesMidDetail.forEach(x ->tvBiologyMid.setText(tvBiologyMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    biologiesMidDetail.forEach(x ->tvBiologyMid.setText(Float.toString(x.getMark())));
+                    biologiesMidDetail.forEach(x ->tvBiologyMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> biologiesFinalDetail = biologies.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -771,9 +771,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(biologiesFinalDetail.size()>1){
-                    biologiesFinalDetail.forEach(x ->tvBiologyFinal.setText(tvBiologyFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    biologiesFinalDetail.forEach(x ->tvBiologyFinal.setText(tvBiologyFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    biologiesFinalDetail.forEach(x ->tvBiologyFinal.setText(Float.toString(x.getMark())));
+                    biologiesFinalDetail.forEach(x ->tvBiologyFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 biologies.forEach(x->{
                     if(x.getMark()>0) {
@@ -794,9 +794,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(literaturesFinalDetail.size()>1){
-                    literaturesFinalDetail.forEach(x ->tvLiteratureFinal.setText(tvLiteratureFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    literaturesFinalDetail.forEach(x ->tvLiteratureFinal.setText(tvLiteratureFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    literaturesFinalDetail.forEach(x ->tvLiteratureFinal.setText(Float.toString(x.getMark())));
+                    literaturesFinalDetail.forEach(x ->tvLiteratureFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> literaturesMidDetail = literatures.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -806,9 +806,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(literaturesMidDetail.size()>1){
-                    literaturesMidDetail.forEach(x ->tvLiteratureFinal.setText(tvLiteratureFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    literaturesMidDetail.forEach(x ->tvLiteratureFinal.setText(tvLiteratureFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    literaturesMidDetail.forEach(x ->tvLiteratureFinal.setText(Float.toString(x.getMark())));
+                    literaturesMidDetail.forEach(x ->tvLiteratureFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> literatures45Detail = literatures.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -818,9 +818,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(literatures45Detail.size()>1){
-                    literatures45Detail.forEach(x ->tvLiterature45.setText(tvLiterature45.getText().toString()+" "+Float.toString(x.getMark())));
+                    literatures45Detail.forEach(x ->tvLiterature45.setText(tvLiterature45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    literatures45Detail.forEach(x ->tvLiterature45.setText(Float.toString(x.getMark())));
+                    literatures45Detail.forEach(x ->tvLiterature45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> literatures15Detail = literatures.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -830,9 +830,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(literatures15Detail.size()>1){
-                    literatures15Detail.forEach(x ->tvLiterature15.setText(tvLiterature15.getText().toString()+" "+Float.toString(x.getMark())));
+                    literatures15Detail.forEach(x ->tvLiterature15.setText(tvLiterature15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    literatures15Detail.forEach(x ->tvLiterature15.setText(Float.toString(x.getMark())));
+                    literatures15Detail.forEach(x ->tvLiterature15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 literatures.forEach(x->{
                     if(x.getMark()>0) {
@@ -854,9 +854,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(civic15Detail.size()>1){
-                    civic15Detail.forEach(x ->tvCivic15.setText(tvCivic15.getText().toString()+" "+Float.toString(x.getMark())));
+                    civic15Detail.forEach(x ->tvCivic15.setText(tvCivic15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    civic15Detail.forEach(x ->tvCivic15.setText(Float.toString(x.getMark())));
+                    civic15Detail.forEach(x ->tvCivic15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> civic45Detail = civics.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -866,9 +866,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(civic45Detail.size()>1){
-                    civic45Detail.forEach(x ->tvCivic45.setText(tvCivic45.getText().toString()+" "+Float.toString(x.getMark())));
+                    civic45Detail.forEach(x ->tvCivic45.setText(tvCivic45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    civic45Detail.forEach(x ->tvCivic45.setText(Float.toString(x.getMark())));
+                    civic45Detail.forEach(x ->tvCivic45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> civicMidDetail = civics.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -878,9 +878,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(civicMidDetail.size()>1){
-                    civicMidDetail.forEach(x ->tvCivicMid.setText(tvCivicMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    civicMidDetail.forEach(x ->tvCivicMid.setText(tvCivicMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    civicMidDetail.forEach(x ->tvCivicMid.setText(Float.toString(x.getMark())));
+                    civicMidDetail.forEach(x ->tvCivicMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> civicFinalDetail = civics.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -890,9 +890,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(civicFinalDetail.size()>1){
-                    civicFinalDetail.forEach(x ->tvCivicFinal.setText(tvCivicFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    civicFinalDetail.forEach(x ->tvCivicFinal.setText(tvCivicFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    civicFinalDetail.forEach(x ->tvCivicFinal.setText(Float.toString(x.getMark())));
+                    civicFinalDetail.forEach(x ->tvCivicFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 civics.forEach(x->{
                     if(x.getMark()>0) {
@@ -914,9 +914,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(geoFinalDetail.size()>1){
-                    geoFinalDetail.forEach(x ->tvGeoFinal.setText(tvGeoFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    geoFinalDetail.forEach(x ->tvGeoFinal.setText(tvGeoFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    geoFinalDetail.forEach(x ->tvGeoFinal.setText(Float.toString(x.getMark())));
+                    geoFinalDetail.forEach(x ->tvGeoFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> geoMiddleDetail = civics.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -926,9 +926,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(geoMiddleDetail.size()>1){
-                    geoMiddleDetail.forEach(x ->tvGeoMid.setText(tvGeoMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    geoMiddleDetail.forEach(x ->tvGeoMid.setText(tvGeoMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    geoMiddleDetail.forEach(x ->tvGeoMid.setText(Float.toString(x.getMark())));
+                    geoMiddleDetail.forEach(x ->tvGeoMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> geo45Detail = civics.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -938,9 +938,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(geo45Detail.size()>1){
-                    geo45Detail.forEach(x ->tvGeo45.setText(tvGeo45.getText().toString()+" "+Float.toString(x.getMark())));
+                    geo45Detail.forEach(x ->tvGeo45.setText(tvGeo45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    geo45Detail.forEach(x ->tvGeo45.setText(Float.toString(x.getMark())));
+                    geo45Detail.forEach(x ->tvGeo45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> geo15Detail = civics.stream().filter(x->x.getType_test().contains("15")).collect(Collectors.toList());
@@ -950,9 +950,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(geo15Detail.size()>1){
-                    geo15Detail.forEach(x ->tvGeo15.setText(tvGeo15.getText().toString()+" "+Float.toString(x.getMark())));
+                    geo15Detail.forEach(x ->tvGeo15.setText(tvGeo15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    geo15Detail.forEach(x ->tvGeo15.setText(Float.toString(x.getMark())));
+                    geo15Detail.forEach(x ->tvGeo15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 geos.forEach(x->{
                     if(x.getMark()>0) {
@@ -975,9 +975,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(pe15Detail.size()>1){
-                    pe15Detail.forEach(x ->tvPE15.setText(tvPE15.getText().toString()+" "+Float.toString(x.getMark())));
+                    pe15Detail.forEach(x ->tvPE15.setText(tvPE15.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    pe15Detail.forEach(x ->tvPE15.setText(Float.toString(x.getMark())));
+                    pe15Detail.forEach(x ->tvPE15.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> pe45Detail = pes.stream().filter(x->x.getType_test().contains("45")).collect(Collectors.toList());
@@ -987,9 +987,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(pe45Detail.size()>1){
-                    pe45Detail.forEach(x ->tvPE45.setText(tvPE45.getText().toString()+" "+Float.toString(x.getMark())));
+                    pe45Detail.forEach(x ->tvPE45.setText(tvPE45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    pe45Detail.forEach(x ->tvPE45.setText(Float.toString(x.getMark())));
+                    pe45Detail.forEach(x ->tvPE45.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> peMidDetail = pes.stream().filter(x->x.getType_test().contains("Middle")).collect(Collectors.toList());
@@ -999,9 +999,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(peMidDetail.size()>1){
-                    peMidDetail.forEach(x ->tvPEMid.setText(tvPEMid.getText().toString()+" "+Float.toString(x.getMark())));
+                    peMidDetail.forEach(x ->tvPEMid.setText(tvPEMid.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    peMidDetail.forEach(x ->tvPEMid.setText(Float.toString(x.getMark())));
+                    peMidDetail.forEach(x ->tvPEMid.setText(Integer.toString(Math.round(x.getMark()))));
                 }
 
                 List<ScoreDetail> peFinalDetail = pes.stream().filter(x->x.getType_test().contains("Final")).collect(Collectors.toList());
@@ -1011,9 +1011,9 @@ public class MarkActivity extends AppCompatActivity {
                 }
 
                 if(peFinalDetail.size()>1){
-                    peFinalDetail.forEach(x ->tvPEFinal.setText(tvPEFinal.getText().toString()+" "+Float.toString(x.getMark())));
+                    peFinalDetail.forEach(x ->tvPEFinal.setText(tvPEFinal.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
                 }else{
-                    peFinalDetail.forEach(x ->tvPEFinal.setText(Float.toString(x.getMark())));
+                    peFinalDetail.forEach(x ->tvPEFinal.setText(Integer.toString(Math.round(x.getMark()))));
                 }
                 pes.forEach(x->{
                     if(x.getMark()>0) {
@@ -1115,7 +1115,7 @@ public class MarkActivity extends AppCompatActivity {
 
         if(math45Details.size()!=0){
             tvMath45.setVisibility(View.VISIBLE);
-            math45Details.forEach(x ->tvMath45.setText(tvMath45.getText().toString()+" "+Float.toString(x.getMark())));
+            math45Details.forEach(x ->tvMath45.setText(tvMath45.getText().toString()+" "+Integer.toString(Math.round(x.getMark()))));
 
             for(ScoreDetail scoreDetail : math45Details){
                 Toast.makeText(this, Float.toString(scoreDetail.getMark()), Toast.LENGTH_SHORT).show();

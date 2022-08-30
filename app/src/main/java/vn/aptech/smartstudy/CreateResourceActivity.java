@@ -214,6 +214,7 @@ public class CreateResourceActivity extends AppCompatActivity {
             public void onSuccess(Void unused) {
                 Toast.makeText(CreateResourceActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(CreateResourceActivity.this,ResourceActivity.class);
+                finish();
                 startActivity(it);
 
             }

@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import vn.aptech.smartstudy.entity.ClassName;
@@ -33,7 +37,8 @@ public class CreateReviewClassActivity extends AppCompatActivity {
 
     private EditText edRvContent , edDate ;
     private Spinner spClass;
-    private Button btnAdd;
+    private DatePickerDialog datePickerDialog;
+    private Button btnAdd, btnDatePicker;
     List<String> classNames = new ArrayList<String>();
     private final String URL ="https://smartstudy-ac389-default-rtdb.firebaseio.com/";
     private String className;
@@ -48,6 +53,10 @@ public class CreateReviewClassActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnReviewAdd);
         edRvContent = findViewById(R.id.edRvContent);
         edDate = findViewById(R.id.edDate);
+
+        initDatePicker();
+        btnDatePicker = findViewById(R.id.btnDatePicker);
+        btnDatePicker.setText(getTodayDate());
 
         getItemCount();
 
@@ -83,6 +92,69 @@ public class CreateReviewClassActivity extends AppCompatActivity {
 
         // showing the back button in action bar
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    private String getTodayDate() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month +1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(day, month, year);
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month +1;
+                String date = makeDateString(day, month, year);
+                btnDatePicker.setText(date);
+            }
+        };
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis());
+    }
+
+    private String makeDateString(int day, int month, int year) {
+        return getMonthFormat(month) +" "+day+" "+year;
+    }
+
+    private String getMonthFormat(int month) {
+        if(month == 1)
+            return "JAN";
+        if(month == 2)
+            return "FEB";
+        if(month == 3)
+            return "MAR";
+        if(month == 4)
+            return "APR";
+        if(month == 5)
+            return "MAY";
+        if(month == 6)
+            return "JUNE";
+        if(month == 7)
+            return "JUL";
+        if(month == 8)
+            return "AUG";
+        if(month == 9)
+            return "SEP";
+        if(month == 10)
+            return "OCT";
+        if(month == 11)
+            return "NOV";
+        if(month == 12)
+            return "DEC";
+
+        return "JAN";
+    }
+    public void openDatePicker(View view) {
+        datePickerDialog.show();
     }
 
     // this event will enable the back
@@ -154,7 +226,8 @@ public class CreateReviewClassActivity extends AppCompatActivity {
         rv.setId(count+1);
         rv.setClassName(selectedClass);
         rv.setContent(edRvContent.getText().toString());
-        rv.setDatetime(edDate.getText().toString());
+//        rv.setDatetime(edDate.getText().toString());
+        rv.setDatetime(btnDatePicker.getText().toString());
 
         FirebaseDatabase database2 = FirebaseDatabase.getInstance(URL);
         DatabaseReference rvClassNameRef = database2.getReference("reviewclass/"+Integer.toString(count+1));
@@ -195,4 +268,6 @@ public class CreateReviewClassActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

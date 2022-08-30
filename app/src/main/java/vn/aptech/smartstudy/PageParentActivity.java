@@ -43,9 +43,8 @@ public class PageParentActivity extends AppCompatActivity {
             startActivity(it);
         });
         btnLogout.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.commit();
+            SharedPreferences settings = getSharedPreferences("application", Context.MODE_PRIVATE);
+            settings.edit().clear().commit();
             Intent it = new Intent(this, MainActivity.class);
             finishAffinity();
             startActivity(it);

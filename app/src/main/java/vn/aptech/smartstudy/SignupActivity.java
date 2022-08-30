@@ -186,6 +186,7 @@ public class SignupActivity extends AppCompatActivity {
                         sendMail(email);
                         Toast.makeText(SignupActivity.this, "Create Successfull", Toast.LENGTH_SHORT).show();
                         Intent it = new Intent(SignupActivity.this, MainActivity.class);
+                        finishAffinity();
                         startActivity(it);
                     }
 

@@ -21,6 +21,16 @@
         android:layout_marginTop="15dp"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="September 1 2022"
+        android:textSize="20sp"
+        style="?android:spinnerStyle"
+        android:onClick="openDatePicker"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +44,9 @@
         android:ems="10"
         android:inputType="date"
         android:layout_marginTop="20dp"
-        android:text="@string/date"/>
+        android:text="@string/date"
+        android:visibility="gone"
+        />
     </LinearLayout>
 
     <LinearLayout
