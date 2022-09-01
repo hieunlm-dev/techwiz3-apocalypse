@@ -26,14 +26,6 @@
         android:layout_marginStart="15dp"
         style="@android:style/Widget.Spinner"/>
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvStudentMark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-         />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,5 +46,13 @@
             android:text="Notify Marks"
             android:layout_marginLeft="70dp" />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStudentMark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+         />
+
+
 
 </LinearLayout>

@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_fill_mark.xml" value="0.234375" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_mark.xml" value="0.234375" />
         <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_navigate.xml" value="0.3625" />
+<<<<<<< Updated upstream
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/drawable-anydpi/ic_stat_notification.xml" value="0.2265" />
+=======
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_page_teacher.xml" value="0.23143115942028986" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_signup.xml" value="0.17831813576494426" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_splash.xml" value="0.17831813576494426" />
+        <entry key="..\:/FPTSem4/Term4/techwiz3-apocalypse/app/src/main/res/layout/activity_student_mark.xml" value="0.234375" />
+>>>>>>> Stashed changes
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/drawable/gradient_spinner.xml" value="0.138" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/drawable/login_bg.xml" value="0.2265" />
         <entry key="..\:/T1.2009.A0/techwiz3-apocalypse/app/src/main/res/layout/activity_class.xml" value="0.11302083333333333" />

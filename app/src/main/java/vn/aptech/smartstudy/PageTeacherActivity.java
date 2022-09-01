@@ -44,6 +44,8 @@ public class PageTeacherActivity extends AppCompatActivity {
             startActivity(it);
 
         });
+
+
         rltContact.setOnClickListener(v->{
             Intent it = new Intent(this, ContactActivity.class);
             startActivity(it);
